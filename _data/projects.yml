@@ -1,0 +1,4 @@
+---
+- name: Ansible AVD Demo
+  url: https://gitlab.com/ryanmerolle/avd-demo/-/tree/ryan-v2
+  description: An updated AVD demo

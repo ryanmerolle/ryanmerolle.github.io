@@ -1,6 +1,6 @@
 # Site settings
 title: "Ryan Merolle"
-description: "Ryan Merolle's Blog"
+description: "Ryan Merolle / Network Engineering / Infrastructure Automation"
 url: "ryanmerolle.github.io"
 #baseurl: '/jekyll-uno'
 # google_analytics: 'UA-XXXXXX-X'
@@ -42,3 +42,6 @@ kramdown:
 
 plugins: ['jekyll-paginate']
 exclude: ['README.md', 'Gemfile', 'Gemfile.lock']
+
+include:
+  - _pages

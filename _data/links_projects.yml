@@ -1,0 +1,150 @@
+---
+- name: Ansible
+  url: https://www.ansible.com/blog
+  description: Infrastructure automation
+
+- name: NetBox
+  url: https://netbox.dev
+  description: IPAM, DCIM, &  the tools to integrate with it
+
+- name: Arista AVD for Ansible
+  url: https://avd.sh
+  description: Ansible collections built around Arista Validated Designs & way more
+
+- name: GitLabs
+  url: https://about.gitlab.com/blog
+  description: git hosting & CI/CD Platform
+
+- name: HyperGlass
+  url: https://hyperglass.io
+  description: Modern Looking Glass project for views into BGP
+
+- name: Orb.
+  url: https://github.com/ns1labs/orb
+  description: A new network observability platform based on pktvisor.
+
+- name: Pre-COmmit
+  url: https://pre-commit.com
+  description: A framework for managing & maintaining multi-language pre-commit hooks.
+
+- name: Schema-Enforcer
+  url: https://github.com/networktocode/schema-enforcer
+  description: A framework for testing structured data against schema definitions.
+
+- name: dyff
+  url: https://github.com/homeport/dyff
+  description: YAML Diff tool
+
+- name: netsim-tools
+  url: https://github.com/ipspace/netsim-tools
+  description: Tool for the management of virtual network labs
+
+- name: CONTAINERlab
+  url: https://containerlab.srlinux.dev
+  description: Tool for the management of container based network albs
+
+- name: Suzieq
+  url: https://www.stardustsystems.net/suzieq
+  description: Full Network observability
+
+- name: VS Code Remote Collection
+  url: https://github.com/microsoft/vscode-remote-release
+  description:
+
+- name: VS Code
+  url: https://code.visualstudio.com/
+  description: IDE & more
+
+- name: win-get CLI
+  url: https://github.com/microsoft/winget-cli
+  description: MS offical brew/pip like package manager
+
+- name: Arista AVD Dev Docker Image
+  url: https://github.com/arista-netdevops-community/docker-avd-base
+  description: Great reference for building your own devcontainer
+
+- name: EOS TIG Stack Repo
+  url: https://github.com/arista-netdevops-community/arista_eos_streaming_telemetry_with_gnmi_and_telegraf
+
+- name: How They Test
+  url: https://abhivaikar.github.io/howtheytest
+  description: A curated collection of publicly available resources on how software companies around the world test their software systems and build their quality culture.
+
+- name: BGP Dashboard
+  url: https://github.com/rhicks/bgp-dashboard
+  description: A "realtime" web view of your BGP network
+
+- name: Ansible Molecule
+  url: https://github.com/ansible-community/molecule
+  description: Ansible Role Unit Testing
+
+- name: Ansible-Lint
+  url: https://github.com/ansible-community/ansible-lint
+  description: Checks playbooks for practices & behaviour that could potentially be improved.
+
+- name: netcli-highlight
+  url: https://github.com/danielmacuare/netcli-highlight
+  description: Syntax Highlighter for Juniper/Cisco/Arista CLI (Via SSH)
+
+- name: Snipe-IT
+  url: https://snipeitapp.com
+  description: IT Asset Management
+
+- name: BGPalerter
+  url: https://github.com/nttgin/BGPalerter
+  description: ChatOps based BGP Alert tool
+
+- name: Topology Converter
+  url: https://gitlab.com/cumulus-consulting/tools/topology_converter
+  description: Simplifies Vagrant Topology File Creation
+
+- name: Networking Icons
+  url: https://github.com/network-automation/networking-icons
+  description: SVG/PNG Networking Icons
+
+- name: jsondiff
+  url: https://github.com/xlwings/jsondiff
+  description: JSON Diff tool
+
+- name: ARA
+  url: https://github.com/ansible-community/ara
+  description: Ansible Output Recorder/Visualizer
+
+- name: Batfish
+  url: https://www.batfish.org
+  description: An open source network configuration analysis tool
+
+- name: Peering Manager
+  url: https://github.com/peering-manager/peering-manager
+  description: A BGP session management tool.
+
+- name: Nornir
+  url: https://github.com/nornir-automation/nornir
+  description: A Python automation framework for network automation
+
+- name: drawthe.net
+  url: https://github.com/cidrblock/drawthe.net
+  description: YAML based Network Diagrams
+
+- name: Network Icons in SVG
+  url: https://github.com/8radm1n/network-icons-svg
+
+- name: vrnetlab
+  url: https://github.com/plajjan/vrnetlab
+  description: Run virtual routers with docker
+
+- name: Awesome Network Automation
+  url: https://github.com/networktocode/awesome-network-automation
+  description: Curated list of Network Automation Links
+
+- name: Capirca
+  url: https://github.com/google/capirca
+  description: Multi-platform ACL generation system
+
+- name: LibreNMS
+  url: https://www.librenms.org
+  description: A fully featured network monitoring system.
+
+- name: Homebrew
+  url: https://brew.sh/
+  description: The Missing Package Manager for macOS (or Linux)

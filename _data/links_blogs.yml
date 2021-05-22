@@ -1,0 +1,106 @@
+---
+- name: Automate Your Network
+  url: https://www.automateyournetwork.ca
+  author: John Capobianco
+
+- name: Hank Preston @ Cisco Blog
+  description: Official Cisco Blog filtering on Hank's posts
+  url: https://blogs.cisco.com/author/hankpreston?dtid=osscdc000283
+
+- name: Jason Edelman
+  url: http://jedelman.com
+
+- name: Josh VanDeraa
+  url: https://josh-v.com
+
+- name: Matt Oswalt
+  url: https://oswalt.dev
+
+- name: NWMichl Blog
+  url: https://nwmichl.net
+  author: Michael Schön
+
+- name: Netpanda's Blog... #bethepacket
+  url: https://davidban77.hashnode.dev
+  author: David Flores
+
+- name: Network Automatic
+  url: https://medium.com/network-automaniac
+  author: Jeremy Schulman
+
+- name: Networking Tips by Solomon Yang
+  url: https://aristaeos.blogspot.com
+
+- name: Brian Linkletter
+  url: https://www.brianlinkletter.com
+
+- name: Packet Life
+  url: https://packetlife.net/blog
+  author: Jeremy Stretch
+
+- name: Packet Pushers
+  url: http://packetpushers.net
+
+- name: Scott's Weblog
+  url: https://blog.scottlowe.org
+  author: Scott Lowe
+
+- name: /dev/null
+  url: https://sbarnea.com
+  author: Sorin Sbarnea
+
+- name: Federico Olivieri on Medium
+  url: https://lvrfrc87.medium.com
+
+- name: Joel McGuire on Medium
+  url: https://joelmcguire1.medium.com
+
+- name: StubArea51.net
+  url: https://stubarea51.net
+  author: Kevin Myers
+
+- name: TTL255
+  url: https://ttl255.com
+  author: Przemek Rogala
+
+- name: The ForwardingPlane
+  url: https://forwardingplane.net
+  author: Nick Buraglio
+
+- name: The HFT Guy
+  url: https://thehftguy.com
+
+- name: The NetworkToCode Blog
+  url: https://blog.networktocode.com
+
+- name: dravetech
+  url: https://www.dravetech.com
+  author: David Barroso
+
+- name: ifconfig.it
+  url: https://www.ifconfig.it/hugo
+  author: Gian Paolo
+
+- name: ipSpace.net
+  url: https://blog.ipspace.net
+  description: One of the best resources for Networking & Infrastructure!
+  author: Ivan Pepelnjak
+
+- name: Anton Karneliuk
+  url: https://karneliuk.com
+
+- name: Kontrol Issues
+  url: https://kontrolissues.net
+  author: Chris Young
+
+- name: Thierolf.org
+  url: https://www.thierolf.org
+  author: Stefan Thierolf
+
+- name: /overlaid
+  url: https://overlaid.net
+  author: Dave Varnum
+
+- name: OzNetNerd.com
+  url: https://oznetnerd.com
+  author: Will Robinson
