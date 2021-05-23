@@ -1,7 +1,7 @@
----
-- name: Automate Your Network
-  url: https://www.automateyournetwork.ca
-  author: John Capobianco
+--- 
+- author: "John Capobianco"
+  name: "Automate Your Network"
+  url: "https://www.automateyournetwork.ca"
 
 - name: Hank Preston @ Cisco Blog
   description: Official Cisco Blog filtering on Hank's posts
@@ -102,15 +102,15 @@
   url: https://oznetnerd.com
   author: Will Robinson
  
- - name: Dave.dev
-   url: https://dave.dev
-   author: David Gee
+- name: Dave.dev
+  url: https://dave.dev
+  author: David Gee
  
- - name: NetworkLore
-   url: https://networklore.com
-   author: Patrick Ogenstad
- 
- - name: Packet Flow
-   url: https://www.packetflow.co.uk
-   author: Rick Donato
-   description: One of the best new resources for Networking Automation!
+- name: NetworkLore
+  url: https://networklore.com
+  author: Patrick Ogenstad
+
+- name: Packet Flow
+  url: https://www.packetflow.co.uk
+  author: Rick Donato
+  description: One of the best new resources for Networking Automation!
