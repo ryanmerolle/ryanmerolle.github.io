@@ -7,9 +7,6 @@
   description: Official Cisco Blog filtering on Hank's posts
   url: https://blogs.cisco.com/author/hankpreston?dtid=osscdc000283
 
-- name: Jason Edelman
-  url: http://jedelman.com
-
 - name: Josh VanDeraa
   url: https://josh-v.com
 
@@ -20,7 +17,7 @@
   url: https://nwmichl.net
   author: Michael Schön
 
-- name: Netpanda's Blog... #bethepacket
+- name: Netpanda's Blog
   url: https://davidban77.hashnode.dev
   author: David Flores
 
@@ -83,7 +80,7 @@
 
 - name: ipSpace.net
   url: https://blog.ipspace.net
-  description: One of the best resources for Networking & Infrastructure!
+  description: One of the best resources for Networking, Infra, & Automation!
   author: Ivan Pepelnjak
 
 - name: Anton Karneliuk
@@ -104,3 +101,16 @@
 - name: OzNetNerd.com
   url: https://oznetnerd.com
   author: Will Robinson
+ 
+ - name: Dave.dev
+   url: https://dave.dev
+   author: David Gee
+ 
+ - name: NetworkLore
+   url: https://networklore.com
+   author: Patrick Ogenstad
+ 
+ - name: Packet Flow
+   url: https://www.packetflow.co.uk
+   author: Rick Donato
+   description: One of the best new resources for Networking Automation!
