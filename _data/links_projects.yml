@@ -156,3 +156,12 @@
 - name: Markdwonlint-cli
   url: https://github.com/igorshubovych/markdownlint-cli
   description: Test your that your Markdown is valid & follows good form.
+
+- name: pipeline-components
+  url: https://gitlab.com/pipeline-components
+  description: Collection of docker containers for running in gitlab pipelines. Designed to be small & fast
+  
+  - name: cytopia/docker-ansible
+    url: https://github.com/cytopia/docker-ansible
+    description: Collection of ansible docker containers for running in CI pipelines.
+  
