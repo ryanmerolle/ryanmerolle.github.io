@@ -23,7 +23,7 @@
   url: https://github.com/ns1labs/orb
   description: A new network observability platform based on pktvisor.
 
-- name: Pre-COmmit
+- name: Pre-Commit
   url: https://pre-commit.com
   description: A framework for managing & maintaining multi-language pre-commit hooks.
 
@@ -43,7 +43,7 @@
   url: https://containerlab.srlinux.dev
   description: Tool for the management of container based network albs
 
-- name: Suzieq
+- name: SuzieQ
   url: https://www.stardustsystems.net/suzieq
   description: Full Network observability
 
@@ -52,7 +52,7 @@
   description:
 
 - name: VS Code
-  url: https://code.visualstudio.com/
+  url: https://code.visualstudio.com
   description: IDE & more
 
 - name: win-get CLI
@@ -92,7 +92,7 @@
 
 - name: BGPalerter
   url: https://github.com/nttgin/BGPalerter
-  description: ChatOps based BGP Alert tool
+  description: BGP Alert tool for Tracking changes to your Public ASN or Prefix.
 
 - name: Topology Converter
   url: https://gitlab.com/cumulus-consulting/tools/topology_converter
@@ -146,5 +146,13 @@
   description: A fully featured network monitoring system.
 
 - name: Homebrew
-  url: https://brew.sh/
+  url: https://brew.sh
   description: The Missing Package Manager for macOS (or Linux)
+
+- name: YAMLLint
+  url: https://github.com/adrienverge/yamllint
+  description: Test your that your YAML is valid & follows good form.
+  
+- name: Markdwonlint-cli
+  url: https://github.com/igorshubovych/markdownlint-cli
+  description: Test your that your Markdown is valid & follows good form.
