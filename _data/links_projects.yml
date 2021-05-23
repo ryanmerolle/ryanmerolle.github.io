@@ -161,7 +161,6 @@
   url: https://gitlab.com/pipeline-components
   description: Collection of docker containers for running in gitlab pipelines. Designed to be small & fast
   
-  - name: cytopia/docker-ansible
-    url: https://github.com/cytopia/docker-ansible
-    description: Collection of ansible docker containers for running in CI pipelines.
-  
+- name: cytopia/docker-ansible
+  url: https://github.com/cytopia/docker-ansible
+  description: Collection of ansible docker containers for running in CI pipelines.
