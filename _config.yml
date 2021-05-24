@@ -1,3 +1,4 @@
+---
 # Site settings
 title: "Ryan Merolle"
 description: "Ryan Merolle / Network Engineering / Infrastructure Automation"
@@ -21,7 +22,7 @@ defaults:
       path: ''
       type: 'posts'
     values:
-        layout: 'post'
+      layout: 'post'
 
 # Build settings
 destination: _site
@@ -31,8 +32,8 @@ markdown: kramdown
 highlighter: rouge
 
 sass:
-    sass_dir: _sass
-    style: compressed
+  sass_dir: _sass
+  style: compressed
 
 kramdown:
   # use Github Flavored Markdown
