@@ -171,4 +171,3 @@ network_automation:
   - name: NetOps Quickstart
     url: https://github.com/Vista-Technology/netops-quickstart
     description: Not a software project, but IAC example repo pulling many operational components together.
-  
