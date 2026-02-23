@@ -1,11 +1,17 @@
 ---
 layout: null
-sitemap:
-exclude: 'yes'
+sitemap: false
 ---
+
+/* TEAM */
+Name: Ryan Merolle
+GitHub: @ryanmerolle
+GitLab: @ryanmerolle
+LinkedIn: ryanmerolle
+X: @ryanmerolle
 
 /* SITE */
 Last update: {{ site.time | date: "%Y/%m/%d" }}
 Standards: HTML5, CSS3
 Components: Jekyll
-Software: Sublime Text, Photoshop
+Software: VS Code
