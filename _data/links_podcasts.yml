@@ -5,7 +5,7 @@ base_urls:
   apple: https://podcasts.apple.com/us/podcast/
 
 ai:
-  - name: "The AI Daily Brief: Artificial Intelligence News"
+  - name: "The AI Daily Brief"
     website: https://aidailybrief.ai
     status: publishing
     publisher: Superintelligent
@@ -45,11 +45,11 @@ ai:
       - Startup ecosystem and funding news
 
 networking:
-  - name: "The Network Break"
+  - name: "Network Break"
     website: https://packetpushers.net/podcast/network-break/
     status: publishing
     publisher: Packet Pushers
-    spotify: "<spotify-id>"
+    spotify: 1w2CyOsqmqQiJmOiwVL0A0
     youtube: "@packetpushers"
     apple: network-break/id905020089
     description: Fast, focused analysis of IT news, products, tech trends, and business outcomes. Blending sharp commentary with a touch of humor, it sifts through the weekly landslide of press announcements.
@@ -68,7 +68,7 @@ networking:
     website: https://packetpushers.net/podcast/the-cloud-gambit/
     status: publishing
     publisher: Packet Pushers
-    spotify: "<spotify-id>"
+    spotify: 23UdyZ3ZwCKB7clwULXyeS
     youtube: "@packetpushers"
     apple: the-cloud-gambit/id1720875955
     description: Unravels the state of cloud computing, markets, strategy, and emerging trends. Delivers valuable conversations with industry mavens that educate and empower listeners on innovation and opportunity.
@@ -87,7 +87,7 @@ networking:
     website: https://www.ipspace.net/Podcast/Software_Gone_Wild/
     status: publishing
     publisher: IPSpace.net
-    spotify: "<spotify-id>"
+    spotify: 4vWT2SzjRbfhutQD3c88Qr
     youtube: "@ipspace"
     apple: software-gone-wild/id892095911
     description: A podcast focusing on real-life SDN, NFV, and SDDC architectures and solutions that work outside of the cozy environment of vendor-branded PowerPoint.
@@ -109,7 +109,7 @@ networking:
     website: https://packetpushers.net/podcast/network-automation-nerds/
     status: publishing
     publisher: Packet Pushers
-    spotify: "<spotify-id>"
+    spotify: 24feK9uvQNAMf71dHqAXBG
     youtube: "@packetpushers"
     apple: network-automation-nerds-podcast/id1128239093
     description: Designed for network engineers and infrastructure professionals eager to learn more about automation. Explores how to take advantage of modern network programmability to automate tasks and build robust systems.
@@ -127,8 +127,8 @@ python:
   - name: Talk Python To Me
     website: https://talkpython.fm
     status: publishing
-    publisher: Talk Python
-    spotify: "<spotify-id>"
+    publisher: Michael Kennedy
+    spotify: 6Ol9sx1lONDxBSffLW9qcZ
     youtube: "@talkpython"
     apple: talk-python-to-me/id979020229
     description: A weekly podcast diving deep into popular packages and software developers, data scientists, and hobbyists doing amazing things with Python.
@@ -145,8 +145,8 @@ python:
   - name: Python Bytes
     website: https://pythonbytes.fm
     status: publishing
-    publisher: Python Bytes
-    spotify: "<spotify-id>"
+    publisher: Michael Kennedy & Brian Okken
+    spotify: 5o8820UB982QGwS4GYMGx9
     youtube: "@pythonbytes"
     apple: python-bytes/id1174922056
     description: A podcast delivering Python news and headlines directly to your earbuds, highlighting the latest releases, tools, and updates in the ecosystem.
@@ -166,7 +166,7 @@ golang:
     website: https://changelog.com/gotime
     status: retired
     publisher: Changelog Media
-    spotify: "<spotify-id>"
+    spotify: 2cKdcxETn7jDp7uJCwqmSE
     youtube: "@ChangelogMedia"
     apple: it-is-go-time-go-time/id1164554936
     description: Diverse discussions from around the Go community exploring the language, tooling, and its ecosystem. Note that this podcast recorded its finale in December 2024.

@@ -70,7 +70,6 @@ monitoring:
     description: A "realtime" web view of your BGP network
 
 network_automation:
-
   - name: NetBox
     url: https://netboxlabs.com/docs/netbox/?focus=community
     description: IPAM and DCIM for the modern network engineer
@@ -115,6 +114,18 @@ ai:
   - name: toon
     url: https://toonformat.dev
     description: A compact, human-readable encoding of the JSON data model for LLM prompts.
+
+  - name: NetClaw
+    url: https://github.com/automateyournetwork/netclaw
+    description: An AI agent that claws through your network.
+
+  - name: GitPacketCopilot
+    url: https://github.com/automateyournetwork/GitPacketCopilot
+    description: Add a .pcap(ng); automated reporting; all powered by GitActions, Gemini-CLI, and Packet Copilot MCP
+
+  - name: GeminiCLI Packet Buddy Extension
+    url: https://github.com/automateyournetwork/GeminiCLI_Packet_Buddy_Extension
+    description: A Gemini CLI extension that uses RAG and MCP and Custom Slash Commands to analyze packet captures
 
 python:
   - name: FastAPI
