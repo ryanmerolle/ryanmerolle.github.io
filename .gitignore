@@ -6,3 +6,5 @@ _site
 *.sublime-workspace
 .DS_Store
 Gemfile.lock
+
+.rumdl_cache
