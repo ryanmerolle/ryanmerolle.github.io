@@ -53,8 +53,6 @@ exclude:
   - .rumdl_cache
   - .yamllint.yaml
   - Dockerfile
-  - Gemfile
-  - Gemfile.lock
   - README.md
   - docker-compose.yml
 
