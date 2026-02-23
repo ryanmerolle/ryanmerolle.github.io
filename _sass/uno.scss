@@ -471,7 +471,9 @@ hr {
 	height: 42px;
 	background: rgba(0, 0, 0, 0.40);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-	text-align: center; }
+	text-align: center;
+	cursor: pointer;
+	user-select: none; }
 
 .btn-mobile-menu__icon,
 .btn-mobile-close__icon {
@@ -521,7 +523,8 @@ nav {
 		border-radius: 50%; }
 		.navigation--social a .label {
 			display: none; }
-		.navigation--social a .mdi {
+		.navigation--social a .fa-solid,
+		.navigation--social a .fa-brands {
 			font-size: 1.5em;
 			line-height: 1; }
 

@@ -87,8 +87,8 @@ function init() {
       navWrapper.classList.toggle('bounceInDown');
     }
     if (menuIcon) {
-      menuIcon.classList.toggle('mdi-menu');
-      menuIcon.classList.toggle('mdi-close-circle');
+      menuIcon.classList.toggle('fa-bars');
+      menuIcon.classList.toggle('fa-circle-xmark');
       menuIcon.classList.toggle('animated');
       menuIcon.classList.toggle('fadeIn');
     }
@@ -102,8 +102,8 @@ function init() {
     btn.addEventListener('click', function () {
       if (navWrapper) navWrapper.classList.toggle('visible');
       if (menuIcon) {
-        menuIcon.classList.toggle('mdi-menu');
-        menuIcon.classList.toggle('mdi-close-circle');
+        menuIcon.classList.toggle('fa-bars');
+        menuIcon.classList.toggle('fa-circle-xmark');
         menuIcon.classList.toggle('animated');
         menuIcon.classList.toggle('fadeIn');
       }
