@@ -55,6 +55,10 @@ exclude:
   - Dockerfile
   - README.md
   - docker-compose.yml
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
 
 include:
   - _pages
