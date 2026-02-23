@@ -1,0 +1,32 @@
+---
+- name: Twitter
+  icon: twitter
+  url_prefix: https://x.com/
+  title_prefix: "@"
+  title_suffix: " on Twitter"
+  author_key: twitter_username
+- name: Facebook
+  icon: facebook
+  url_prefix: https://www.facebook.com/
+  title_suffix: " on Facebook"
+  author_key: facebook_username
+- name: LinkedIn
+  icon: linkedin
+  url_prefix: https://www.linkedin.com/in/
+  title_suffix: " on LinkedIn"
+  author_key: linkedin_username
+- name: GitHub
+  icon: github
+  url_prefix: https://github.com/
+  title_suffix: " on GitHub"
+  author_key: github_username
+- name: GitLab
+  icon: gitlab
+  url_prefix: https://gitlab.com/
+  title_suffix: " on GitLab"
+  author_key: gitlab_username
+- name: Email
+  icon: email
+  url_prefix: "mailto:"
+  title_prefix: "Email "
+  author_key: email

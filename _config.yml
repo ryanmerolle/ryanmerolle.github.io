@@ -3,6 +3,9 @@
 title: "Ryan Merolle"
 description: "Ryan Merolle / Network Engineering / Infrastructure Automation"
 url: "https://www.merolle.net"
+image: 
+  path: "/images/favicons/favicon-194x194.png"
+logo: "/images/profile.webp"
 # baseurl: '/jekyll-uno'
 # google_analytics: 'UA-XXXXXX-X'
 # disable_landing_page: true
@@ -15,6 +18,15 @@ author:
   linkedin_username: ryanmerolle
   twitter_username: ryanmerolle
 
+social:
+  name: Ryan Merolle
+  links:
+    - https://x.com/ryanmerolle
+    - https://www.facebook.com/ryanmerolle
+    - https://www.linkedin.com/in/ryanmerolle
+    - https://github.com/ryanmerolle
+    - https://gitlab.com/ryanmerolle
+
 defaults:
   -
     scope:
@@ -26,6 +38,7 @@ defaults:
 # Build settings
 destination: _site
 paginate: 10
+paginate_path: "/blog/page:num/"
 permalink: /:year/:title/
 markdown: kramdown
 highlighter: rouge
@@ -43,6 +56,7 @@ kramdown:
 plugins: 
   - jekyll-paginate
   - jekyll-llmstxt
+  - jekyll-seo-tag
 
 exclude:
   - .dockerignore

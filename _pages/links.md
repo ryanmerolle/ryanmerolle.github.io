@@ -2,7 +2,6 @@
 layout: default
 title: Links
 permalink: /links/
-robots: noindex
 ---
 
 <h2>Content I Follow</h2>
