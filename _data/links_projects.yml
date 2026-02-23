@@ -1,4 +1,33 @@
 ---
+ai:
+  - name: UTCP Code Mode
+    url: https://github.com/universal-tool-calling-protocol/code-mode
+    description: UTCP Code Mode is a tool for calling tools from within code.
+
+  - name: Awesome MCP Servers
+    url: https://glama.ai/mcp/servers
+    description: Curated list of MCP Servers
+
+  - name: toon
+    url: https://toonformat.dev
+    description: A compact, human-readable encoding of the JSON data model for LLM prompts.
+
+  - name: NetClaw
+    url: https://github.com/automateyournetwork/netclaw
+    description: An AI agent that claws through your network.
+
+  - name: GitPacketCopilot
+    url: https://github.com/automateyournetwork/GitPacketCopilot
+    description: Add a .pcap(ng); automated reporting; all powered by GitActions, Gemini-CLI, and Packet Copilot MCP
+
+  - name: GeminiCLI Packet Buddy Extension
+    url: https://github.com/automateyournetwork/GeminiCLI_Packet_Buddy_Extension
+    description: A Gemini CLI extension that uses RAG and MCP and Custom Slash Commands to analyze packet captures
+
+  - name: Packet Copilot
+    url: https://packetcopilot.selector.ai
+    description: AI-powered network packet analysis.
+
 devops:
   - name: MKDocs
     url: https://mkdocs.org
@@ -47,6 +76,27 @@ devops:
   - name: How They Test
     url: https://abhivaikar.github.io/howtheytest
     description: A curated collection of publicly available resources on how software companies around the world test their software systems and build their quality culture.
+
+golang:
+  - name: Awesome Go
+    url: https://awesome-go.com
+    description: Curated list of GoLang links
+
+  - name: Gin
+    url: https://gin-gonic.com/
+    description: The fastest full-featured web framework for Go. Crystal clear.
+
+  - name: Cobra
+    url: https://cobra.dev
+    description: A Commander for modern Go CLI interactions
+
+  - name: Viper
+    url: https://github.com/spf13/viper
+    description: Go configuration with fangs
+
+  - name: Logrus
+    url: https://github.com/sirupsen/logrus
+    description: Structured logging for Go
 
 monitoring:
   - name: HyperGlass
@@ -102,35 +152,6 @@ network_automation:
     url: https://netutils.readthedocs.io
     description: NetUtils is a collection of network utilities for Python.
 
-ai:
-  - name: UTCP Code Mode
-    url: https://github.com/universal-tool-calling-protocol/code-mode
-    description: UTCP Code Mode is a tool for calling tools from within code.
-
-  - name: Awesome MCP Servers
-    url: https://glama.ai/mcp/servers
-    description: Curated list of MCP Servers
-
-  - name: toon
-    url: https://toonformat.dev
-    description: A compact, human-readable encoding of the JSON data model for LLM prompts.
-
-  - name: NetClaw
-    url: https://github.com/automateyournetwork/netclaw
-    description: An AI agent that claws through your network.
-
-  - name: GitPacketCopilot
-    url: https://github.com/automateyournetwork/GitPacketCopilot
-    description: Add a .pcap(ng); automated reporting; all powered by GitActions, Gemini-CLI, and Packet Copilot MCP
-
-  - name: GeminiCLI Packet Buddy Extension
-    url: https://github.com/automateyournetwork/GeminiCLI_Packet_Buddy_Extension
-    description: A Gemini CLI extension that uses RAG and MCP and Custom Slash Commands to analyze packet captures
-
-  - name: Packet Copilot
-    url: https://packetcopilot.selector.ai
-    description: AI-powered network packet analysis.
-
 python:
   - name: FastAPI
     url: https://fastapi.tiangolo.com
@@ -171,24 +192,3 @@ python:
   - name: uv
     url: https://docs.astral.sh/uv/
     description: An extremely fast Python package and project manager, written in Rust.
-
-golang:
-  - name: Awesome Go
-    url: https://awesome-go.com
-    description: Curated list of GoLang links
-
-  - name: Gin
-    url: https://gin-gonic.com/
-    description: The fastest full-featured web framework for Go. Crystal clear.
-
-  - name: Cobra
-    url: https://cobra.dev
-    description: A Commander for modern Go CLI interactions
-
-  - name: Viper
-    url: https://github.com/spf13/viper
-    description: Go configuration with fangs
-
-  - name: Logrus
-    url: https://github.com/sirupsen/logrus
-    description: Structured logging for Go
