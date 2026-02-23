@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path d="
+    M300,120 L173,173 L120,300 L173,427 L300,480 L427,427 L480,300 L427,173 Z
+    M340,231 L220,300 L340,369 Z
+    M300,120 L340,231 L300,300 L220,300 L120,300 
+    M340,369 L300,300 M340,369 L300,480 
+    M220,300 L173,427 M220,300 L173,173 
+    M340,231 L427,173 M340,369 L427,427 
+    M480,300 L340,231 M480,300 L340,369 
+    M300,300 L480,300 
+    M300,120 L120,300 L300,480 
+    M427,173 L300,300 L427,427" 
+    fill="none" stroke="#0055ff" stroke-width="4" filter="url(#glowBlue)" opacity="0.85" />
+
+  <g fill="#00bbff" filter="url(#glowBlue)">
+    <circle cx="300" cy="120" r="10" />
+    <circle cx="173" cy="173" r="10" />
+    <circle cx="120" cy="300" r="10" />
+    <circle cx="173" cy="427" r="10" />
+    <circle cx="300" cy="480" r="10" />
+    <circle cx="427" cy="427" r="10" />
+    <circle cx="427" cy="173" r="10" />
+    <circle cx="480" cy="300" r="10" /> <circle cx="340" cy="231" r="10" />
+    <circle cx="220" cy="300" r="10" />
+    <circle cx="340" cy="369" r="10" />
+    <circle cx="300" cy="300" r="10" />
+  </g>
+
+  <g fill="#ffffff" opacity="0.7">
+    <circle cx="300" cy="120" r="3" />
+    <circle cx="173" cy="173" r="3" />
+    <circle cx="120" cy="300" r="3" />
+    <circle cx="173" cy="427" r="3" />
+    <circle cx="300" cy="480" r="3" />
+    <circle cx="427" cy="427" r="3" />
+    <circle cx="427" cy="173" r="3" />
+    <circle cx="480" cy="300" r="3" /> <circle cx="340" cy="231" r="3" />
+    <circle cx="220" cy="300" r="3" />
+    <circle cx="340" cy="369" r="3" />
+    <circle cx="300" cy="300" r="3" />
+  </g>
+</svg>

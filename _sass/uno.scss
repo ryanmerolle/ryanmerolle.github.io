@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway:400,700|Roboto+Slab:300,400)';
+
 /* http://meyerweb.com/eric/tools/css/reset/
 	 v2.0 | 20110126
 	 License: none (public domain)
@@ -74,11 +74,7 @@ a {
 	text-decoration: none;
 	color: #e25440; }
 	a:hover {
-		color: #b9301c;
-		-o-transition: .5s;
-		-ms-transition: .5s;
-		-moz-transition: .5s;
-		-webkit-transition: .5s; }
+		color: #b9301c; }
 
 h1,
 h2,
@@ -343,10 +339,11 @@ hr {
 	position: fixed;
 	z-index: 900;
 	width: 100%;
-	max-width: none;
+	max-width: 100%;
 	height: 100%;
 	background: url(../images/background-cover.webp) top left no-repeat #666666;
-	background-size: cover; }
+	background-size: cover;
+	transition: width 1s ease, max-width 1s ease; }
 
 .panel-cover--collapsed {
 	width: 40%;
@@ -412,34 +409,20 @@ hr {
 	.panel-inverted a {
 		color: #FFF; }
 
+.navigation-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+}
+
 .cover-navigation {
 	margin-top: 10px; }
 
 .cover-navigation--social {
-	margin-left: 30px; }
+	/* margin-left: 30px; */ }
 
-.cover-green {
-	background-color: rgba(21, 111, 120, 0.6);
-	background-image: -webkit-linear-gradient(-410deg, rgba(21, 111, 120, 0.6) 20%, rgba(6, 31, 33, 0.8));
-	background-image: linear-gradient(140deg,rgba(21, 111, 120, 0.6) 20%, rgba(6, 31, 33, 0.8)); }
 
-.cover-purple {
-	background-color: rgba(73, 50, 82, 0.6);
-	background-image: -webkit-linear-gradient(-410deg, rgba(73, 50, 82, 0.6) 20%, rgba(17, 11, 19, 0.8));
-	background-image: linear-gradient(140deg,rgba(73, 50, 82, 0.6) 20%, rgba(17, 11, 19, 0.8)); }
-
-.cover-red {
-	background-color: rgba(119, 31, 18, 0.6);
-	background-image: -webkit-linear-gradient(-410deg, rgba(119, 31, 18, 0.6) 20%, rgba(30, 8, 5, 0.8));
-	background-image: linear-gradient(140deg,rgba(119, 31, 18, 0.6) 20%, rgba(30, 8, 5, 0.8)); }
-
-.cover-slate {
-	background-color: rgba(61, 66, 96, 0.6);
-	background-image: -webkit-linear-gradient(-410deg, rgba(61, 66, 96, 0.6) 20%, rgba(21, 23, 34, 0.8));
-	background-image: linear-gradient(140deg,rgba(61, 66, 96, 0.6) 20%, rgba(21, 23, 34, 0.8)); }
-
-.cover-disabled {
-	background: none; }
 
 .btn, .navigation__item a {
 	padding: 10px 20px;
@@ -502,15 +485,18 @@ nav {
 	position: relative; }
 
 .navigation {
-	display: inline-block;
-	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 10px;
 	position: relative;
 	margin: 0;
 	list-style-type: none; }
 
 .navigation__item {
-	display: inline-block;
-	margin: 0 2px 0 0;
+	display: block;
+	margin: 0;
 	line-height: 1em; }
 	.navigation__item a {
 		display: block;
@@ -524,7 +510,7 @@ nav {
 			opacity: 1; }
 
 .navigation--social {
-	margin-left: 1.5em; }
+	/* margin-left: 1.5em; */ }
 	.navigation--social a {
 		display: inline-flex;
 		align-items: center;
@@ -761,11 +747,12 @@ input[type="tel"] {
 		right: 0;
 		left: 0;
 		width: 100%;
-		padding: 20px 0;
+		padding: 12px 0;
+		gap: 5px;
 		background: rgba(51, 51, 51, 0.98);
 		border-bottom: 1px solid rgba(255, 255, 255, 0.15); }
 		.navigation-wrapper.visible {
-			display: block; }
+			display: flex; }
 
 	.cover-navigation {
 		display: block;
@@ -774,16 +761,26 @@ input[type="tel"] {
 		clear: left;
 		width: 100%; }
 		.cover-navigation .navigation {
-			display: block;
-			width: 100%; }
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			gap: 8px; }
 			.cover-navigation .navigation li {
 				width: 80%;
-				margin-bottom: .4em; }
+				margin-bottom: 0; }
 		.cover-navigation.navigation--social {
-			padding-top: 5px; }
+			padding-top: 0; }
+			.cover-navigation.navigation--social .navigation {
+				flex-direction: row;
+				justify-content: center;
+				flex-wrap: nowrap;
+				gap: 5px;
+			}
 			.cover-navigation.navigation--social .navigation li {
-				display: inline-block;
-				width: 25.8%; }
+				display: block;
+				width: auto;
+				margin-bottom: 0; }
 
 	.content-wrapper {
 		width: 80%;
@@ -796,7 +793,7 @@ input[type="tel"] {
 
 	.navigation__item {
 		width: 100%;
-		margin: 0 0 .4em 0; } }
+		margin: 0; } }
 @media all and (max-width: 340px) {
 	.panel-main__inner {
 		padding: 0 5%; }
@@ -810,4 +807,5 @@ input[type="tel"] {
 
 	.btn, .navigation__item a {
 		display: block;
-		margin-bottom: .4em; } }
+		margin-bottom: 0;
+		padding: 8px 20px; } }

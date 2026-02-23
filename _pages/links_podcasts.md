@@ -2,15 +2,14 @@
 layout: default
 title: Podcasts I Listen To
 permalink: /links/podcasts/
-robots: noindex
 ---
 
 <h2>Podcasts I Listen To</h2>
 
 <p><a href="{{ site.baseurl }}/links/">← Back to Links</a></p>
 
-{% assign category_names = "ai,networking,python,golang" | split: "," %}
-{% assign category_labels = "AI,Networking,Python,Golang" | split: "," %}
+{% assign category_names = "ai,it,python,golang" | split: "," %}
+{% assign category_labels = "AI,IT,Python,Golang" | split: "," %}
 {% assign base_spotify = site.data.links_podcasts.base_urls.spotify %}
 {% assign base_youtube = site.data.links_podcasts.base_urls.youtube %}
 {% assign base_apple = site.data.links_podcasts.base_urls.apple %}
@@ -21,7 +20,7 @@ robots: noindex
   {% assign podcasts = site.data.links_podcasts[cat] %}
   {% if podcasts.size > 0 %}
 
-<h4>{{ label }}</h4>
+<h3>{{ label }}</h3>
 
   {% assign sorted_podcasts = podcasts | sort_natural: "name" %}
   {% for podcast in sorted_podcasts %}

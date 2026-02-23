@@ -2,7 +2,6 @@
 layout: default
 title: Projects of Note I Follow
 permalink: /links/projects/
-robots: noindex
 ---
 
 <h2>Projects of Note I Follow</h2>
