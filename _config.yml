@@ -47,8 +47,10 @@ plugins:
 
 exclude:
   - .dockerignore
+  - .github
   - .gitignore
   - .pre-commit-config.yaml
+  - .rumdl_cache
   - .yamllint.yaml
   - Dockerfile
   - Gemfile
