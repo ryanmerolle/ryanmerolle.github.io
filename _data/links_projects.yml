@@ -76,7 +76,7 @@ network_automation:
 
   - name: Infrahub
     url: https://docs.infrahub.app
-    description: Scheam Driven Infrastructure Data Management Platform
+    description: Schema Driven Infrastructure Data Management Platform
 
   - name: Arista AVD
     url: https://avd.arista.com
