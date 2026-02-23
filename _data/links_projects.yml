@@ -16,7 +16,7 @@ ai:
     url: https://github.com/automateyournetwork/netclaw
     description: An AI agent that claws through your network.
 
-  - name: GitPacketCopilot
+  - name: Git Packet Copilot
     url: https://github.com/automateyournetwork/GitPacketCopilot
     description: Add a .pcap(ng); automated reporting; all powered by GitActions, Gemini-CLI, and Packet Copilot MCP
 
@@ -37,33 +37,17 @@ devops:
     url: https://squidfunk.github.io/mkdocs-material/
     description: Material for MkDocs is a modern, responsive, and accessible theme for MkDocs.
 
-  - name: zensical
+  - name: Zensical
     url: https://zensical.org
     description: Zensical creates scalable Open Source systems for technical writing that always keep you in the flow.
 
-  - name: PREK
+  - name: prek
     url: https://prek.j178.dev
     description: Better `pre-commit`, re-engineered in Rust
 
   - name: dyff
     url: https://github.com/homeport/dyff
     description: YAML Diff tool
-
-  - name: Ansible Molecule
-    url: https://github.com/ansible-community/molecule
-    description: Ansible Role Unit Testing
-
-  - name: Ansible-Lint
-    url: https://github.com/ansible-community/ansible-lint
-    description: Checks playbooks for practices & behaviour that could potentially be improved.
-
-  - name: Homebrew
-    url: https://brew.sh
-    description: The Missing Package Manager for macOS (or Linux)
-
-  - name: YAMLLint
-    url: https://github.com/adrienverge/yamllint
-    description: Test your that your YAML is valid & follows good form.
 
   - name: rumdl
     url: https://rumdl.dev
@@ -82,42 +66,21 @@ golang:
     url: https://awesome-go.com
     description: Curated list of GoLang links
 
-  - name: Gin
+  - name: gin
     url: https://gin-gonic.com/
     description: The fastest full-featured web framework for Go. Crystal clear.
 
-  - name: Cobra
+  - name: cobra
     url: https://cobra.dev
     description: A Commander for modern Go CLI interactions
 
-  - name: Viper
+  - name: viper
     url: https://github.com/spf13/viper
     description: Go configuration with fangs
 
-  - name: Logrus
+  - name: logrus
     url: https://github.com/sirupsen/logrus
     description: Structured logging for Go
-
-monitoring:
-  - name: HyperGlass
-    url: https://hyperglass.io
-    description: Modern Looking Glass project for views into BGP
-
-  - name: SuzieQ
-    url: https://www.stardustsystems.net/suzieq
-    description: Full Network observability
-
-  - name: BGPalerter
-    url: https://github.com/nttgin/BGPalerter
-    description: BGP Alert tool for Tracking changes to your Public ASN or Prefix.
-
-  - name: LibreNMS
-    url: https://www.librenms.org
-    description: A fully featured network monitoring system.
-
-  - name: BGP Dashboard
-    url: https://github.com/rhicks/bgp-dashboard
-    description: A "realtime" web view of your BGP network
 
 network_automation:
   - name: NetBox
@@ -148,24 +111,24 @@ network_automation:
     url: https://github.com/scrapli/scrapligo
     description: scrapligo -- scrap(e c)li (but in go!) -- is a Go library focused on connecting to devices, specifically network devices (routers/switches/firewalls/etc.) via SSH and NETCONF.
 
-  - name: NetUtils
+  - name: netutils
     url: https://netutils.readthedocs.io
-    description: NetUtils is a collection of network utilities for Python.
+    description: Netutils is a collection of network utilities for Python.
 
 python:
   - name: FastAPI
     url: https://fastapi.tiangolo.com
     description: FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
 
-  - name: Typer
+  - name: typer
     url: https://typer.tiangolo.com
     description: Typer is a Python CLI framework based on Click, but built with type annotations in mind.
 
-  - name: Rich
+  - name: rich
     url: https://rich.readthedocs.io
     description: Rich is a Python library for rich text and beautiful formatting in the terminal.
 
-  - name: Loguru
+  - name: loguru
     url: https://loguru.readthedocs.io/en/stable/
     description: Python logging made (stupidly) simple.
 
@@ -181,7 +144,7 @@ python:
     url: https://awesome-python.com
     description: Curated list of Python links
 
-  - name: Ruff
+  - name: ruff
     url: https://docs.astral.sh/ruff/
     description: An extremely fast Python linter and code formatter, written in Rust.
 

@@ -11,46 +11,7 @@ robots: noindex
 
 <br>
 
-<h4>Network Automation</h4>
-
-<ul>
-    {% assign sorted_projects = site.data.links_projects.network_automation | sort_natural: "name" %}
-    {% for project in sorted_projects %}
-    <li>
-        <a href="{{ project.url }}">
-            {{ project.name }}
-        </a>{% if project.description %} - {{ project.description }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
-
-<h4>Monitoring/Performance</h4>
-
-<ul>
-    {% assign sorted_projects = site.data.links_projects.monitoring | sort_natural: "name" %}
-    {% for project in sorted_projects %}
-    <li>
-        <a href="{{ project.url }}">
-            {{ project.name }}
-        </a>{% if project.description %} - {{ project.description }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
-
-<h4>DevOps (CI Pipelines, Containers, etc)</h4>
-
-<ul>
-    {% assign sorted_projects = site.data.links_projects.devops | sort_natural: "name" %}
-    {% for project in sorted_projects %}
-    <li>
-        <a href="{{ project.url }}">
-            {{ project.name }}
-        </a>{% if project.description %} - {{ project.description }}{% endif %}
-    </li>
-    {% endfor %}
-</ul>
-
-<h4>AI</h4>
+<h3>AI</h3>
 
 <ul>
     {% assign sorted_projects = site.data.links_projects.ai | sort_natural: "name" %}
@@ -63,10 +24,10 @@ robots: noindex
     {% endfor %}
 </ul>
 
-<h4>Python</h4>
+<h3>Dev / DevOps</h3>
 
 <ul>
-    {% assign sorted_projects = site.data.links_projects.python | sort_natural: "name" %}
+    {% assign sorted_projects = site.data.links_projects.devops | sort_natural: "name" %}
     {% for project in sorted_projects %}
     <li>
         <a href="{{ project.url }}">
@@ -76,10 +37,36 @@ robots: noindex
     {% endfor %}
 </ul>
 
-<h4>Golang</h4>
+<h3>GoLang</h3>
 
 <ul>
     {% assign sorted_projects = site.data.links_projects.golang | sort_natural: "name" %}
+    {% for project in sorted_projects %}
+    <li>
+        <a href="{{ project.url }}">
+            {{ project.name }}
+        </a>{% if project.description %} - {{ project.description }}{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Network Automation</h3>
+
+<ul>
+    {% assign sorted_projects = site.data.links_projects.network_automation | sort_natural: "name" %}
+    {% for project in sorted_projects %}
+    <li>
+        <a href="{{ project.url }}">
+            {{ project.name }}
+        </a>{% if project.description %} - {{ project.description }}{% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<h3>Python</h3>
+
+<ul>
+    {% assign sorted_projects = site.data.links_projects.python | sort_natural: "name" %}
     {% for project in sorted_projects %}
     <li>
         <a href="{{ project.url }}">
