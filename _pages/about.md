@@ -4,18 +4,16 @@ title: About
 permalink: /about/
 ---
 
-Ryan Merolle
+⚠️ The views expressed here are my own & not affiliated with any past or present employer. ⚠️
 
-My posts are my own, & in no way affiliated with a past or present employer.
+I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 19 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike.
 
-Welcome to my new lading site / blog.
+**💪 Strengths**: Network engineering, technology leadership, and technology standardization.
 
-I'm a network & infrastructure engineer with over 10 years experience.
+**🚀 Current Interests**: Deep into agentic coding, AI-enabled productivity, and modern DevOps practices.
 
-My tech passions include:
+**🌐 Open Source**: I have contributed a significant amount of my personal time to the open-source community, focusing specifically on network management and automation.
 
-- DevOps
-- Infrastructure as Code (IAC)
-- Routing
+**🏠 Off-screen**: When I'm not at the keyboard, I enjoy spending quality time with my family, running, playing soccer, and volunteering on the board of Pockets of Light.
 
 Check out my [Links Section](../../links) for a list of projects, blogs, & feeds I follow.

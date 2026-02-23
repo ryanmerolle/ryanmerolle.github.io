@@ -3,14 +3,14 @@
 title: "Ryan Merolle"
 description: "Ryan Merolle / Network Engineering / Infrastructure Automation"
 url: "ryanmerolle.github.io"
-#baseurl: '/jekyll-uno'
+# baseurl: '/jekyll-uno'
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
 # disable_landing_page: true
 
 author:
   name: "Ryan Merolle"
-  #email:
+  # email:
   github_username: ryanmerolle
   gitlab_username: ryanmerolle
   linkedin_username: ryanmerolle

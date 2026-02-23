@@ -1,0 +1,184 @@
+---
+base_urls:
+  spotify: https://open.spotify.com/show/
+  youtube: https://www.youtube.com/
+  apple: https://podcasts.apple.com/us/podcast/
+
+ai:
+  - name: "The AI Daily Brief"
+    website: https://aidailybrief.ai
+    status: publishing
+    publisher: Superintelligent
+    spotify: 7gKwwMLFLc6RmjmRpbMtEO
+    youtube: "@AIDailyBrief"
+    apple: the-ai-daily-brief-artificial-intelligence-news/id1680633614
+    description: The AI Daily Brief is a daily video podcast about the most important news and discussions in AI. New models, case studies, enterprise use cases, tips and tutorials, plus a dose of discussion of global impact.
+    hosts:
+      - Nathaniel Whittemore aka NLW
+    frequency: 6 days a week
+    duration: 20-25 minutes per episode
+    topics_covered:
+      - AI industry news and developments
+      - Technical breakthroughs and research
+      - Business applications and case studies
+      - Ethical considerations and policy updates
+      - Startup ecosystem and funding news
+
+  - name: "Hard Fork"
+    website: https://www.nytimes.com/column/hard-fork
+    status: publishing
+    publisher: New York Times
+    spotify: 44fllCS2FTFr2x2kjP9xeT
+    youtube: "hardfork"
+    apple: hard-fork/id1528594034
+    description: Each week, journalists Kevin Roose and Casey Newton explore and make sense of the rapidly changing world of tech.
+    hosts:
+      - Kevin Roose
+      - Casey Newton
+    frequency: weekly
+    duration: 45-70 minutes per episode
+    topics_covered:
+      - AI industry news and developments
+      - Technical breakthroughs and research
+      - Business applications and case studies
+      - Ethical considerations and policy updates
+      - Startup ecosystem and funding news
+
+networking:
+  - name: "Network Break"
+    website: https://packetpushers.net/podcast/network-break/
+    status: publishing
+    publisher: Packet Pushers
+    spotify: 1w2CyOsqmqQiJmOiwVL0A0
+    youtube: "@packetpushers"
+    apple: network-break/id905020089
+    description: Fast, focused analysis of IT news, products, tech trends, and business outcomes. Blending sharp commentary with a touch of humor, it sifts through the weekly landslide of press announcements.
+    hosts:
+      - Drew Conry-Murray
+      - Johna Till Johnson
+    frequency: weekly
+    duration: 30-50 minutes per episode
+    topics_covered:
+      - IT and networking news
+      - Technology trends
+      - Vendor and product announcements
+      - Business outcomes and strategy
+
+  - name: "The Cloud Gambit"
+    website: https://packetpushers.net/podcast/the-cloud-gambit/
+    status: publishing
+    publisher: Packet Pushers
+    spotify: 23UdyZ3ZwCKB7clwULXyeS
+    youtube: "@packetpushers"
+    apple: the-cloud-gambit/id1720875955
+    description: Unravels the state of cloud computing, markets, strategy, and emerging trends. Delivers valuable conversations with industry mavens that educate and empower listeners on innovation and opportunity.
+    hosts:
+      - William Collins
+      - Eyvonne Sharp
+    frequency: bi-weekly
+    duration: 40-60 minutes per episode
+    topics_covered:
+      - Cloud architecture and engineering
+      - Tech leadership and project management
+      - AI agents and identity management
+      - Progressive delivery and deployment
+
+  - name: "Software Gone Wild"
+    website: https://www.ipspace.net/Podcast/Software_Gone_Wild/
+    status: publishing
+    publisher: IPSpace.net
+    spotify: 4vWT2SzjRbfhutQD3c88Qr
+    youtube: "@ipspace"
+    apple: software-gone-wild/id892095911
+    description: A podcast focusing on real-life SDN, NFV, and SDDC architectures and solutions that work outside of the cozy environment of vendor-branded PowerPoint.
+    hosts:
+      - Ivan Pepelnjak
+      - Christopher Young
+      - David Gee
+      - Elisa Jasinska
+      - Nick Buraglio
+    frequency: monthly
+    duration: 40-60 minutes per episode
+    topics_covered:
+      - Software-Defined Networking (SDN)
+      - EVPN and VXLAN architectures
+      - Production network solutions
+      - Network automation
+
+  - name: "Network Automation Nerds"
+    website: https://packetpushers.net/podcast/network-automation-nerds/
+    status: publishing
+    publisher: Packet Pushers
+    spotify: 24feK9uvQNAMf71dHqAXBG
+    youtube: "@packetpushers"
+    apple: network-automation-nerds-podcast/id1128239093
+    description: Designed for network engineers and infrastructure professionals eager to learn more about automation. Explores how to take advantage of modern network programmability to automate tasks and build robust systems.
+    hosts:
+      - Eric Chou
+    frequency: bi-weekly
+    duration: 30-60 minutes per episode
+    topics_covered:
+      - Network automation frameworks
+      - Python for network engineers
+      - Programmability and APIs
+      - AI integration in operations
+
+python:
+  - name: Talk Python To Me
+    website: https://talkpython.fm
+    status: publishing
+    publisher: Michael Kennedy
+    spotify: 6Ol9sx1lONDxBSffLW9qcZ
+    youtube: "@talkpython"
+    apple: talk-python-to-me/id979020229
+    description: A weekly podcast diving deep into popular packages and software developers, data scientists, and hobbyists doing amazing things with Python.
+    hosts:
+      - Michael Kennedy
+    frequency: weekly
+    duration: 60-80 minutes per episode
+    topics_covered:
+      - Python software engineering
+      - Data science and web development
+      - Open-source packages and tools
+      - AI and LLM building blocks
+
+  - name: Python Bytes
+    website: https://pythonbytes.fm
+    status: publishing
+    publisher: Michael Kennedy & Brian Okken
+    spotify: 5o8820UB982QGwS4GYMGx9
+    youtube: "@pythonbytes"
+    apple: python-bytes/id1174922056
+    description: A podcast delivering Python news and headlines directly to your earbuds, highlighting the latest releases, tools, and updates in the ecosystem.
+    hosts:
+      - Michael Kennedy
+      - Brian Okken
+    frequency: weekly
+    duration: 20-30 minutes per episode
+    topics_covered:
+      - Python news and releases
+      - Developer tools and utilities
+      - Industry updates and trends
+      - Package highlights
+
+golang:
+  - name: Go Time
+    website: https://changelog.com/gotime
+    status: retired
+    publisher: Changelog Media
+    spotify: 2cKdcxETn7jDp7uJCwqmSE
+    youtube: "@ChangelogMedia"
+    apple: it-is-go-time-go-time/id1164554936
+    description: Diverse discussions from around the Go community exploring the language, tooling, and its ecosystem. Note that this podcast recorded its finale in December 2024.
+    hosts:
+      - Mat Ryer
+      - Jerod Santo
+      - Johnny Boursiquot
+      - Natalie Pistunovich
+    frequency: retired (formerly weekly)
+    duration: 60-90 minutes per episode
+    topics_covered:
+      - Golang programming and patterns
+      - Software engineering best practices
+      - Command-line interfaces
+      - Web services and cloud native apps

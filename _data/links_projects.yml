@@ -1,36 +1,24 @@
 ---
 devops:
-  - name: Ansible
-    url: https://www.ansible.com/blog
-    description: Infrastructure automation
+  - name: MKDocs
+    url: https://mkdocs.org
+    description: MKDocs is a fast, modern, and downright gorgeous static site generator for MkDocs, based on Material for MkDocs.
 
-  - name: GitLabs
-    url: https://about.gitlab.com/blog
-    description: git hosting & CI/CD Platform
+  - name: Material for MKDocs
+    url: https://squidfunk.github.io/mkdocs-material/
+    description: Material for MkDocs is a modern, responsive, and accessible theme for MkDocs.
 
-  - name: Pre-Commit
-    url: https://pre-commit.com
-    description: A framework for managing & maintaining multi-language pre-commit hooks.
+  - name: zensical
+    url: https://zensical.org
+    description: Zensical creates scalable Open Source systems for technical writing that always keep you in the flow.
 
-  - name: Schema-Enforcer
-    url: https://github.com/networktocode/schema-enforcer
-    description: A framework for testing structured data against schema definitions.
+  - name: PREK
+    url: https://prek.j178.dev
+    description: Better `pre-commit`, re-engineered in Rust
 
   - name: dyff
     url: https://github.com/homeport/dyff
     description: YAML Diff tool
-
-  - name: VS Code Remote Collection
-    url: https://github.com/microsoft/vscode-remote-release
-    description:
-
-  - name: VS Code
-    url: https://code.visualstudio.com
-    description: IDE & more
-
-  - name: win-get CLI
-    url: https://github.com/microsoft/winget-cli
-    description: MS offical brew/pip like package manager
 
   - name: Ansible Molecule
     url: https://github.com/ansible-community/molecule
@@ -48,25 +36,13 @@ devops:
     url: https://github.com/adrienverge/yamllint
     description: Test your that your YAML is valid & follows good form.
 
-  - name: Markdwonlint-cli
-    url: https://github.com/igorshubovych/markdownlint-cli
-    description: Test your that your Markdown is valid & follows good form.
-
-  - name: pipeline-components
-    url: https://gitlab.com/pipeline-components
-    description: Collection of docker containers for running in gitlab pipelines. Designed to be small & fast
-
-  - name: cytopia/docker-ansible
-    url: https://github.com/cytopia/docker-ansible
-    description: Collection of ansible docker containers for running in CI pipelines.
+  - name: rumdl
+    url: https://rumdl.dev
+    description: A high-performance Markdown linter and formatter, written in Rust
 
   - name: jsondiff
     url: https://github.com/xlwings/jsondiff
     description: JSON Diff tool
-
-  - name: ARA
-    url: https://github.com/ansible-community/ara
-    description: Ansible Output Recorder/Visualizer
 
   - name: How They Test
     url: https://abhivaikar.github.io/howtheytest
@@ -76,13 +52,6 @@ monitoring:
   - name: HyperGlass
     url: https://hyperglass.io
     description: Modern Looking Glass project for views into BGP
-
-  - name: Orb.
-    url: https://github.com/ns1labs/orb
-    description: A new network observability platform based on pktvisor.
-
-  - name: EOS TIG Stack Repo
-    url: https://github.com/arista-netdevops-community/arista_eos_streaming_telemetry_with_gnmi_and_telegraf
 
   - name: SuzieQ
     url: https://www.stardustsystems.net/suzieq
@@ -102,72 +71,120 @@ monitoring:
 
 network_automation:
   - name: NetBox
-    url: https://netbox.dev
-    description: IPAM, DCIM, &  the tools to integrate with it
+    url: https://netboxlabs.com/docs/netbox/?focus=community
+    description: IPAM and DCIM for the modern network engineer
 
-  - name: Arista AVD for Ansible
-    url: https://avd.sh
-    description: Ansible collections built around Arista Validated Designs & way more
+  - name: Infrahub
+    url: https://docs.infrahub.app
+    description: Schema Driven Infrastructure Data Management Platform
 
-  - name: netsim-tools
-    url: https://github.com/ipspace/netsim-tools
-    description: Tool for the management of virtual network labs
+  - name: Arista AVD
+    url: https://avd.arista.com
+    description: Arista AVD is an extensible data model that defines Arista’s Unified Cloud Network architecture as “code”.
 
-  - name: CONTAINERlab
-    url: https://containerlab.srlinux.dev
+  - name: ContainerLab
+    url: https://containerlab.dev
     description: Tool for the management of container based network albs
-
-  - name: Arista AVD Dev Docker Image
-    url: https://github.com/arista-netdevops-community/docker-avd-base
-    description: Great reference for building your own devcontainer
-
-  - name: netcli-highlight
-    url: https://github.com/danielmacuare/netcli-highlight
-    description: Syntax Highlighter for Juniper/Cisco/Arista CLI (Via SSH)
-
-  - name: Snipe-IT
-    url: https://snipeitapp.com
-    description: IT Asset Management
-
-  - name: Topology Converter
-    url: https://gitlab.com/cumulus-consulting/tools/topology_converter
-    description: Simplifies Vagrant Topology File Creation
-
-  - name: Networking Icons
-    url: https://github.com/network-automation/networking-icons
-    description: SVG/PNG Networking Icons
-
-  - name: Batfish
-    url: https://www.batfish.org
-    description: An open source network configuration analysis tool
-
-  - name: Peering Manager
-    url: https://github.com/peering-manager/peering-manager
-    description: A BGP session management tool.
-
-  - name: Nornir
-    url: https://github.com/nornir-automation/nornir
-    description: A Python automation framework for network automation
-
-  - name: drawthe.net
-    url: https://github.com/cidrblock/drawthe.net
-    description: YAML based Network Diagrams
-
-  - name: Network Icons in SVG
-    url: https://github.com/8radm1n/network-icons-svg
-
-  - name: vrnetlab
-    url: https://github.com/plajjan/vrnetlab
-    description: Run virtual routers with docker
 
   - name: Awesome Network Automation
     url: https://github.com/networktocode/awesome-network-automation
     description: Curated list of Network Automation Links
 
-  - name: Capirca
-    url: https://github.com/google/capirca
-    description: Multi-platform ACL generation system
+  - name: scrapli
+    url: https://carlmontanari.github.io/scrapli
+    description: scrapli -- scrap(e c)li -- is a set of libraries created to interact with devices via the CLI, and NETCONF.
 
-  - name: NetOps Quickstart
-    url: https://github.com/Vista-Technology/netops-quickstart
-    description: Not a software project, but IAC example repo pulling many operational components together.
+  - name: scrapligo
+    url: https://github.com/scrapli/scrapligo
+    description: scrapligo -- scrap(e c)li (but in go!) -- is a Go library focused on connecting to devices, specifically network devices (routers/switches/firewalls/etc.) via SSH and NETCONF.
+
+  - name: NetUtils
+    url: https://netutils.readthedocs.io
+    description: NetUtils is a collection of network utilities for Python.
+
+ai:
+  - name: UTCP Code Mode
+    url: https://github.com/universal-tool-calling-protocol/code-mode
+    description: UTCP Code Mode is a tool for calling tools from within code.
+
+  - name: Awesome MCP Servers
+    url: https://glama.ai/mcp/servers
+    description: Curated list of MCP Servers
+
+  - name: toon
+    url: https://toonformat.dev
+    description: A compact, human-readable encoding of the JSON data model for LLM prompts.
+
+  - name: NetClaw
+    url: https://github.com/automateyournetwork/netclaw
+    description: An AI agent that claws through your network.
+
+  - name: GitPacketCopilot
+    url: https://github.com/automateyournetwork/GitPacketCopilot
+    description: Add a .pcap(ng); automated reporting; all powered by GitActions, Gemini-CLI, and Packet Copilot MCP
+
+  - name: GeminiCLI Packet Buddy Extension
+    url: https://github.com/automateyournetwork/GeminiCLI_Packet_Buddy_Extension
+    description: A Gemini CLI extension that uses RAG and MCP and Custom Slash Commands to analyze packet captures
+
+python:
+  - name: FastAPI
+    url: https://fastapi.tiangolo.com
+    description: FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7+ based on standard Python type hints.
+
+  - name: Typer
+    url: https://typer.tiangolo.com
+    description: Typer is a Python CLI framework based on Click, but built with type annotations in mind.
+
+  - name: Rich
+    url: https://rich.readthedocs.io
+    description: Rich is a Python library for rich text and beautiful formatting in the terminal.
+
+  - name: Loguru
+    url: https://loguru.readthedocs.io/en/stable/
+    description: Python logging made (stupidly) simple.
+
+  - name: Cyclopts
+    url: https://cyclopts.readthedocs.io/en/stable/
+    description: Cyclopts is a modern, easy-to-use command-line interface (CLI) framework that aims to provide an intuitive & efficient developer experience.
+
+  - name: Pydantic
+    url: https://docs.pydantic.dev
+    description: Pydantic is the most widely used data validation library for Python.
+
+  - name: Awesome Python
+    url: https://awesome-python.com
+    description: Curated list of Python links
+
+  - name: Ruff
+    url: https://docs.astral.sh/ruff/
+    description: An extremely fast Python linter and code formatter, written in Rust.
+
+  - name: ty
+    url: https://docs.astral.sh/ty/
+    description: An extremely fast Python type checker and language server, written in Rust.
+
+  - name: uv
+    url: https://docs.astral.sh/uv/
+    description: An extremely fast Python package and project manager, written in Rust.
+
+golang:
+  - name: Awesome Go
+    url: https://awesome-go.com
+    description: Curated list of GoLang links
+
+  - name: Gin
+    url: https://gin-gonic.com/
+    description: The fastest full-featured web framework for Go. Crystal clear.
+
+  - name: Cobra
+    url: https://cobra.dev
+    description: A Commander for modern Go CLI interactions
+
+  - name: Viper
+    url: https://github.com/spf13/viper
+    description: Go configuration with fangs
+
+  - name: Logrus
+    url: https://github.com/sirupsen/logrus
+    description: Structured logging for Go
