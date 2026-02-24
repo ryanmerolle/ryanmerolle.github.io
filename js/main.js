@@ -35,20 +35,10 @@ function init(panelCover) {
       if (panelCover.offsetWidth < 960) {
         collapsePanel();
         if (contentWrapper) contentWrapper.classList.add('animated', 'slideInRight');
-      } else {
-        // Prevent immediate navigation so the CSS transition can complete first
-        e.preventDefault();
-        var href = btn.getAttribute('href');
-        collapsePanel();
-        panelCover.addEventListener('transitionend', function handler() {
-          panelCover.removeEventListener('transitionend', handler);
-          if (window.Turbo) {
-            window.Turbo.visit(href);
-          } else {
-            window.location.href = href;
-          }
-        });
       }
+      // On desktop (>= 960), we do NOT collapse immediately.
+      // We let Turbo fetch the new page natively. Once it renders the new page,
+      // turbo:load will trigger the collapse transition so the new content is revealed.
     });
   });
   {% endif %}
@@ -68,6 +58,9 @@ function init(panelCover) {
   }
 
   function toggleMobileNav() {
+    // Only toggle the mobile navigation visibility if the mobile menu button is actually visible
+    if (!mobileMenu || mobileMenu.offsetWidth === 0) return;
+
     var opening = navWrapper && !navWrapper.classList.contains('visible');
 
     if (navWrapper) {
@@ -145,13 +138,62 @@ document.addEventListener('turbo:load', function() {
 
   if (isHomePage()) {
     if (panelCover.classList.contains('panel-cover--collapsed')) {
-      // Returning home via Turbo, expand it smoothly
-      panelCover.classList.remove('panel-cover--collapsed');
+      // Returning home via Turbo (if not caught by before-render, or on fallback), expand it.
+      requestAnimationFrame(function () {
+        panelCover.style.transition = '';
+        panelCover.classList.remove('panel-cover--collapsed');
+      });
     }
   } else {
-    // Not home, collapse it
+    // Navigating to a content page
     if (!panelCover.classList.contains('panel-cover--collapsed')) {
-      panelCover.classList.add('panel-cover--collapsed');
+      // It is currently expanded. Force reflow, then apply the collapsed
+      // class so the browser animates the CSS transition.
+      void panelCover.offsetHeight;
+      requestAnimationFrame(function () {
+        panelCover.style.transition = '';
+        panelCover.classList.add('panel-cover--collapsed');
+      });
+    }
+  }
+  {% endif %}
+});
+
+// Intercept Turbo rendering to delay it if we are returning to the home page
+// from a content page, allowing the panel to slide shut over the old content first.
+document.addEventListener('turbo:before-render', function(e) {
+  {% if site.disable_landing_page != true %}
+  var panelCover = document.querySelector('.panel-cover');
+  if (!panelCover) return;
+
+  // During turbo:before-render, window.location has already been updated
+  // to the destination URL, so isHomePage() reflects the target page.
+  if (isHomePage()) {
+    if (panelCover.classList.contains('panel-cover--collapsed')) {
+      // Pause Turbo's rendering process
+      e.preventDefault();
+      
+      // Start expanding the panel to cover the old content
+      panelCover.style.transition = '';
+      panelCover.classList.remove('panel-cover--collapsed');
+
+      // Wait for the panel's CSS transition to finish 
+      // before allowing Turbo to swap the DOM elements
+      var transitionHandler = function() {
+        panelCover.removeEventListener('transitionend', transitionHandler);
+        e.detail.resume();
+      };
+      
+      // Add a small timeout fallback just in case transitionend somehow doesn't fire
+      var fallbackTimer = setTimeout(function() {
+        panelCover.removeEventListener('transitionend', transitionHandler);
+        e.detail.resume();
+      }, 1000); // the CSS transition takes 0.6s max
+
+      panelCover.addEventListener('transitionend', function wrapper() {
+        clearTimeout(fallbackTimer);
+        transitionHandler();
+      });
     }
   }
   {% endif %}
