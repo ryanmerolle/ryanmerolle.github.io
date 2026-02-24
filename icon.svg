@@ -9,6 +9,32 @@
     </filter>
   </defs>
 
+<style>
+    /* Default (Light Mode) Colors */
+    .network-lines {
+      stroke: #0055ff;
+    }
+    .network-nodes {
+      fill: #00bbff;
+    }
+    .inner-nodes {
+      fill: #ffffff;
+    }
+
+    /* Dark Mode Colors */
+    @media (prefers-color-scheme: dark) {
+      .network-lines {
+        stroke: #4da6ff; /* Lighter, brighter blue */
+      }
+      .network-nodes {
+        fill: #00e6ff; /* Bright cyan */
+      }
+      .inner-nodes {
+        fill: #1a1a1a; /* Dark gray/black to match dark tabs */
+      }
+    }
+  </style>
+
   <path d="
     M300,120 L173,173 L120,300 L173,427 L300,480 L427,427 L480,300 L427,173 Z
     M340,231 L220,300 L340,369 Z

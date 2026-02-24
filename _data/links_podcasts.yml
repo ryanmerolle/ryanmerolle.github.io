@@ -15,7 +15,7 @@ ai:
     description: The AI Daily Brief is a daily video podcast about the most important news and discussions in AI. New models, case studies, enterprise use cases, tips and tutorials, plus a dose of discussion of global impact.
     hosts:
       - Nathaniel Whittemore aka NLW
-    frequency: 6 days a week
+    frequency: daily
     duration: 20-25 minutes per episode
     topics_covered:
       - AI industry news and developments
@@ -97,7 +97,7 @@ it:
       - David Gee
       - Elisa Jasinska
       - Nick Buraglio
-    frequency: monthly
+    frequency: Ad-Hoc
     duration: 40-60 minutes per episode
     topics_covered:
       - Software-Defined Networking (SDN)
