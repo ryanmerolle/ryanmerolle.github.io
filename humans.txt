@@ -5,10 +5,27 @@ sitemap: false
 
 /* TEAM */
 Name: Ryan Merolle
-GitHub: @ryanmerolle
-GitLab: @ryanmerolle
-LinkedIn: ryanmerolle
-X: @ryanmerolle
+{%- for link in site.data.social_links -%}
+{%- assign match_url = nil -%}
+{%- assign author_val = nil -%}
+{%- for url in site.social.links -%}
+{%- if url contains link.url_prefix -%}
+{%- assign match_url = url -%}
+{%- assign author_val = url | replace: link.url_prefix, "" | remove: "/" -%}
+{%- break -%}
+{%- endif -%}
+{%- endfor -%}
+{%- if match_url == nil and link.author_key -%}
+{%- assign explicit_val = site.author[link.author_key] -%}
+{%- if explicit_val != nil and explicit_val != empty -%}
+{%- assign author_val = explicit_val -%}
+{%- assign match_url = link.url_prefix | append: author_val -%}
+{%- endif -%}
+{%- endif -%}
+{%- if match_url %}
+{{ link.name }}: {% if link.name == 'LinkedIn' %}{{ author_val }}{% else %}@{{ author_val }}{% endif %}
+{%- endif -%}
+{%- endfor %}
 
 /* SITE */
 Last update: {{ site.time | date: "%Y/%m/%d" }}

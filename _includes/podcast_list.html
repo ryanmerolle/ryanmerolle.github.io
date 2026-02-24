@@ -1,0 +1,51 @@
+{% comment %}
+  _includes/podcast_list.html
+  Renders podcast cards for a single category.
+
+  Parameters:
+    include.category_key   — key in site.data.links_podcasts (e.g. "ai")
+    include.category_label — display heading text (e.g. "AI")
+
+  IMPORTANT: HTML block elements must NOT be indented ≥4 spaces here.
+  Kramdown (Jekyll's default markdown parser) treats any block indented
+  ≥4 spaces as a code block, which would render the raw HTML as source.
+{% endcomment %}
+{% assign podcasts = site.data.links_podcasts[include.category_key] %}
+{% if podcasts.size > 0 %}
+{% assign base_spotify = site.data.links_podcasts.base_urls.spotify %}
+{% assign base_youtube = site.data.links_podcasts.base_urls.youtube %}
+{% assign base_apple   = site.data.links_podcasts.base_urls.apple %}
+{% assign sorted_podcasts = podcasts | sort_natural: "name" %}
+
+<h3>{{ include.category_label }}</h3>
+
+{% for podcast in sorted_podcasts %}
+<div class="podcast-card">
+<div class="podcast-card__header">
+<div class="podcast-card__title">
+<a href="{{ podcast.website }}">{{ podcast.name }}</a>
+{% if podcast.status == "retired" %}<span class="podcast-card__badge--retired">Retired</span>{% endif %}
+</div>
+<div class="podcast-card__icons">
+{% unless podcast.youtube == blank or podcast.youtube contains "<" %}
+<a href="{{ base_youtube }}{{ podcast.youtube }}" title="YouTube" target="_blank" rel="noopener" class="podcast-icon podcast-icon--youtube" aria-label="{{ podcast.name }} on YouTube">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" width="22" height="22" aria-hidden="true" focusable="false"><path d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 163.502-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.121z"/></svg>
+</a>
+{% endunless %}
+{% unless podcast.spotify == blank or podcast.spotify contains "<" %}
+<a href="{{ base_spotify }}{{ podcast.spotify }}" title="Spotify" target="_blank" rel="noopener" class="podcast-icon podcast-icon--spotify" aria-label="{{ podcast.name }} on Spotify">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" width="22" height="22" aria-hidden="true" focusable="false"><path d="M248 8C111.1 8 0 119.1 0 256s111.1 248 248 248 248-111.1 248-248S384.9 8 248 8zm100.7 364.9c-4.2 0-6.8-1.3-10.7-3.6-62.4-37.6-135-39.2-206.7-24.5-3.9 1-9 2.6-11.9 2.6-9.7 0-15.8-7.7-15.8-15.8 0-10.3 6.1-15.2 13.6-16.8 81.9-18.1 165.6-16.5 237 26.2 6.1 3.9 9.7 7.4 9.7 16.5s-7.1 15.4-15.2 15.4zm26.9-65.6c-5.2 0-8.7-2.3-12.3-4.2-62.5-37-155.7-51.9-238.6-29.4-4.8 1.3-7.4 2.6-11.9 2.6-10.7 0-19.4-8.7-19.4-19.4s5.2-17.8 15.5-20.7c27.8-7.8 56.2-13.6 97.8-13.6 64.9 0 127.6 16.1 177 45.5 8.1 4.8 11.3 11 11.3 19.7-.1 10.8-8.5 19.5-19.4 19.5zm31-76.2c-5.2 0-8.4-1.3-12.9-3.9-71.2-42.5-198.5-52.7-280.9-29.7-3.6 1-8.1 2.6-12.9 2.6-13.2 0-23.3-10.3-23.3-23.6 0-13.6 8.4-21.3 17.4-23.9 35.2-10.3 74.6-15.2 117.5-15.2 73 0 149.5 15.2 205.4 47.8 7.8 4.5 12.9 10.7 12.9 22.6 0 13.6-11 23.3-23.2 23.3z"/></svg>
+</a>
+{% endunless %}
+{% unless podcast.apple == blank or podcast.apple contains "<" %}
+<a href="{{ base_apple }}{{ podcast.apple }}" title="Apple Podcasts" target="_blank" rel="noopener" class="podcast-icon podcast-icon--apple" aria-label="{{ podcast.name }} on Apple Podcasts">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="22" height="22" aria-hidden="true" focusable="false"><path d="M150 0C67.16 0 0 67.16 0 150s67.16 150 150 150 150-67.16 150-150S232.84 0 150 0zm0 28.13c67.29 0 121.88 54.58 121.88 121.87S217.29 271.88 150 271.88 28.13 217.29 28.13 150 82.71 28.13 150 28.13zm0 41.3c-11.04 0-20 8.96-20 20s8.96 20 20 20 20-8.96 20-20-8.96-20-20-20zm-25 55c-8.28 0-15 6.72-15 15 0 6.87 4.63 12.64 10.94 14.38l10.31 61.88c1.29 7.72 7.94 13.44 15.75 13.44h6c7.81 0 14.46-5.72 15.75-13.44l10.31-61.88C185.37 152.07 190 146.3 190 139.43c0-8.28-6.72-15-15-15h-50z"/></svg>
+</a>
+{% endunless %}
+</div>
+</div>
+<div class="podcast-card__meta">{{ podcast.publisher }} · {{ podcast.frequency }} · {{ podcast.duration }}</div>
+<div class="podcast-card__description">{{ podcast.description }}</div>
+</div>
+{% endfor %}
+{% endif %}

@@ -1,7 +1,7 @@
 ---
 # Site settings
 title: "Ryan Merolle"
-description: "Ryan Merolle / Network Engineering / Infrastructure Automation"
+description: "Network Engineering / Infrastructure Automation / DevOps"
 url: "https://www.merolle.net"
 image: 
   path: "/images/favicons/favicon-194x194.png"
@@ -13,16 +13,11 @@ logo: "/images/profile.webp"
 author:
   name: "Ryan Merolle"
   # email:
-  github_username: ryanmerolle
-  gitlab_username: ryanmerolle
-  linkedin_username: ryanmerolle
-  twitter_username: ryanmerolle
 
 social:
   name: Ryan Merolle
   links:
     - https://x.com/ryanmerolle
-    - https://www.facebook.com/ryanmerolle
     - https://www.linkedin.com/in/ryanmerolle
     - https://github.com/ryanmerolle
     - https://gitlab.com/ryanmerolle

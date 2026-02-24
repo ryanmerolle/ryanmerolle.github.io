@@ -4,45 +4,22 @@ sitemap:
   exclude: 'yes'
 ---
 
-document.addEventListener('DOMContentLoaded', function () {
-  init();
-
-  {% if site.disable_landing_page != true %}
-  var panelCover = document.querySelector('.panel-cover');
-  if (window.location.pathname !== '{{ site.baseurl }}/' &&
-             window.location.pathname !== '{{ site.baseurl }}/index.html') {
-    // Content page: collapse panel immediately (no animation needed)
-    if (panelCover) panelCover.style.transition = 'none';
-    if (panelCover) panelCover.classList.add('panel-cover--collapsed');
-    if (panelCover) {
-      panelCover.offsetHeight;
-      requestAnimationFrame(function () {
-        panelCover.style.transition = '';
-      });
-    }
-  } else if (panelCover && document.referrer.indexOf(window.location.origin) === 0) {
-    // Returning from another page on this site: snap to collapsed then expand smoothly
-    panelCover.style.transition = 'none';
-    panelCover.classList.add('panel-cover--collapsed');
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        panelCover.style.transition = '';
-        panelCover.classList.remove('panel-cover--collapsed');
-      });
-    });
-  }
-  {% endif %}
-});
+{% if site.disable_landing_page != true %}
+// Shared helper: is the current page the landing/home page?
+function isHomePage() {
+  var path = window.location.pathname;
+  return path === '{{ site.baseurl }}/' || path === '{{ site.baseurl }}/index.html';
+}
+{% endif %}
 
 // Single initialization function to avoid duplicate listeners on permanent elements
 var initialized = false;
 
-function init() {
+function init(panelCover) {
   if (initialized) return;
   initialized = true;
 
   {% if site.disable_landing_page != true %}
-  var panelCover = document.querySelector('.panel-cover');
   var contentWrapper = document.querySelector('.content-wrapper');
 
   function collapsePanel() {
@@ -80,17 +57,37 @@ function init() {
   var navWrapper = document.querySelector('.navigation-wrapper');
   var menuIcon = document.querySelector('.btn-mobile-menu__icon');
 
+  function playAnimation(element, animationClass, extraClassesToAdd) {
+    if (!element) return;
+    element.classList.remove('animated', animationClass);
+    if (extraClassesToAdd) {
+      element.classList.add(extraClassesToAdd);
+    }
+    void element.offsetHeight; // force reflow
+    element.classList.add('animated', animationClass);
+  }
+
   function toggleMobileNav() {
+    var opening = navWrapper && !navWrapper.classList.contains('visible');
+
     if (navWrapper) {
-      navWrapper.classList.toggle('visible');
-      navWrapper.classList.toggle('animated');
-      navWrapper.classList.toggle('bounceInDown');
+      if (opening) {
+        playAnimation(navWrapper, 'fadeInDown', 'visible');
+      } else {
+        navWrapper.classList.remove('visible', 'animated', 'fadeInDown');
+      }
     }
     if (menuIcon) {
       menuIcon.classList.toggle('fa-bars');
       menuIcon.classList.toggle('fa-circle-xmark');
-      menuIcon.classList.toggle('animated');
-      menuIcon.classList.toggle('fadeIn');
+      if (opening) {
+        playAnimation(menuIcon, 'fadeIn');
+      } else {
+        menuIcon.classList.remove('animated', 'fadeIn');
+      }
+    }
+    if (mobileMenu) {
+      mobileMenu.setAttribute('aria-expanded', String(opening));
     }
   }
 
@@ -98,28 +95,55 @@ function init() {
     mobileMenu.addEventListener('click', toggleMobileNav);
   }
 
+  // Close mobile nav when a nav link is clicked (reuse toggleMobileNav
+  // so the animation and aria-expanded state stay consistent)
   document.querySelectorAll('.navigation-wrapper .blog-button').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      if (navWrapper) navWrapper.classList.toggle('visible');
-      if (menuIcon) {
-        menuIcon.classList.toggle('fa-bars');
-        menuIcon.classList.toggle('fa-circle-xmark');
-        menuIcon.classList.toggle('animated');
-        menuIcon.classList.toggle('fadeIn');
-      }
-    });
+    btn.addEventListener('click', toggleMobileNav);
   });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  {% if site.disable_landing_page != true %}
+  var panelCover = document.querySelector('.panel-cover');
+  {% endif %}
+
+  init({% if site.disable_landing_page != true %}panelCover{% endif %});
+
+  {% if site.disable_landing_page != true %}
+  function setInitialPanelState(panelCover, isHome) {
+    if (!panelCover) return;
+    
+    if (!isHome) {
+      // Content page: collapse panel immediately (no animation needed)
+      panelCover.style.transition = 'none';
+      panelCover.classList.add('panel-cover--collapsed');
+      void panelCover.offsetHeight; // force reflow
+      requestAnimationFrame(function () {
+        panelCover.style.transition = '';
+      });
+    } else if (document.referrer.indexOf(window.location.origin) === 0) {
+      // Returning from another page on this site: snap to collapsed then expand smoothly
+      panelCover.style.transition = 'none';
+      panelCover.classList.add('panel-cover--collapsed');
+      void panelCover.offsetHeight; // force reflow
+      requestAnimationFrame(function () {
+        panelCover.style.transition = '';
+        panelCover.classList.remove('panel-cover--collapsed');
+      });
+    }
+  }
+
+  setInitialPanelState(panelCover, isHomePage());
+  {% endif %}
+});
 
 // For Turbo, when navigation happens to a new page, adjust panel state
 document.addEventListener('turbo:load', function() {
   {% if site.disable_landing_page != true %}
   var panelCover = document.querySelector('.panel-cover');
   if (!panelCover) return;
-  
-  var isHome = window.location.pathname === '{{ site.baseurl }}/' || window.location.pathname === '{{ site.baseurl }}/index.html';
-  
-  if (isHome) {
+
+  if (isHomePage()) {
     if (panelCover.classList.contains('panel-cover--collapsed')) {
       // Returning home via Turbo, expand it smoothly
       panelCover.classList.remove('panel-cover--collapsed');

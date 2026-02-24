@@ -1,11 +1,23 @@
 ---
 ---
+// =============================================================================
+// main.scss  —  Entry point for Jekyll's Sass pipeline
+//
+// uno.scss is the full design system (variables → reset → typography →
+// layout → navigation → components → animate).
+// This file adds only the extra partials and site-specific overrides that
+// do not belong inside the core theme.
+// =============================================================================
+
 @import "uno";
 @import "tables";
 @import "monokai";
 
-/* Modifications */
+// ---------------------------------------------------------------------------
+// Site-specific overrides
+// ---------------------------------------------------------------------------
 
+// Syntax-highlight block padding (monokai theme doesn't set this)
 pre.highlight,
 .highlight pre {
   padding: 10px;
@@ -14,125 +26,4 @@ pre.highlight,
 pre.highlight code,
 .highlight pre code {
   white-space: pre-wrap;
-}
-
-.btn,
-.navigation__item a {
-  margin: 5px 0;
-  white-space: nowrap;
-}
-
-.pagination__page-number {
-  display: inline-block;
-  padding: 10px;
-}
-
-.categories a,
-.tags a {
-  border: 1px solid #e25440;
-  border-radius: 20px;
-  color: #e25440;
-  display: inline-block;
-  font-size: 12px;
-  margin: 5px 0;
-  padding: 5px 10px;
-  text-shadow: none;
-  white-space: nowrap;
-}
-
-.post-meta__tags {
-  font-size: 12px;
-  padding: 0 5px;
-}
-
-.footer__copyright {
-    margin: 0 20px 10px;
-}
-
-.user-image {
-  margin-bottom: 1.2em;
-  position: relative;
-  width: 200px;
-  height: 200px;
-  border-radius:100%;
-}
-
-/* Podcast cards */
-.podcast-card {
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 12px;
-  transition: box-shadow 0.2s ease;
-
-  &:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  }
-}
-
-.podcast-card__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.podcast-card__title {
-  font-size: 16px;
-  font-weight: 600;
-
-  a {
-    text-decoration: none;
-    color: #e25440;
-    &:hover { text-decoration: underline; }
-  }
-}
-
-.podcast-card__badge--retired {
-  display: inline-block;
-  background: #888;
-  color: #fff;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 2px 8px;
-  border-radius: 10px;
-  margin-left: 8px;
-  vertical-align: middle;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.podcast-card__icons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.podcast-icon {
-  display: inline-flex;
-  opacity: 0.7;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
-.podcast-icon--youtube svg { fill: #FF0000; }
-.podcast-icon--spotify svg { fill: #1DB954; }
-.podcast-icon--apple svg  { fill: #9933CC; }
-
-.podcast-card__meta {
-  font-size: 13px;
-  color: #777;
-  margin-top: 6px;
-}
-
-.podcast-card__description {
-  font-size: 14px;
-  margin-top: 8px;
-  line-height: 1.5;
-  color: #444;
 }

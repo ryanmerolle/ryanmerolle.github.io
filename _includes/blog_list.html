@@ -1,0 +1,16 @@
+{% comment %}
+  _includes/blog_list.html
+  Renders a sorted list of blogs from site.data.links_blogs.
+
+  No parameters — the data file is a flat list (not categorised).
+{% endcomment %}
+
+{% assign sorted_blogs = site.data.links_blogs | sort_natural: "name" %}
+
+<ul>
+  {% for blog in sorted_blogs %}
+    <li>
+      <a href="{{ blog.url }}">{{ blog.name }}</a>{% if blog.author %} — {{ blog.author }}{% endif %}{% if blog.description %} — {{ blog.description }}{% endif %}
+    </li>
+  {% endfor %}
+</ul>
