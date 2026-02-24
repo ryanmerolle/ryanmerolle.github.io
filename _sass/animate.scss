@@ -23,21 +23,19 @@
 }
 .slideInRight { animation-name: slideInRight; }
 
-// bounceInDown — used for mobile navigation dropdown
-@keyframes bounceInDown {
-  from, 60%, 75%, 90%, to {
-    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-  }
-  0% {
+// fadeInDown — smooth dropdown for mobile navigation (no bounce)
+@keyframes fadeInDown {
+  from {
     opacity: 0;
-    transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -20px, 0);
   }
-  60% {
+  to {
     opacity: 1;
-    transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 0, 0);
   }
-  75% { transform: translate3d(0, -10px, 0); }
-  90% { transform: translate3d(0, 5px, 0); }
-  to  { transform: none; }
 }
-.bounceInDown { animation-name: bounceInDown; }
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}

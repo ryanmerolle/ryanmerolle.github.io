@@ -1,0 +1,23 @@
+{% comment %}
+  _includes/project_list.html
+  Renders a sorted project list for a single category.
+
+  Parameters:
+    include.category_key   — key in site.data.links_projects (e.g. "ai")
+    include.category_label — display heading text (e.g. "AI")
+{% endcomment %}
+
+{% assign projects = site.data.links_projects[include.category_key] %}
+{% if projects.size > 0 %}
+  {% assign sorted_projects = projects | sort_natural: "name" %}
+
+  <h3>{{ include.category_label }}</h3>
+
+  <ul>
+    {% for project in sorted_projects %}
+      <li>
+        <a href="{{ project.url }}">{{ project.name }}</a>{% if project.description %} — {{ project.description }}{% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

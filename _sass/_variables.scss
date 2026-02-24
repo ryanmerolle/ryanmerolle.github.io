@@ -1,0 +1,101 @@
+// =============================================================================
+// _variables.scss
+// Design tokens: CSS custom properties + SCSS convenience aliases.
+// All colour, typography, spacing, and transition values live here.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// CSS Custom Properties (usable anywhere in plain CSS / Liquid templates)
+// -----------------------------------------------------------------------------
+:root {
+  // Colors
+  --primary:          #e25440;    // brand red
+  --primary-dark:     #b9301c;    // hover / active state
+  --primary-light:    #fae3df;    // selection highlight
+
+  --text:             #666666;    // body text
+  --text-dark:        #333333;    // headings
+  --text-muted:       #999999;    // excerpts, meta
+  --text-subtle:      #c7c7c7;    // dates, tags, post-meta
+
+  --bg:               #ffffff;    // page background
+  --bg-alt:           #f8f8f8;    // blockquote / light wells
+  --border:           #dddddd;    // dividers, inputs
+  --border-light:     #eeeeee;    // blockquote border
+
+  // Overlay / panel
+  --overlay-dark:     rgba(68, 68, 68, 0.6);
+  --overlay-darker:   rgba(0, 0, 0, 0.9);
+  --panel-bg:         rgba(51, 51, 51, 0.98);
+  --mobile-bar-bg:    rgba(0, 0, 0, 0.40);
+
+  // Code
+  --code-bg:          #e8f2fb;
+  --code-border:      #c9e1f6;
+  --code-focus-border:#5ba4e5;
+  --placeholder:      #cccccc;
+
+  // Typography
+  --font-body:        "Raleway", sans-serif;
+  --font-heading:     "Roboto Slab", serif;
+  --font-mono:        Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
+                      "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+                      "Courier New", monospace, serif;
+
+  // Layout
+  --content-width:    60%;
+  --content-max-width:800px;
+  --panel-collapse-width: 40%;
+  --panel-collapse-max:   530px;
+  --container-width:  940px;
+  --mobile-bar-height:42px;
+
+  // Motion
+  --transition-panel: width 1s ease, max-width 1s ease;
+}
+
+// -----------------------------------------------------------------------------
+// SCSS aliases (for use inside SCSS interpolation / calculations)
+// Keep in sync with the custom properties above.
+// -----------------------------------------------------------------------------
+$primary:         #e25440;
+$primary-dark:    #b9301c;
+$primary-light:   #fae3df;
+$text:            #666666;
+$text-dark:       #333333;
+$text-muted:      #999999;
+$text-subtle:     #c7c7c7;
+$border:          #dddddd;
+$bg-alt:          #f8f8f8;
+$code-bg:         #e8f2fb;
+$code-border:     #c9e1f6;
+$code-focus-border: #5ba4e5;
+$placeholder:     #cccccc;
+
+$font-body:       "Raleway", sans-serif;
+$font-heading:    "Roboto Slab", serif;
+$font-mono:       Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
+                  "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+                  "Courier New", monospace, serif;
+
+// Breakpoints (desktop-first preserved; mobile-first migration is future work)
+$bp-wide:         1300px;
+$bp-medium:       1100px;
+$bp-tablet:       960px;
+$bp-small:        340px;
+
+// -----------------------------------------------------------------------------
+// Mixins
+// -----------------------------------------------------------------------------
+@mixin pill-button {
+  border:        1px solid var(--primary);
+  border-radius: 20px;
+  color:         var(--primary);
+  text-shadow:   none;
+  white-space:   nowrap;
+
+  &:hover {
+    color:        var(--primary-dark);
+    border-color: var(--primary-dark);
+  }
+}

@@ -1,7 +1,7 @@
-<span id="mobile-menu-button" data-turbo-permanent="true" class="mobile btn-mobile-menu">
-  <i class="fa-solid fa-bars btn-mobile-menu__icon"></i>
-  <i class="fa-solid fa-circle-xmark btn-mobile-close__icon hidden"></i>
-</span>
+<button id="mobile-menu-button" data-turbo-permanent="true" class="mobile btn-mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
+  <i class="fa-solid fa-bars btn-mobile-menu__icon" aria-hidden="true"></i>
+  <i class="fa-solid fa-circle-xmark btn-mobile-close__icon hidden" aria-hidden="true"></i>
+</button>
 
 <header id="sidebar" data-turbo-permanent="true" class="panel-cover {% if site.disable_landing_page %}panel-cover--collapsed{% endif %}"
   style="background-image: url({{ site.baseurl }}/images/cover.webp)">
@@ -15,6 +15,56 @@
         </a>
         <hr class="panel-cover__divider">
         <p class="panel-cover__description">{{ site.description }}</p>
+
+        <nav class="cover-navigation navigation--social">
+          <ul class="navigation">
+
+            {% for link in site.data.social_links %}
+              {% assign match_url = nil %}
+              {% assign author_val = nil %}
+              
+              {% for url in site.social.links %}
+                {% if url contains link.url_prefix %}
+                  {% assign match_url = url %}
+                  {% assign author_val = url | replace: link.url_prefix, "" | remove: "/" %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+
+              {% if match_url == nil and link.author_key %}
+                {% assign explicit_val = site.author[link.author_key] %}
+                {% if explicit_val != nil and explicit_val != empty %}
+                  {% assign author_val = explicit_val %}
+                  {% assign match_url = link.url_prefix | append: author_val %}
+                {% endif %}
+              {% endif %}
+
+              {% if match_url %}
+              <li class="navigation__item">
+                <a href="{{ match_url }}"
+                  title="{{ link.title_prefix }}{{ author_val }}{{ link.title_suffix }}" target="_blank" rel="noopener noreferrer">
+                  {% if link.icon_family %}
+                  <i class="{{ link.icon_family }} fa-{{ link.icon }}"></i>
+                  {% else %}
+                  <i class="fa-solid fa-{{ link.icon }}"></i>
+                  {% endif %}
+                  <span class="label">{{ link.name }}</span>
+                </a>
+              </li>
+              {% endif %}
+            {% endfor %}
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="{{ site.baseurl }}/feed.xml" title="Subscribe" target="_blank" rel="noopener noreferrer">
+                <i class="fa-solid fa-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+
+          </ul>
+        </nav>
+
         <hr class="panel-cover__divider panel-cover__divider--secondary">
 
         <div class="navigation-wrapper">
@@ -24,37 +74,6 @@
               <li class="navigation__item"><a href="{{ site.baseurl }}/about" title="link to {{ site.title }} about" class="blog-button">About</a></li>
               <li class="navigation__item"><a href="{{ site.baseurl }}/blog/" title="link to {{ site.title }} blog" class="blog-button">Blog</a></li>
               <li class="navigation__item"><a href="{{ site.baseurl }}/links" title="link to {{ site.title }} links" class="blog-button">Links</a></li>
-            </ul>
-          </nav>
-
-          <nav class="cover-navigation navigation--social">
-            <ul class="navigation">
-
-              {% for link in site.data.social_links %}
-                {% assign author_val = site.author[link.author_key] %}
-                {% if author_val %}
-                <li class="navigation__item">
-                  <a href="{{ link.url_prefix }}{{ author_val }}"
-                    title="{{ link.title_prefix }}{{ author_val }}{{ link.title_suffix }}" target="_blank" rel="noopener noreferrer">
-                    {% if link.icon_family %}
-                    <i class="{{ link.icon_family }} fa-{{ link.icon }}"></i>
-                    {% else %}
-                    <i class="fa-solid fa-{{ link.icon }}"></i>
-                    {% endif %}
-                    <span class="label">{{ link.name }}</span>
-                  </a>
-                </li>
-                {% endif %}
-              {% endfor %}
-
-              <!-- RSS -->
-              <li class="navigation__item">
-                <a href="{{ site.baseurl }}/feed.xml" title="Subscribe" target="_blank" rel="noopener noreferrer">
-                  <i class="fa-solid fa-rss"></i>
-                  <span class="label">RSS</span>
-                </a>
-              </li>
-
             </ul>
           </nav>
 
