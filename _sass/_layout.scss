@@ -95,7 +95,11 @@ hr { border: none; }
 }
 
 .panel-cover__logo        { margin-bottom: 0.2em; }
-.panel-cover__description { margin: 0 30px; }
+.panel-cover__description {
+  margin:    0 auto;
+  width:     max-content;
+  max-width: 600px;
+}
 
 .panel-cover__divider {
   width:      50%;
@@ -174,7 +178,9 @@ hr { border: none; }
   .panel-title              { font-size: 2em; }
   .panel-subtitle           { font-size: 1em; }
   .panel-cover__description {
-    margin:    0 10px;
+    margin:    0 auto;
+    width:     auto;
+    max-width: 90%;
     font-size: 0.9em;
   }
   .navigation--social {
@@ -204,8 +210,9 @@ hr { border: none; }
 
   .panel-cover__description {
     display:   block;
-    max-width: 600px;
     margin:    0 auto;
+    width:     auto;
+    max-width: 600px;
   }
 
   .panel-cover__divider--secondary { display: none; }
