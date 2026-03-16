@@ -60,7 +60,7 @@ Why bother? Because **context beats tools.** Current models often struggle to re
 ├── docs/
 │   ├── guide-admin/
 │   ├── guide-dev/
-│   |   └── contributing.md   ← symlink to CONTRIBUTING.md
+│   │   └── contributing.md   ← symlink to CONTRIBUTING.md
 │   ├── guide-user/
 │   └── index.md              ← symlink to README.md
 ├── AGENTS.md                 ← source of truth for AI coding agents
