@@ -152,7 +152,7 @@ and humans to consume, and they have no tooling story.
 **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material)** with
 `mkdocstrings` can keep API docs in lockstep with your code. More important is
 the layering of purpose-built hooks and scripts on top that are built with your
-your repo's specific patterns:
+repo's specific patterns:
 
 - **Automated doc-gap detection** — CI fails when a new CLI flag or API endpoint
   ships without corresponding documentation
