@@ -50,7 +50,7 @@ it:
     status: publishing
     publisher: Packet Pushers
     spotify: 1w2CyOsqmqQiJmOiwVL0A0
-    youtube: "@packetpushers"
+    youtube: "watch?v=Loj4O5bEz1E&list=PLtO_OYBiEo6krQIkFBQLo8Pu-RUHc1nY3"
     apple: network-break/id905020089
     description: Fast, focused analysis of IT news, products, tech trends, and business outcomes. Blending sharp commentary with a touch of humor, it sifts through the weekly landslide of press announcements.
     hosts:
@@ -69,7 +69,7 @@ it:
     status: publishing
     publisher: Packet Pushers
     spotify: 23UdyZ3ZwCKB7clwULXyeS
-    youtube: "@packetpushers"
+    youtube: "watch?v=KB_WalQX6ko&list=PLtO_OYBiEo6lYvSz3NwA3lBSs69Hf8wRo"
     apple: the-cloud-gambit/id1720875955
     description: Unravels the state of cloud computing, markets, strategy, and emerging trends. Delivers valuable conversations with industry mavens that educate and empower listeners on innovation and opportunity.
     hosts:
@@ -88,7 +88,7 @@ it:
     status: publishing
     publisher: IPSpace.net
     spotify: 4vWT2SzjRbfhutQD3c88Qr
-    youtube: "@ipspace"
+    youtube: "@IvanPepelnjak"
     apple: software-gone-wild/id892095911
     description: A podcast focusing on real-life SDN, NFV, and SDDC architectures and solutions that work outside of the cozy environment of vendor-branded PowerPoint.
     hosts:
@@ -110,7 +110,7 @@ it:
     status: publishing
     publisher: Packet Pushers
     spotify: 24feK9uvQNAMf71dHqAXBG
-    youtube: "@packetpushers"
+    youtube: "watch?v=VsOOmqY4CO8&list=PLtO_OYBiEo6l88bX01I5BBHJNMZ560aO2"
     apple: network-automation-nerds-podcast/id1128239093
     description: Designed for network engineers and infrastructure professionals eager to learn more about automation. Explores how to take advantage of modern network programmability to automate tasks and build robust systems.
     hosts:
@@ -167,7 +167,7 @@ golang:
     status: retired
     publisher: Changelog Media
     spotify: 2cKdcxETn7jDp7uJCwqmSE
-    youtube: "@ChangelogMedia"
+    youtube: "watch?v=eQWNw2n9K_k&list=PLCzseuA9sYrf0OJWceitz-LFofzWdGY92"
     apple: it-is-go-time-go-time/id1164554936
     description: Diverse discussions from around the Go community exploring the language, tooling, and its ecosystem. Note that this podcast recorded its finale in December 2024.
     hosts:
