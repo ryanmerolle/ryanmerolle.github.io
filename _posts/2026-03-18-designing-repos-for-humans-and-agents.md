@@ -23,16 +23,17 @@ We had good user docs, but they weren't good enough to lower the barrier to cont
 
 ## The ROI of Good Structure Just Got Exponential
 
-We've moved past code search and doc retrieval into **agentic workflows** — AI that
-reads your repo, writes code, runs tests, and opens a PR. That's not hypothetical.
-It's happening now.
+Getting to that "structured" state used to be a nice-to-have. Now, it's a multiplier.
+We've moved past simple code search and doc retrieval into agentic workflows — AI that
+reads your repo, writes code, runs tests, and opens a PR. That's not hypothetical. It's
+happening now.
 
-The ROI of good documentation has always been positive. AI multiplies it. An agent
-that reads a well-structured `AGENTS.md` can follow your patterns from day one —
+The ROI of good documentation has always been positive, but AI scales it exponentially.
+An agent that reads a well-structured AGENTS.md can follow your patterns from day one —
 no onboarding thread, no Slack DM, no stalled PR.
 
-The risk is symmetric. **Bad habits scale just as fast.** Without clear guardrails,
-an agent will cheerfully propagate AI slop across your entire codebase. The onboarding
+The risk is also symmetric. Bad habits scale just as fast. Without clear guardrails, an
+agent will cheerfully propagate AI slop across your entire codebase. The onboarding
 problem I struggled with at NetBox? AI can solve it at scale — but only if you've done
 the work to make "the right way" explicit.
 
