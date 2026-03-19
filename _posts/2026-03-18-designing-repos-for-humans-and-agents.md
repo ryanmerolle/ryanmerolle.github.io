@@ -143,13 +143,11 @@ moves the project forward.
 
 ---
 
-## The Downstream Bonus: Designing for Consumers
-
-If the first three steps are about paving the path for contributors within your codebase, the next two are about the people and agents consuming your work. When your repo is structurally sound, generating context-rich documentation for downstream users—and their AI tools—becomes a nearly free, automated bonus.
-
----
-
 ## 4. Docs That Stay Current (Without Manual Effort)
+
+Everything we've covered so far optimizes the inner loop for contributors writing code.
+But there is a massive secondary benefit to this structure: it automatically improve
+the experience for anyone consuming your resulting packages or libraries.
 
 Documentation that falls behind code is worse than no documentation — it actively
 misleads contributors. Close the loop with CI. Skip wikis; they're hard for both AI
