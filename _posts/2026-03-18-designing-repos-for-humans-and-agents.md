@@ -2,7 +2,7 @@
 layout: post
 title: "From 'Please Implement This' to 'Please Review This': Designing Repos for Humans and Agents"
 author: Ryan Merolle
-date: 2026-03-15
+date: 2026-03-18
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
 ---
