@@ -23,7 +23,29 @@
 // ---------------------------------------------------------------------------
 .hidden { display: none !important; }
 
-*:focus { outline: none; }
+// ---------------------------------------------------------------------------
+// Accessibility Utilities
+// ---------------------------------------------------------------------------
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
 
 // ---------------------------------------------------------------------------
 // Post – body
@@ -138,7 +160,8 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 
 @each $type in $input-types {
   input[type="#{$type}"] {
-    width:         240px;
+    width:         100%;
+    max-width:     240px;
     padding:       1em 1em;
     background:    #FFF;
     border:        1px solid var(--border);
@@ -239,7 +262,8 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 // User / profile image
 // ---------------------------------------------------------------------------
 .user-image {
-  margin-bottom: 1.2em;
+  display:       block;
+  margin:        0 auto 1.2em auto;
   position:      relative;
   width:         200px;
   height:        200px;

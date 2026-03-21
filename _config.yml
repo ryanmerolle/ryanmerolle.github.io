@@ -6,9 +6,6 @@ url: "https://www.merolle.net"
 image:
   path: "/images/favicons/favicon-194x194.png"
 logo: "/images/profile.webp"
-# baseurl: '/jekyll-uno'
-# google_analytics: 'UA-XXXXXX-X'
-# disable_landing_page: true
 
 author:
   name: "Ryan Merolle"
