@@ -7,10 +7,20 @@
 
 {% assign sorted_blogs = site.data.links_blogs | sort_natural: "name" %}
 
-<ul>
-  {% for blog in sorted_blogs %}
-    <li>
-      <a href="{{ blog.url }}">{{ blog.name }}</a>{% if blog.author %} — {{ blog.author }}{% endif %}{% if blog.description %} — {{ blog.description }}{% endif %}
-    </li>
-  {% endfor %}
-</ul>
+{% for blog in sorted_blogs %}
+<div class="link-card">
+<div class="link-card__header">
+<div class="link-card__title">
+<a href="{{ blog.url }}" target="_blank" rel="noopener">{{ blog.name }}</a>
+</div>
+</div>
+{% if blog.author or blog.description %}
+{% if blog.author %}
+<div class="link-card__meta">By {{ blog.author }}</div>
+{% endif %}
+{% if blog.description %}
+<div class="link-card__description">{{ blog.description }}</div>
+{% endif %}
+{% endif %}
+</div>
+{% endfor %}

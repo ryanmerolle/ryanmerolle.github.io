@@ -13,11 +13,16 @@
 
   <h3>{{ include.category_label }}</h3>
 
-  <ul>
-    {% for project in sorted_projects %}
-      <li>
-        <a href="{{ project.url }}">{{ project.name }}</a>{% if project.description %} — {{ project.description }}{% endif %}
-      </li>
-    {% endfor %}
-  </ul>
+  {% for project in sorted_projects %}
+<div class="link-card">
+<div class="link-card__header">
+<div class="link-card__title">
+<a href="{{ project.url }}" target="_blank" rel="noopener">{{ project.name }}</a>
+</div>
+</div>
+{% if project.description %}
+<div class="link-card__description">{{ project.description }}</div>
+{% endif %}
+</div>
+{% endfor %}
 {% endif %}

@@ -176,9 +176,9 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 }
 
 // ---------------------------------------------------------------------------
-// Podcast cards (from main.scss)
+// Link cards (from main.scss)
 // ---------------------------------------------------------------------------
-.podcast-card {
+.link-card {
   border:        1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding:       16px;
@@ -190,7 +190,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-card__header {
+.link-card__header {
   display:         flex;
   justify-content: space-between;
   align-items:     center;
@@ -198,7 +198,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   gap:             1px;
 }
 
-.podcast-card__title {
+.link-card__title {
   font-size:   16px;
   font-weight: 600;
 
@@ -210,7 +210,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-card__badge--retired {
+.link-card__badge--retired {
   display:        inline-block;
   background:     #888;
   color:          #fff;
@@ -224,13 +224,13 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   letter-spacing: 0.5px;
 }
 
-.podcast-card__icons {
+.link-card__icons {
   display:     flex;
   gap:         10px;
   align-items: center;
 }
 
-.podcast-icon {
+.link-icon {
   display:    inline-flex;
   opacity:    0.7;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -241,17 +241,17 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-icon--youtube svg { fill: #FF0000; }
-.podcast-icon--spotify svg { fill: #1DB954; }
-.podcast-icon--apple   svg { fill: #9933CC; }
+.link-icon--youtube svg { fill: #FF0000; }
+.link-icon--spotify svg { fill: #1DB954; }
+.link-icon--apple   svg { fill: #9933CC; }
 
-.podcast-card__meta {
+.link-card__meta {
   font-size:  13px;
   color:      #777;
   margin-top: 6px;
 }
 
-.podcast-card__description {
+.link-card__description {
   font-size:   14px;
   margin-top:  8px;
   line-height: 1.5;
