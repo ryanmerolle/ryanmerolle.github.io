@@ -50,7 +50,6 @@ and guardrails matter more now because agents will amplify whatever patterns you
 easiest to follow.
 
 > "The best way to foresee the future is to shape it." — Jarek Potiuk,
-> [Talk Python #540](https://talkpython.fm/episodes/show/540/modern-python-monorepo-with-uv-and-prek)
 
 So let's shape it.
 
