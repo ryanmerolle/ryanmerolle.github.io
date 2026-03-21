@@ -182,3 +182,23 @@ golang:
       - Software engineering best practices
       - Command-line interfaces
       - Web services and cloud native apps
+
+finance:
+  - name: Odd Lots
+    website: https://www.bloomberg.com/oddlots
+    status: publishing
+    publisher: Bloomberg
+    spotify: 1f151dc5d707458c
+    youtube: "playlist?list=PLe4PRejZgr0MuA6M0zkZyy-99-qc87wKV"
+    apple: odd-lots/id1056200096
+    description: Bloomberg's Joe Weisenthal and Tracy Alloway analyze the weird patterns, the complex issues and the newest market crazes. Join the conversation every Monday and Thursday for interviews with the most interesting minds in finance, economics and markets.
+    hosts:
+      - Joe Weisenthal
+      - Tracy Alloway
+    frequency: weekly
+    duration: 20-60 minutes per episode
+    topics_covered:
+      - Finance
+      - Economics
+      - Markets
+      - Investing
