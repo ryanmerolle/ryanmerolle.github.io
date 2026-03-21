@@ -84,53 +84,6 @@
 }
 
 // ---------------------------------------------------------------------------
-// Post – list
-// ---------------------------------------------------------------------------
-.post-list {
-  margin:          0;
-  padding:         0;
-  list-style-type: none;
-  text-align:      left;
-
-  li {
-    margin: 0 0 2.2em 0;
-
-    &:last-child hr { display: none; }
-  }
-}
-
-.post-list__post-title {
-  margin-top:    0;
-  margin-bottom: 0.2em;
-  font-size:     1.5em;
-  line-height:   1.3em;
-
-  a {
-    color: var(--text-dark);
-
-    &:hover { color: var(--primary-dark); }
-  }
-}
-
-.post-list__meta {
-  display:    block;
-  margin:     0.7em 0 0 0;
-  font-size:  0.9em;
-  color:      var(--text-subtle);
-}
-
-.post-list__meta--date {
-  margin-right: 0.5em;
-  color:        var(--text-subtle);
-}
-
-.post-list__divider {
-  width:      30%;
-  margin:     2.2em 0 2.1em 0;
-  border-top: 1px solid var(--border);
-}
-
-// ---------------------------------------------------------------------------
 // Pagination
 // ---------------------------------------------------------------------------
 .pagination {
