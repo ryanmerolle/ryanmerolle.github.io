@@ -1,13 +1,11 @@
 ---
 layout: post
-title: "From 'Please Implement This' to 'Please Review This': Designing Repos for Humans and Agents"
+title: "Designing Repos for Humans and Agents"
 author: Ryan Merolle
-date: 2026-03-20
+date: 2026-03-21
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
 ---
-
-## TL;DR
 
 Here's my take on how to make your repo work for both human contributors and AI
 agents — and why getting this right matters more now than ever.
@@ -78,8 +76,6 @@ Why bother? Because **context currently beats skills.** Recent evals show that
 [context in an AGENTS.md outperforms custom skills](https://vercel.com/blog/agents-md-outperforms-skills-in-our-agent-evals)
 because it eliminates "decision fatigue." While models sometimes struggle to choose the right tool autonomously, they are
 world-class at following explicit instructions in the context window.
-
-> **Pro-Tip: Scope for Scale.** For monorepos or complex projects, don't rely on one giant file. Place scoped `AGENTS.md` files in specific directories (e.g., `/scripts` vs. `/core`) to provide surgical context where it’s needed most.
 
 ### 1.2 The Documentation Hierarchy
 
