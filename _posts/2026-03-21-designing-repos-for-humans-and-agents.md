@@ -154,7 +154,7 @@ The real power comes from the **custom hooks and CI checks** you build on top of
 When your docs live in the repo, you can treat "missing documentation" like a "broken build." As the maintainer, you build
 the guardrails that keep the agent (and the humans) honest:
 
-- **Automated Doc-Gap Detection:** Write mkdocs scripts that fails the docs build if a new CLI flag or API endpoint is added to the code but doesn't appear in the Markdown docs.
+- **Automated Doc-Gap Detection:** Write mkdocs scripts that fail the docs build if a new CLI flag or API endpoint is added to the code but doesn't appear in the Markdown docs.
 - **Contextual Validation:** Since your docs and code share a file system, your build scripts can verify that code examples in your documentation actually run and pass.
 
 When you shape the contributor experience this deeply, you're not just automating tasks — **you're encoding your project's standards into the environment itself.** The tribal knowledge that was once a barrier at NetBox becomes machine-readable instructions that any contributor, human or AI, can follow from day one.
