@@ -1,9 +1,9 @@
 ---
 # Site settings
 title: "Ryan Merolle"
-description: "Network Engineering / Infrastructure Automation / DevOps"
+description: "Networks / Infra Automation / DevOps"
 url: "https://www.merolle.net"
-image: 
+image:
   path: "/images/favicons/favicon-194x194.png"
 logo: "/images/profile.webp"
 # baseurl: '/jekyll-uno'
