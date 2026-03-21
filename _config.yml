@@ -36,7 +36,7 @@ markdown: kramdown
 highlighter: rouge
 
 sass:
-  sass_dir: _sass
+  sass_dir: assets/stylesheets/sass
   style: compressed
 
 kramdown:
@@ -51,7 +51,6 @@ plugins:
   - jekyll-seo-tag
 
 exclude:
-  - .dockerignore
   - .github
   - .gitignore
   - .pre-commit-config.yaml
@@ -62,6 +61,7 @@ exclude:
   - Dockerfile
   - README.md
   - docker-compose.yml
+  - prek.toml
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/
