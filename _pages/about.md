@@ -18,4 +18,4 @@ I’m an IT leader who specializes in bridging the gap between business value, s
 
 **🌐 Open Source**: I have contributed a significant amount of my personal time to the open-source community, focusing specifically on network management and automation.
 
-**🏠 Off-screen**: When I'm not at the keyboard, I enjoy spending quality time with my family, running, playing soccer, and volunteering on the board of Pockets of Light.
+**🏠 Off-screen**: When I'm not at the keyboard, I enjoy spending quality time with my family, running, playing soccer, and volunteering on the board of [Pockets of Light](https://www.pocketsoflight.org).
