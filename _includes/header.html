@@ -3,13 +3,13 @@
 </button>
 
 <header id="sidebar" data-turbo-permanent="true" class="panel-cover {% if site.disable_landing_page %}panel-cover--collapsed{% endif %}"
-  style="background-image: url({{ site.baseurl }}/images/cover.webp)">
+  style="background-image: url({{ site.baseurl }}/assets/images/cover.webp)">
   <div class="panel-main">
 
     <div class="panel-main__inner panel-inverted">
       <div class="panel-main__content">
         <a href="{{ site.baseurl }}/" aria-label="Home">
-          <img src="{{ site.baseurl }}/images/profile.webp" class="user-image" alt="Portrait of {{ site.author.name | default: site.title }}" width="200" height="200">
+          <img src="{{ site.baseurl }}/assets/images/profile.webp" class="user-image" alt="Portrait of {{ site.author.name | default: site.title }}" width="200" height="200">
           <h1 class="panel-cover__title panel-title">{{ site.title }}</h1>
         </a>
         <hr class="panel-cover__divider">

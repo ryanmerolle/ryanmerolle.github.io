@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!config.disableLandingPage) {
     function setInitialPanelState(panelCover, isHome) {
       if (!panelCover) return;
-      
+
       if (!isHome) {
         // Content page: collapse panel immediately (no animation needed)
         panelCover.style.transition = 'none';
@@ -179,18 +179,18 @@ document.addEventListener('turbo:before-render', function(e) {
     if (panelCover.classList.contains('panel-cover--collapsed')) {
       // Pause Turbo's rendering process
       e.preventDefault();
-      
+
       // Start expanding the panel to cover the old content
       panelCover.style.transition = '';
       panelCover.classList.remove('panel-cover--collapsed');
 
-      // Wait for the panel's CSS transition to finish 
+      // Wait for the panel's CSS transition to finish
       // before allowing Turbo to swap the DOM elements
       var transitionHandler = function() {
         panelCover.removeEventListener('transitionend', transitionHandler);
         e.detail.resume();
       };
-      
+
       // Add a small timeout fallback just in case transitionend somehow doesn't fire
       var fallbackTimer = setTimeout(function() {
         panelCover.removeEventListener('transitionend', transitionHandler);

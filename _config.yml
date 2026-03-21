@@ -5,7 +5,7 @@ description: "Networks / Infra Automation / DevOps"
 url: "https://www.merolle.net"
 image:
   path: "/images/favicons/favicon-194x194.png"
-logo: "/images/profile.webp"
+logo: "/assets/images/profile.webp"
 
 author:
   name: "Ryan Merolle"
@@ -45,7 +45,7 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-plugins: 
+plugins:
   - jekyll-paginate
   - jekyll-llmstxt
   - jekyll-seo-tag
@@ -55,8 +55,10 @@ exclude:
   - .github
   - .gitignore
   - .pre-commit-config.yaml
+  - .rumdl.toml
   - .rumdl_cache
   - .yamllint.yaml
+  - AGENTS.md
   - Dockerfile
   - README.md
   - docker-compose.yml

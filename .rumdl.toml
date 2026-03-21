@@ -1,11 +1,8 @@
 [global]
+flavor = "jekyll"
 disable = ["MD033"]
 
 respect-gitignore = true
-
-# Markdown flavor/dialect (uncomment to enable)
-# Options: standard (default), gfm, commonmark, mkdocs, mdx, quarto
-flavor = "standard"
 
 [MD004]
 style = "dash"  # Unordered list style (asterisk, plus, dash, consistent)
