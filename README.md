@@ -7,14 +7,14 @@ Jekyll-Uno - a minimal, responsive theme for Jekyll based on the [Uno](https://g
 
 ## Features
 
-* Clean layout
-* Responsive layout
-* Pagination
-* Syntax highlighting
-* Social links
-* Tags listing page
-* Categories listing page
-* Google Analytics integration
+- Clean layout
+- Responsive layout
+- Pagination
+- Syntax highlighting
+- Social links
+- Tags listing page
+- Categories listing page
+- Google Analytics integration
 
 ---
 
