@@ -4,12 +4,20 @@ title: "Ryan Merolle"
 description: "Networks / Infra Automation / DevOps"
 url: "https://www.merolle.net"
 image:
-  path: "/images/favicons/favicon-194x194.png"
+  path: "https://www.merolle.net/assets/images/profile.webp"
+  alt: "Ryan Merolle - Networks / Infra Automation / DevOps"
 logo: "/assets/images/profile.webp"
+
+twitter:
+  username: "ryanmerolle"
+  card: "summary_large_image"
 
 author:
   name: "Ryan Merolle"
+  twitter: "ryanmerolle"
   # email:
+
+google_tag_manager: "GTM-KMGNXRGF"
 
 social:
   name: Ryan Merolle

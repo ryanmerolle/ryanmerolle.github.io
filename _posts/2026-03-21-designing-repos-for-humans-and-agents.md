@@ -5,6 +5,9 @@ author: Ryan Merolle
 date: 2026-03-21
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
+image:
+  path: "https://www.merolle.net/assets/images/blog_posts/2026-03-21-designing-repos-for-humans-and-agents.webp"
+  alt: "Designing Repos for Humans and Agents"
 ---
 
 Here's my take on how to make your repo work for both human contributors and AI
