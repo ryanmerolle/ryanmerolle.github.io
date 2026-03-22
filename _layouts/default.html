@@ -2,7 +2,8 @@
 <html lang="en">
   {% include head.html %}
 
-  <body>
+  <body data-disable-landing="{{ site.disable_landing_page | default: false }}" data-baseurl="{{ site.baseurl }}">
+    {% include gtm-body.html %}
     {% include header.html %}
 
     <main class="content-wrapper">

@@ -4,44 +4,36 @@ sitemap:
   exclude: 'yes'
 ---
 
-{% if site.disable_landing_page != true %}
-// Shared helper: is the current page the landing/home page?
-function isHomePage() {
-  var path = window.location.pathname;
-  return path === '{{ site.baseurl }}/' || path === '{{ site.baseurl }}/index.html';
-}
-{% endif %}
-
 // Single initialization function to avoid duplicate listeners on permanent elements
 var initialized = false;
 
-function init(panelCover) {
+function init(panelCover, disableLandingPage) {
   if (initialized) return;
   initialized = true;
 
-  {% if site.disable_landing_page != true %}
-  var contentWrapper = document.querySelector('.content-wrapper');
+  if (!disableLandingPage) {
+    var contentWrapper = document.querySelector('.content-wrapper');
 
-  function collapsePanel() {
-    if (panelCover) panelCover.classList.add('panel-cover--collapsed');
-  }
+    function collapsePanel() {
+      if (panelCover) panelCover.classList.add('panel-cover--collapsed');
+    }
 
-  document.querySelectorAll('a.blog-button').forEach(function (btn) {
-    btn.addEventListener('click', function (e) {
-      if (!panelCover || panelCover.classList.contains('panel-cover--collapsed')) {
-        // If already collapsed, let Turbo handle it normally
-        return;
-      }
-      if (panelCover.offsetWidth < 960) {
-        collapsePanel();
-        if (contentWrapper) contentWrapper.classList.add('animated', 'slideInRight');
-      }
-      // On desktop (>= 960), we do NOT collapse immediately.
-      // We let Turbo fetch the new page natively. Once it renders the new page,
-      // turbo:load will trigger the collapse transition so the new content is revealed.
+    document.querySelectorAll('a.blog-button').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        if (!panelCover || panelCover.classList.contains('panel-cover--collapsed')) {
+          // If already collapsed, let Turbo handle it normally
+          return;
+        }
+        if (panelCover.offsetWidth < 960) {
+          collapsePanel();
+          if (contentWrapper) contentWrapper.classList.add('animated', 'slideInRight');
+        }
+        // On desktop (>= 960), we do NOT collapse immediately.
+        // We let Turbo fetch the new page natively. Once it renders the new page,
+        // turbo:load will trigger the collapse transition so the new content is revealed.
+      });
     });
-  });
-  {% endif %}
+  }
 
   var mobileMenu = document.querySelector('.btn-mobile-menu');
   var navWrapper = document.querySelector('.navigation-wrapper');
@@ -95,44 +87,58 @@ function init(panelCover) {
   });
 }
 
+function getConfig() {
+  return {
+    disableLandingPage: document.body.dataset.disableLanding === 'true',
+    baseUrl: document.body.dataset.baseurl || ''
+  };
+}
+
+function isHomePage() {
+  var baseUrl = getConfig().baseUrl;
+  var path = window.location.pathname;
+  return path === baseUrl + '/' || path === baseUrl + '/index.html';
+}
+
 document.addEventListener('DOMContentLoaded', function () {
-  {% if site.disable_landing_page != true %}
+  var config = getConfig();
   var panelCover = document.querySelector('.panel-cover');
-  {% endif %}
 
-  init({% if site.disable_landing_page != true %}panelCover{% endif %});
+  init(panelCover, config.disableLandingPage);
 
-  {% if site.disable_landing_page != true %}
-  function setInitialPanelState(panelCover, isHome) {
-    if (!panelCover) return;
-    
-    if (!isHome) {
-      // Content page: collapse panel immediately (no animation needed)
-      panelCover.style.transition = 'none';
-      panelCover.classList.add('panel-cover--collapsed');
-      void panelCover.offsetHeight; // force reflow
-      requestAnimationFrame(function () {
-        panelCover.style.transition = '';
-      });
-    } else if (document.referrer.indexOf(window.location.origin) === 0) {
-      // Returning from another page on this site: snap to collapsed then expand smoothly
-      panelCover.style.transition = 'none';
-      panelCover.classList.add('panel-cover--collapsed');
-      void panelCover.offsetHeight; // force reflow
-      requestAnimationFrame(function () {
-        panelCover.style.transition = '';
-        panelCover.classList.remove('panel-cover--collapsed');
-      });
+  if (!config.disableLandingPage) {
+    function setInitialPanelState(panelCover, isHome) {
+      if (!panelCover) return;
+
+      if (!isHome) {
+        // Content page: collapse panel immediately (no animation needed)
+        panelCover.style.transition = 'none';
+        panelCover.classList.add('panel-cover--collapsed');
+        void panelCover.offsetHeight; // force reflow
+        requestAnimationFrame(function () {
+          panelCover.style.transition = '';
+        });
+      } else if (document.referrer.indexOf(window.location.origin) === 0) {
+        // Returning from another page on this site: snap to collapsed then expand smoothly
+        panelCover.style.transition = 'none';
+        panelCover.classList.add('panel-cover--collapsed');
+        void panelCover.offsetHeight; // force reflow
+        requestAnimationFrame(function () {
+          panelCover.style.transition = '';
+          panelCover.classList.remove('panel-cover--collapsed');
+        });
+      }
     }
-  }
 
-  setInitialPanelState(panelCover, isHomePage());
-  {% endif %}
+    setInitialPanelState(panelCover, isHomePage());
+  }
 });
 
 // For Turbo, when navigation happens to a new page, adjust panel state
 document.addEventListener('turbo:load', function() {
-  {% if site.disable_landing_page != true %}
+  var config = getConfig();
+  if (config.disableLandingPage) return;
+
   var panelCover = document.querySelector('.panel-cover');
   if (!panelCover) return;
 
@@ -156,13 +162,14 @@ document.addEventListener('turbo:load', function() {
       });
     }
   }
-  {% endif %}
 });
 
 // Intercept Turbo rendering to delay it if we are returning to the home page
 // from a content page, allowing the panel to slide shut over the old content first.
 document.addEventListener('turbo:before-render', function(e) {
-  {% if site.disable_landing_page != true %}
+  var config = getConfig();
+  if (config.disableLandingPage) return;
+
   var panelCover = document.querySelector('.panel-cover');
   if (!panelCover) return;
 
@@ -172,18 +179,18 @@ document.addEventListener('turbo:before-render', function(e) {
     if (panelCover.classList.contains('panel-cover--collapsed')) {
       // Pause Turbo's rendering process
       e.preventDefault();
-      
+
       // Start expanding the panel to cover the old content
       panelCover.style.transition = '';
       panelCover.classList.remove('panel-cover--collapsed');
 
-      // Wait for the panel's CSS transition to finish 
+      // Wait for the panel's CSS transition to finish
       // before allowing Turbo to swap the DOM elements
       var transitionHandler = function() {
         panelCover.removeEventListener('transitionend', transitionHandler);
         e.detail.resume();
       };
-      
+
       // Add a small timeout fallback just in case transitionend somehow doesn't fire
       var fallbackTimer = setTimeout(function() {
         panelCover.removeEventListener('transitionend', transitionHandler);
@@ -196,5 +203,4 @@ document.addEventListener('turbo:before-render', function(e) {
       });
     }
   }
-  {% endif %}
 });

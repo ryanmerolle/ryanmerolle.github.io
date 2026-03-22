@@ -4,15 +4,20 @@ title: "Ryan Merolle"
 description: "Networks / Infra Automation / DevOps"
 url: "https://www.merolle.net"
 image:
-  path: "/images/favicons/favicon-194x194.png"
-logo: "/images/profile.webp"
-# baseurl: '/jekyll-uno'
-# google_analytics: 'UA-XXXXXX-X'
-# disable_landing_page: true
+  path: "https://www.merolle.net/assets/images/profile.webp"
+  alt: "Ryan Merolle - Networks / Infra Automation / DevOps"
+logo: "/assets/images/profile.webp"
+
+twitter:
+  username: "ryanmerolle"
+  card: "summary_large_image"
 
 author:
   name: "Ryan Merolle"
+  twitter: "ryanmerolle"
   # email:
+
+google_tag_manager: "GTM-KMGNXRGF"
 
 social:
   name: Ryan Merolle
@@ -39,7 +44,7 @@ markdown: kramdown
 highlighter: rouge
 
 sass:
-  sass_dir: _sass
+  sass_dir: assets/stylesheets/sass
   style: compressed
 
 kramdown:
@@ -48,21 +53,23 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-plugins: 
+plugins:
   - jekyll-paginate
   - jekyll-llmstxt
   - jekyll-seo-tag
 
 exclude:
-  - .dockerignore
   - .github
   - .gitignore
   - .pre-commit-config.yaml
+  - .rumdl.toml
   - .rumdl_cache
   - .yamllint.yaml
+  - AGENTS.md
   - Dockerfile
   - README.md
   - docker-compose.yml
+  - prek.toml
   - vendor/bundle/
   - vendor/cache/
   - vendor/gems/

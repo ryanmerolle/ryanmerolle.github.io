@@ -16,6 +16,6 @@ My tech passions include:
 - Infrastructure as Code (IAC)
 - Routing
 
-Check out my [Links Section](../../links) for a list of projects, blogs, & feeds I follow.
+Check out my [Links Section]({{ site.baseurl }}/links/) for a list of projects, blogs, & feeds I follow.
 
 Updates coming soon...

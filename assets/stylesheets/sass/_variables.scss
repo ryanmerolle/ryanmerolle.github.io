@@ -40,7 +40,7 @@
   --font-heading:     "Roboto Slab", serif;
   --font-mono:        Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
                       "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-                      "Courier New", monospace, serif;
+                      "Courier New", monospace;
 
   // Layout
   --content-width:    60%;
@@ -58,25 +58,23 @@
 // SCSS aliases (for use inside SCSS interpolation / calculations)
 // Keep in sync with the custom properties above.
 // -----------------------------------------------------------------------------
-$primary:         #e25440;
-$primary-dark:    #b9301c;
-$primary-light:   #fae3df;
-$text:            #666666;
-$text-dark:       #333333;
-$text-muted:      #999999;
-$text-subtle:     #c7c7c7;
-$border:          #dddddd;
-$bg-alt:          #f8f8f8;
-$code-bg:         #e8f2fb;
-$code-border:     #c9e1f6;
-$code-focus-border: #5ba4e5;
-$placeholder:     #cccccc;
+$primary:         var(--primary);
+$primary-dark:    var(--primary-dark);
+$primary-light:   var(--primary-light);
+$text:            var(--text);
+$text-dark:       var(--text-dark);
+$text-muted:      var(--text-muted);
+$text-subtle:     var(--text-subtle);
+$border:          var(--border);
+$bg-alt:          var(--bg-alt);
+$code-bg:         var(--code-bg);
+$code-border:     var(--code-border);
+$code-focus-border: var(--code-focus-border);
+$placeholder:     var(--placeholder);
 
-$font-body:       "Raleway", sans-serif;
-$font-heading:    "Roboto Slab", serif;
-$font-mono:       Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono",
-                  "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
-                  "Courier New", monospace, serif;
+$font-body:       var(--font-body);
+$font-heading:    var(--font-heading);
+$font-mono:       var(--font-mono);
 
 // Breakpoints (desktop-first preserved; mobile-first migration is future work)
 $bp-wide:         1300px;

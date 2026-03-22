@@ -23,7 +23,29 @@
 // ---------------------------------------------------------------------------
 .hidden { display: none !important; }
 
-*:focus { outline: none; }
+// ---------------------------------------------------------------------------
+// Accessibility Utilities
+// ---------------------------------------------------------------------------
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
 
 // ---------------------------------------------------------------------------
 // Post – body
@@ -62,53 +84,6 @@
 }
 
 // ---------------------------------------------------------------------------
-// Post – list
-// ---------------------------------------------------------------------------
-.post-list {
-  margin:          0;
-  padding:         0;
-  list-style-type: none;
-  text-align:      left;
-
-  li {
-    margin: 0 0 2.2em 0;
-
-    &:last-child hr { display: none; }
-  }
-}
-
-.post-list__post-title {
-  margin-top:    0;
-  margin-bottom: 0.2em;
-  font-size:     1.5em;
-  line-height:   1.3em;
-
-  a {
-    color: var(--text-dark);
-
-    &:hover { color: var(--primary-dark); }
-  }
-}
-
-.post-list__meta {
-  display:    block;
-  margin:     0.7em 0 0 0;
-  font-size:  0.9em;
-  color:      var(--text-subtle);
-}
-
-.post-list__meta--date {
-  margin-right: 0.5em;
-  color:        var(--text-subtle);
-}
-
-.post-list__divider {
-  width:      30%;
-  margin:     2.2em 0 2.1em 0;
-  border-top: 1px solid var(--border);
-}
-
-// ---------------------------------------------------------------------------
 // Pagination
 // ---------------------------------------------------------------------------
 .pagination {
@@ -138,7 +113,8 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 
 @each $type in $input-types {
   input[type="#{$type}"] {
-    width:         240px;
+    width:         100%;
+    max-width:     240px;
     padding:       1em 1em;
     background:    #FFF;
     border:        1px solid var(--border);
@@ -153,9 +129,9 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 }
 
 // ---------------------------------------------------------------------------
-// Podcast cards (from main.scss)
+// Link cards (from main.scss)
 // ---------------------------------------------------------------------------
-.podcast-card {
+.link-card {
   border:        1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   padding:       16px;
@@ -167,7 +143,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-card__header {
+.link-card__header {
   display:         flex;
   justify-content: space-between;
   align-items:     center;
@@ -175,7 +151,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   gap:             1px;
 }
 
-.podcast-card__title {
+.link-card__title {
   font-size:   16px;
   font-weight: 600;
 
@@ -187,7 +163,7 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-card__badge--retired {
+.link-card__badge--retired {
   display:        inline-block;
   background:     #888;
   color:          #fff;
@@ -201,13 +177,13 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   letter-spacing: 0.5px;
 }
 
-.podcast-card__icons {
+.link-card__icons {
   display:     flex;
   gap:         10px;
   align-items: center;
 }
 
-.podcast-icon {
+.link-icon {
   display:    inline-flex;
   opacity:    0.7;
   transition: opacity 0.2s ease, transform 0.2s ease;
@@ -218,17 +194,17 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.podcast-icon--youtube svg { fill: #FF0000; }
-.podcast-icon--spotify svg { fill: #1DB954; }
-.podcast-icon--apple   svg { fill: #9933CC; }
+.link-icon--youtube svg { fill: #FF0000; }
+.link-icon--spotify svg { fill: #1DB954; }
+.link-icon--apple   svg { fill: #9933CC; }
 
-.podcast-card__meta {
+.link-card__meta {
   font-size:  13px;
   color:      #777;
   margin-top: 6px;
 }
 
-.podcast-card__description {
+.link-card__description {
   font-size:   14px;
   margin-top:  8px;
   line-height: 1.5;
@@ -239,7 +215,8 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 // User / profile image
 // ---------------------------------------------------------------------------
 .user-image {
-  margin-bottom: 1.2em;
+  display:       block;
+  margin:        0 auto 1.2em auto;
   position:      relative;
   width:         200px;
   height:        200px;

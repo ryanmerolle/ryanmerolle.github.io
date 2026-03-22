@@ -16,7 +16,7 @@ ai:
     hosts:
       - Nathaniel Whittemore aka NLW
     frequency: daily
-    duration: 20-25 minutes per episode
+    duration: 20-25 minutes
     topics_covered:
       - AI industry news and developments
       - Technical breakthroughs and research
@@ -36,7 +36,7 @@ ai:
       - Kevin Roose
       - Casey Newton
     frequency: weekly
-    duration: 45-70 minutes per episode
+    duration: 45-70 minutes
     topics_covered:
       - AI industry news and developments
       - Technical breakthroughs and research
@@ -57,7 +57,7 @@ it:
       - Drew Conry-Murray
       - Johna Till Johnson
     frequency: weekly
-    duration: 30-50 minutes per episode
+    duration: 30-50 minutes
     topics_covered:
       - IT and networking news
       - Technology trends
@@ -76,7 +76,7 @@ it:
       - William Collins
       - Eyvonne Sharp
     frequency: bi-weekly
-    duration: 40-60 minutes per episode
+    duration: 40-60 minutes
     topics_covered:
       - Cloud architecture and engineering
       - Tech leadership and project management
@@ -98,7 +98,7 @@ it:
       - Elisa Jasinska
       - Nick Buraglio
     frequency: Ad-Hoc
-    duration: 40-60 minutes per episode
+    duration: 40-60 minutes
     topics_covered:
       - Software-Defined Networking (SDN)
       - EVPN and VXLAN architectures
@@ -116,7 +116,7 @@ it:
     hosts:
       - Eric Chou
     frequency: bi-weekly
-    duration: 30-60 minutes per episode
+    duration: 30-60 minutes
     topics_covered:
       - Network automation frameworks
       - Python for network engineers
@@ -135,7 +135,7 @@ python:
     hosts:
       - Michael Kennedy
     frequency: weekly
-    duration: 60-80 minutes per episode
+    duration: 60-80 minutes
     topics_covered:
       - Python software engineering
       - Data science and web development
@@ -154,7 +154,7 @@ python:
       - Michael Kennedy
       - Brian Okken
     frequency: weekly
-    duration: 20-30 minutes per episode
+    duration: 20-30 minutes
     topics_covered:
       - Python news and releases
       - Developer tools and utilities
@@ -176,9 +176,29 @@ golang:
       - Johnny Boursiquot
       - Natalie Pistunovich
     frequency: retired (formerly weekly)
-    duration: 60-90 minutes per episode
+    duration: 60-90 minutes
     topics_covered:
       - Golang programming and patterns
       - Software engineering best practices
       - Command-line interfaces
       - Web services and cloud native apps
+
+finance:
+  - name: Odd Lots
+    website: https://www.bloomberg.com/oddlots
+    status: publishing
+    publisher: Bloomberg
+    spotify: 1f151dc5d707458c
+    youtube: "playlist?list=PLe4PRejZgr0MuA6M0zkZyy-99-qc87wKV"
+    apple: odd-lots/id1056200096
+    description: Bloomberg's Joe Weisenthal and Tracy Alloway analyze the weird patterns, the complex issues and the newest market crazes. Join the conversation every Monday and Thursday for interviews with the most interesting minds in finance, economics and markets.
+    hosts:
+      - Joe Weisenthal
+      - Tracy Alloway
+    frequency: weekly
+    duration: 20-60 minutes
+    topics_covered:
+      - Finance
+      - Economics
+      - Markets
+      - Investing

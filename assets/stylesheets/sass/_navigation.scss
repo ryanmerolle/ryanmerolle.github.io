@@ -28,8 +28,7 @@
   user-select:       none;
 }
 
-.btn-mobile-menu__icon,
-.btn-mobile-close__icon {
+.btn-mobile-menu__icon {
   position:  relative;
   top:       3px;
   font-size: 36px;
@@ -59,6 +58,7 @@ nav {
   gap:             10px;
   position:        relative;
   margin:          0;
+  padding:         0;
   list-style-type: none;
 }
 
@@ -121,7 +121,7 @@ nav {
     padding:         0;
     border-radius:   50%;
 
-    .label { display: none; }
+    .label { @extend .sr-only; }
 
     .fa-solid,
     .fa-brands {

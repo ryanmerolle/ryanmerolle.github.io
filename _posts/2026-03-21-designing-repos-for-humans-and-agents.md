@@ -5,6 +5,9 @@ author: Ryan Merolle
 date: 2026-03-21
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
+image:
+  path: "https://www.merolle.net/assets/images/blog_posts/2026-03-21-designing-repos-for-humans-and-agents.webp"
+  alt: "Designing Repos for Humans and Agents"
 ---
 
 Here's my take on how to make your repo work for both human contributors and AI
@@ -243,5 +246,5 @@ Find me on [GitHub](https://github.com/ryanmerolle) and
 - [Material for MkDocs](https://squidfunk.github.io/mkdocs-material)
 - [llms.txt standard](https://llmstxt.org)
 - [context7](https://context7.com)
-- [MkDocs](https://www.mkdocs.org) - MkDocs — current preference for its plugin ecosystem, though [there is much concern about its current and future state](https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/)
+- [MkDocs](https://www.mkdocs.org) - MkDocs — my current preference for its plugin ecosystem, though [there is much concern about its current and future state](https://squidfunk.github.io/mkdocs-material/blog/2026/02/18/mkdocs-2.0/)
 - [Zensical](https://zensical.org) — an emerging MkDocs alternative worth watching by the people who maintain Material for MkDocs.

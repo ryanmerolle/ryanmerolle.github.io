@@ -12,7 +12,7 @@ permalink: /about/
 
 I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 19 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike.
 
-**💪 Strengths**: Network engineering, technology leadership, and technology standardization.
+**💪 Strengths**: Network engineering, technology leadership, AI enablement, and technology standardization.
 
 **🚀 Current Interests**: Deep into agentic coding, AI-enabled productivity, and modern DevOps practices.
 
