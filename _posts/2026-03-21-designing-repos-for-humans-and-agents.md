@@ -6,7 +6,7 @@ date: 2026-03-21
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
 image:
-  path: "https://www.merolle.net/assets/images/blog_posts/2026-03-21-designing-repos-for-humans-and-agents.webp"
+  path: "https://www.merolle.net/assets/images/cover.webp"
   alt: "Designing Repos for Humans and Agents"
 ---
 
