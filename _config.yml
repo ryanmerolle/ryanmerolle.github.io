@@ -4,8 +4,10 @@ title: "Ryan Merolle"
 description: "Networks / Infra Automation / DevOps"
 url: "https://www.merolle.net"
 image:
-  path: "https://www.merolle.net/assets/images/profile.webp"
-  alt: "Ryan Merolle - Networks / Infra Automation / DevOps"
+  path: "assets/images/cover.webp"
+  alt: "Ryan Merolle - Networks / Infra Automation / DevOps" # TODO: Make this dynamic
+  width: 1280 # TODO: Make this dynamic
+  height: 827 # TODO: Make this dynamic
 logo: "/assets/images/profile.webp"
 
 twitter:
@@ -22,7 +24,7 @@ google_tag_manager: "GTM-KMGNXRGF"
 social:
   name: Ryan Merolle
   links:
-    - https://x.com/ryanmerolle
+    - https://twitter.com/ryanmerolle
     - https://www.linkedin.com/in/ryanmerolle
     - https://github.com/ryanmerolle
     - https://gitlab.com/ryanmerolle
@@ -34,6 +36,7 @@ defaults:
       type: 'posts'
     values:
       layout: 'post'
+      image: "assets/images/cover.webp"
 
 # Build settings
 destination: _site

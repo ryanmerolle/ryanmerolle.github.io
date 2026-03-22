@@ -6,8 +6,10 @@ date: 2026-03-21
 categories: [Engineering, AI]
 tags: [Open Source, Agentic AI, Developer Experience, Documentation]
 image:
-  path: "https://www.merolle.net/assets/images/cover.webp"
-  alt: "Designing Repos for Humans and Agents"
+  path: "assets/images/blog_posts/2026-03-21-designing-repos-for-humans-and-agents.webp" # TODO: Make this dynamic
+  alt: "Designing Repos for Humans and Agents" # TODO: Make this dynamic
+  width: 1200 # TODO: Make this dynamic
+  height: 628 # TODO: Make this dynamic
 ---
 
 Here's my take on how to make your repo work for both human contributors and AI
