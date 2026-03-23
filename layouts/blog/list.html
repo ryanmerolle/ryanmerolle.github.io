@@ -2,44 +2,58 @@
 <h2>Blog</h2>
 
 <div class="main-post-list">
-  {{ range .Paginator.Pages }}
-    {{ $imageUrl := "" }}
-    {{ $imageAlt := .Title }}
-    {{ $imageWidth := "" }}
-    {{ $imageHeight := "" }}
-    {{ with .Params.image }}
-      {{ if reflect.IsMap . }}
-        {{ with .path }}{{ $imageUrl = . | relURL }}{{ end }}
-        {{ with .alt }}{{ $imageAlt = . }}{{ end }}
-        {{ with .width }}{{ $imageWidth = . }}{{ end }}
-        {{ with .height }}{{ $imageHeight = . }}{{ end }}
-      {{ else }}
-        {{ $imageUrl = . | relURL }}
-      {{ end }}
-    {{ end }}
+{{   range .Paginator.Pages }}
+{{     $imageUrl := "" }}
+{{     $imageAlt := .Title }}
+{{     $imageWidth := "" }}
+{{     $imageHeight := "" }}
+{{     with .Params.image }}
+{{       if reflect.IsMap . }}
+{{         with .path }}
+{{           $imgRes := resources.GetMatch . }}
+{{           if $imgRes }}
+{{             $imageUrl = $imgRes.RelPermalink }}
+{{           else }}
+{{             $imageUrl = . | relURL }}
+{{           end }}
+{{         end }}
+{{         with .alt }}{{ $imageAlt = . }}{{ end }}
+{{         with .width }}{{ $imageWidth = . }}{{ end }}
+{{         with .height }}{{ $imageHeight = . }}{{ end }}
+{{       else }}
+{{         $imgRes := resources.GetMatch . }}
+{{         if $imgRes }}
+{{           $imageUrl = $imgRes.RelPermalink }}
+{{         else }}
+{{           $imageUrl = . | relURL }}
+{{         end }}
+{{       end }}
+{{     end }}
     <article class="link-card link-card--blog{{ if $imageUrl }} link-card--with-image{{ end }}">
-      {{ with $imageUrl }}
-        <a class="link-card__media" href="{{ $.RelPermalink }}" aria-label="Read {{ $.Title }}">
+{{       $pagePermalink := .RelPermalink }}
+{{       $pageTitle := .Title }}
+{{       with $imageUrl }}
+        <a class="link-card__media" href="{{ $pagePermalink }}" aria-label="Read {{ $pageTitle }}">
           <img
             src="{{ . }}"
             alt="{{ $imageAlt }}"
             loading="lazy"
             decoding="async"
-            {{ with $imageWidth }}width="{{ . }}"{{ end }}
-            {{ with $imageHeight }}height="{{ . }}"{{ end }}>
+{{             with $imageWidth }}width="{{ . }}"{{ end }}
+{{             with $imageHeight }}height="{{ . }}"{{ end }}>
         </a>
-      {{ end }}
+{{       end }}
       <div class="link-card__body">
         <div class="link-card__meta">
           <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
-          {{ $tags := .Params.tags }}
-          {{ with $tags }}
+{{           $tags := .Params.tags }}
+{{           with $tags }}
             <span class="post-meta__tags">
-              {{ range $index, $tag := $tags }}
+{{               range $index, $tag := $tags }}
                 <a href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ $tag }}</a>{{ if ne (add $index 1) (len $tags) }}, {{ end }}
-              {{ end }}
+{{               end }}
             </span>
-          {{ end }}
+{{           end }}
         </div>
         <div class="link-card__header">
           <h3 class="link-card__title">
@@ -47,14 +61,14 @@
           </h3>
         </div>
         <div class="link-card__description">
-          {{ .Description | default .Summary | plainify | htmlUnescape }}
+{{           .Description | default .Summary | plainify | htmlUnescape }}
         </div>
       </div>
     </article>
-  {{ end }}
+{{   end }}
 
-  {{ if or .Paginator.HasPrev .Paginator.HasNext }}
-    {{ partial "pagination.html" . }}
-  {{ end }}
+{{   if or .Paginator.HasPrev .Paginator.HasNext }}
+{{     partial "pagination.html" . }}
+{{   end }}
 </div>
 {{ end }}
