@@ -27,7 +27,3 @@ If you are a human looking to run the website locally to preview changes:
 ## AI Agents & Automation
 
 If you are an AI assistant or Agent helping to maintain this repository, please stop reading here and immediately review the **[AGENTS.md](AGENTS.md)** file. It contains the essential rules, context regarding repository structure, coding conventions, and tailored technical stacks needed to effectively work on this project!
-
-## License
-
-The code in this repository is available under the MIT license, originating from its base theme. However, all authored blog posts, images, and custom page content found in `content/` are copyright of Ryan Merolle.

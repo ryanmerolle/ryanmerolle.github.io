@@ -26,8 +26,22 @@ hooks = [
 
 [[repos]]
 repo = "https://github.com/rvben/rumdl-pre-commit"
-rev = "v0.1.57"
+rev = "v0.1.58"
 hooks = [
   {id = "rumdl"},
   {id = "rumdl-fmt"}
+]
+
+[[repos]]
+repo = "https://github.com/standard/standard"
+rev = "v17.1.2"
+hooks = [
+  {id = "standard"}
+]
+
+[[repos]]
+repo = "https://github.com/biomejs/pre-commit"
+rev = "v2.4.8"
+hooks = [
+  {id = "biome-lint"}
 ]
