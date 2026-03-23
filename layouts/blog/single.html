@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="post-container post-container--single">
+  <header class="post-header">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ .Title }}",
+      "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+      "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+      "description": "{{ .Description | default .Summary | plainify }}",
+      "author": {
+        "@type": "Person",
+        "name": "{{ .Site.Params.author.name }}"
+      }
+    }
+    </script>
+    <div class="post-meta">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="post-meta__date date">{{ .Date.Format "2 Jan 2006" }}</time>
+      <span class="post-meta__reading-time">&#8226; {{ .ReadingTime }} min read</span>
+      {{ $tags := .Params.tags }}
+      {{ with $tags }}
+      <span class="post-meta__tags">
+        {{ range $index, $tag := $tags }}
+          <a href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ $tag }}</a>{{ if ne (add $index 1) (len $tags) }}, {{ end }}
+        {{ end }}
+      </span>
+      {{ end }}
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="post-description"><em>{{ . }}</em></p>
+    {{ end }}
+    <p><a href="{{ relURL "/blog/" }}">← Back to Blog</a></p>
+  </header>
+
+  <div class="post">
+    {{ .Content }}
+  </div>
+</article>
+{{ end }}

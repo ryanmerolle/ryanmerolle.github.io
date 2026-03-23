@@ -1,0 +1,23 @@
+// =============================================================================
+// uno.scss  —  MANIFEST ONLY
+//
+// This file is intentionally thin. All rules live in the partials below.
+// Import order is important: variables first, then reset, then everything else.
+//
+// Partial map:
+//   _variables.scss   Design tokens (CSS custom properties + SCSS vars)
+//   _reset.scss       Meyer CSS reset v2.0 + HTML5 display-role rules
+//   _typography.scss  Body, links, headings, paragraphs, lists, code
+//   _layout.scss      Containers, panel, content-wrapper, footer, breakpoints
+//   _navigation.scss  Mobile button, .navigation, .btn, social icons
+//   _components.scss  Post, pagination, inputs, podcasts, utilities
+//   animate.scss      Animation keyframes (fadeIn, slideInRight, fadeInDown)
+// =============================================================================
+
+@import "variables";
+@import "reset";
+@import "animate";
+@import "typography";
+@import "layout";
+@import "navigation";
+@import "components";

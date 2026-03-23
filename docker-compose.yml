@@ -1,9 +1,9 @@
 ---
 services:
-  jekyll:
-    build: .
-    command: bundle exec jekyll serve --host 0.0.0.0 --watch --force_polling --verbose
+  hugo:
+    image: klakegg/hugo:ext-alpine
+    command: server --bind 0.0.0.0 --buildDrafts --buildFuture --disableFastRender
     ports:
-      - 4000:4000
+      - "1313:1313"
     volumes:
-      - .:/srv/jekyll
+      - .:/src

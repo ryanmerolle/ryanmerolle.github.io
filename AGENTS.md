@@ -8,18 +8,19 @@ You are an expert web developer specializing in static site generation, responsi
 
 ## 🛠️ Tech Stack & Environment
 
-- **Site Generator**: Jekyll (Ruby)
-- **Languages**: HTML, SCSS/CSS, Markdown, Liquid templating, YAML, JavaScript
-- **Local Server**: Running via Docker Compose (`docker compose up` starts a Jekyll server on localhost:4000)
+- **Site Generator**: Hugo (Go)
+- **Languages**: HTML, SCSS/CSS, Markdown, Go templates, YAML, JavaScript
+- **Local Server**: Run `hugo serve` to start a local server (View via `http://localhost:1313`)
 
 ## 📁 Repository Structure
 
-- `_posts/`: All blog articles (in Markdown).
-- `_pages/`: Standalone pages.
-- `_layouts/`: Base HTML layouts (e.g., `default.html`, `post.html`).
-- `_includes/`: Reusable HTML partials (e.g., headers, footers, social links).
-- `_data/`: YAML collections for rendering lists (e.g., `links_podcasts.yml`).
-- `_sass/` & `css/`: SCSS styling structure.
+- `content/blog/`: All blog articles (in Markdown).
+- `content/`: Standalone pages.
+- `layouts/`: Base HTML layouts (e.g., `_default/baseof.html`, `blog/single.html`).
+- `layouts/partials/`: Reusable HTML partials (e.g., headers, footers, social links).
+- `layouts/shortcodes/`: Custom shortcodes.
+- `data/`: YAML collections for rendering lists (e.g., `links_podcasts.yml`).
+- `assets/scss/`: SCSS styling structure.
 - `.agents/workflows/`: Workflows and slash commands for agents.
 
 ## 🧑‍💻 Coding Conventions & Best Practices
@@ -49,10 +50,10 @@ You are an expert web developer specializing in static site generation, responsi
 
 ### 5. Content Editing
 
-- When editing Markdown (e.g., inside `_posts/`), adopt an engaging, conversational tone targeted toward open-source maintainers, enterprise software developers, and individuals learning about AI.
-- Retain proper Markdown formatting, including accurate YAML frontmatter for Jekyll posts.
+- When editing Markdown (e.g., inside `content/blog/`), adopt an engaging, conversational tone targeted toward open-source maintainers, enterprise software developers, and individuals learning about AI.
+- Retain proper Markdown formatting, including accurate TOML/YAML frontmatter for Hugo posts.
 
 ## 🚀 Common Commands
 
-- **Local checking**: `docker compose up` (View via `http://localhost:4000`)
+- **Local checking**: `hugo serve` (View via `http://localhost:1313`)
 - **Linting**: Pre-commit hooks via `.pre-commit-config.yaml` or `.yamllint.yaml` can be referenced for style checking.

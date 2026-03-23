@@ -1,46 +1,33 @@
-# jekyll-uno
+# Ryan Merolle's Personal Site
 
-Jekyll-Uno - a minimal, responsive theme for Jekyll based on the [Uno](https://github.com/daleanthony/Uno) theme for Ghost.
+Welcome to the repository for my personal site and blog, available at [www.merolle.net](https://www.merolle.net).
 
-> :warning:
-  This theme requires ruby and rubygems installed
+This site is statically generated using [Hugo](https://gohugo.io) with a customized minimalist theme.
 
-## Features
+## Getting Started (Local Development)
 
-- Clean layout
-- Responsive layout
-- Pagination
-- Syntax highlighting
-- Social links
-- Tags listing page
-- Categories listing page
-- Google Analytics integration
+If you are a human looking to run the website locally to preview changes:
 
----
+1. Ensure you have [Hugo Extended](https://gohugo.io/installation/) installed on your machine.
+2. Clone this repository and navigate into the project root:
 
-## Install and Test
+   ```bash
+   git clone https://github.com/ryanmerolle/ryanmerolle.github.io.git
+   cd ryanmerolle.github.io
+   ```
 
-1. Download or clone repo `git clone git@github.com:joshgerdes/jekyll-uno.git`
-2. Enter the folder: `cd jekyll-uno/`
-3. If you don't have bundler installed: `gem install bundler`
-4. Install Ruby gems: `bundle install`
-5. Start Jekyll server: `bundle exec jekyll serve --watch`
+3. Start the local Hugo development server:
 
-Access via: [http://localhost:4000/jekyll-uno/](http://localhost:4000/jekyll-uno/)
+   ```bash
+   hugo serve
+   ```
 
-If you would like to run without using the `github-pages` gem, update your Gemfile to the following:
+4. Preview the site locally in your browser at `http://localhost:1313`.
 
-```bash
-source 'https://rubygems.org'
-gem 'jekyll-paginate'
-gem 'jekyll-watch'
-gem 'kramdown'
-gem 'kramdown-parser-gfm'
-```
+## AI Agents & Automation
 
----
+If you are an AI assistant or Agent helping to maintain this repository, please stop reading here and immediately review the **[AGENTS.md](AGENTS.md)** file. It contains the essential rules, context regarding repository structure, coding conventions, and tailored technical stacks needed to effectively work on this project!
 
-### Demo and Download
+## License
 
-[Demo](http://joshgerdes.com/jekyll-uno/)
-[Download](https://github.com/joshgerdes/jekyll-uno/archive/master.zip)
+The code in this repository is available under the MIT license, originating from its base theme. However, all authored blog posts, images, and custom page content found in `content/` are copyright of Ryan Merolle.

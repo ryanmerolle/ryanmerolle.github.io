@@ -1,0 +1,38 @@
+@use "variables" as *;
+
+table {
+	margin-bottom: 1.3em;
+	width: 100%;
+	border-collapse: collapse;
+
+	thead {
+		font-weight: bold;
+
+		th {
+			text-align: left;
+			border-bottom: 4px solid var(--text-muted);
+			font-weight: bold;
+			padding: 12px;
+			vertical-align: middle;
+		}
+	}
+
+	tr {
+		&:nth-child(even) td {
+			background: var(--bg-alt);
+		}
+
+		td {
+			padding: 12px;
+		}
+	}
+}
+
+// Responsive table wrapper for narrow screens
+@media all and (max-width: $bp-tablet) {
+	table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}

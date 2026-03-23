@@ -1,5 +1,5 @@
 [global]
-flavor = "jekyll"
+flavor = "hugo"
 disable = ["MD033"]
 
 respect-gitignore = true

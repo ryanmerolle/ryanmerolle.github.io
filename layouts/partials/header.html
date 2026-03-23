@@ -1,0 +1,61 @@
+<header id="sidebar" data-turbo-permanent="true" class="panel-cover {{ if or (not .IsHome) (default false .Site.Params.disable_landing_page) }}panel-cover--collapsed{{ end }}"
+  style="background-image: url('{{ .Site.Params.image | relURL }}')">
+  <button id="mobile-menu-button" class="mobile btn-mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
+    <i class="fa-solid fa-bars btn-mobile-menu__icon" aria-hidden="true"></i>
+  </button>
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+        <a href="{{ relURL "/" }}" aria-label="Home">
+          <img src="{{ .Site.Params.logo | relURL }}" class="user-image" alt="Portrait of {{ default .Site.Title .Site.Params.author.name }}" width="200" height="200">
+          {{ if .IsHome }}
+            <h1 class="panel-cover__title panel-title">{{ .Site.Title }}</h1>
+          {{ else }}
+            <div class="panel-cover__title panel-title">{{ .Site.Title }}</div>
+          {{ end }}
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">{{ .Site.Params.description }}</p>
+        <nav class="cover-navigation navigation--social" aria-label="Social Links">
+          <ul class="navigation">
+
+            {{ $user_links := .Site.Params.social.links | default slice }}
+            {{ range $idx, $link := .Site.Data.social_links }}
+              {{ $match_url := "" }}
+              {{ $username := "" }}
+
+              {{ range $url := $user_links }}
+                {{ if strings.Contains $url $link.url_prefix }}
+                  {{ $match_url = $url }}
+                  {{ $username = strings.TrimPrefix $link.url_prefix $url | strings.TrimSuffix "/" }}
+                {{ end }}
+              {{ end }}
+
+              {{ if ne $match_url "" }}
+              <li class="navigation__item">
+                <a href="{{ $match_url }}" title="{{ $link.title_prefix }}{{ $username }}{{ $link.title_suffix }}" target="_blank" rel="noopener noreferrer">
+                  <i class="{{ default "fa-solid" $link.icon_family }} fa-{{ $link.icon }}" aria-hidden="true"></i>
+                  <span class="label">{{ $link.name }}</span>
+                </a>
+              </li>
+              {{ end }}
+            {{ end }}
+
+          </ul>
+        </nav>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+        <div class="navigation-wrapper">
+          <nav class="cover-navigation cover-navigation--primary" aria-label="Primary Navigation">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="{{ relURL "/about/" }}" class="blog-button">About</a></li>
+              <li class="navigation__item"><a href="{{ relURL "/blog/" }}" class="blog-button">Blog</a></li>
+              <li class="navigation__item"><a href="{{ relURL "/links/" }}" class="blog-button">Links</a></li>
+            </ul>
+          </nav>
+        </div>
+
+      </div>
+    </div>
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
