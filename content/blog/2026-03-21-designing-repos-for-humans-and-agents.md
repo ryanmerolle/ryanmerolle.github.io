@@ -1,6 +1,6 @@
 ---
 title: "Designing Repos for Humans and Agents"
-description: "Here's my take on how to make your repo work for both human contributors and AI agents — and why getting this right matters more now than ever."
+description: "Here is my take on how to make your repo work for both human contributors and AI agents — and why getting this right matters more now than ever."
 author: Ryan Merolle
 date: 2026-03-21
 tags: [Open Source, Agentic AI, Developer Experience, Documentation, Engineering, AI]
@@ -58,7 +58,7 @@ A paved path is a contributor experience designed so that the right way to do so
 way—removing the decision points that slow humans down and cause agents to guess.
 
 The goal: lower the barrier to entry for every contributor — human or AI — while
-raising the floor on quality. Here's the stack.
+raising the floor on quality. Here is the stack.
 
 ---
 
