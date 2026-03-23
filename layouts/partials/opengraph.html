@@ -1,121 +1,98 @@
-<meta property="og:url" content="{{ .Permalink }}">
-
+{{- /* ────────────────────────────────────────────────────────────────────────
+  Collect all Open Graph properties into $props as a slice of dicts,
+  then render every tag in one place at the bottom of this file.
+  This keeps property/content rendering logic in a single location.
+──────────────────────────────────────────────────────────────────────── */}}
+{{- $props := slice -}}
+{{- /* ── Core / identity ──────────────────────────────────────────────── */}}
+{{- $props = $props | append (dict "property" "og:url" "content" .Permalink) }}
 {{- with or site.Title site.Params.title | plainify }}
-  <meta property="og:site_name" content="{{ . }}">
+{{-   $props = $props | append (dict "property" "og:site_name" "content" .) }}
 {{- end }}
-
 {{- with or .Title site.Title site.Params.title | plainify }}
-  <meta property="og:title" content="{{ . }}">
+{{-   $props = $props | append (dict "property" "og:title" "content" .) -}}
 {{- end }}
-
 {{- with or .Description .Summary site.Params.description | plainify | htmlUnescape }}
-  <meta property="og:description" content="{{ trim . "\n\r\t " }}">
+{{-   $props = $props | append (dict "property" "og:description" "content" (trim . "\n\r\t ")) -}}
 {{- end }}
-
 {{- with or .Params.locale site.Language.Locale }}
-  <meta property="og:locale" content="{{ replace . `-` `_` }}">
+{{-   $props = $props | append (dict "property" "og:locale" "content" (replace . `-` `_`)) -}}
 {{- end }}
-
+{{- /* ── Type & article metadata ───────────────────────────────────────── */}}
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
 {{- if .IsPage }}
-  <meta property="og:type" content="article">
-  {{- with .Section }}
-    <meta property="article:section" content="{{ . }}">
-  {{- end }}
-  {{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
-  {{- with .PublishDate }}
-    <meta property="article:published_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
-  {{- end }}
-  {{- with or .Params.author .Site.Params.author.name }}
-    <meta property="article:author" content="{{ . | plainify }}">
-  {{- end }}
-  {{- with .Lastmod }}
-    <meta property="article:modified_time" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
-  {{- end }}
-  {{- range .GetTerms "tags" }}
-    <meta property="article:tag" content="{{ .Page.Title | plainify }}">
-  {{- end }}
+{{-   $props = $props | append (dict "property" "og:type" "content" "article") -}}
+{{-   with .Section }}
+{{-     $props = $props | append (dict "property" "article:section" "content" .) }}
+{{-   end }}
+{{-   with .PublishDate }}
+{{-     $props = $props | append (dict "property" "article:published_time" "content" (.Format $ISO8601)) -}}
+{{-   end }}
+{{-   with or .Params.author .Site.Params.author.name }}
+{{-     $props = $props | append (dict "property" "article:author" "content" (. | plainify)) -}}
+{{-   end }}
+{{-   with .Lastmod }}
+{{-     $props = $props | append (dict "property" "article:modified_time" "content" (.Format $ISO8601)) -}}
+{{-   end }}
+{{-   range .GetTerms "tags" }}
+{{-     $props = $props | append (dict "property" "article:tag" "content" (.Page.Title | plainify)) -}}
+{{-   end }}
 {{- else }}
-  <meta property="og:type" content="website">
+{{-   $props = $props | append (dict "property" "og:type" "content" "website") -}}
 {{- end }}
-
+{{- /* ── Images ────────────────────────────────────────────────────────── */}}
 {{- with partial "_funcs/get-page-images" . }}
-  {{- range . | first 6 }}
-    <meta property="og:image" content="{{ .Permalink }}">
-  {{- end }}
+{{-   range . | first 6 }}
+{{-     $props = $props | append (dict "property" "og:image" "content" .Permalink) -}}
+{{-   end }}
 {{- end }}
-
 {{- $image := .Params.image | default .Site.Params.image }}
 {{- if $image }}
-  {{- $imageUrl := $image }}
-  {{- $imageWidth := .Site.Params.image_width }}
-  {{- $imageHeight := .Site.Params.image_height }}
-
-  {{- if reflect.IsMap $image }}
-    {{- $imageUrl = $image.path }}
-    {{- if $image.width }}{{ $imageWidth = $image.width }}{{ end }}
-    {{- if $image.height }}{{ $imageHeight = $image.height }}{{ end }}
-  {{- end }}
-
-  {{- /* Auto-detect dimensions if not explicitly set */}}
-  {{- $imgResource := false }}
-
-  {{- /* Try to find it in Hugo Pipes / assets/ */}}
-  {{- if not $imgResource }}
-    {{- $imgResource = resources.GetMatch $imageUrl }}
-  {{- end }}
-
-  {{- /* Try to find it in the Page Bundle */}}
-  {{- if and (not $imgResource) .CurrentSection }}
-    {{- $imgResource = .Resources.GetMatch $imageUrl }}
-  {{- end }}
-
-  {{- /* If found, extract exact width and height */}}
-  {{- if $imgResource }}
-    {{- $imageWidth = $imgResource.Width }}
-    {{- $imageHeight = $imgResource.Height }}
-  {{- else if and (not $imageWidth) (not $imageHeight) }}
-    {{- $staticPath := printf "static/%s" (strings.TrimPrefix "/" $imageUrl) }}
-    {{- if fileExists $staticPath }}
-      {{- $imageConfig := imageConfig $staticPath }}
-      {{- $imageWidth = $imageConfig.Width }}
-      {{- $imageHeight = $imageConfig.Height }}
-    {{- end }}
-  {{- end }}
-
-  <meta property="og:image" content="{{ $imageUrl | absURL }}">
-  <meta property="og:image:type" content="image/webp">
-  {{- if $imageWidth }}<meta property="og:image:width" content="{{ $imageWidth }}">{{ end }}
-  {{- if $imageHeight }}<meta property="og:image:height" content="{{ $imageHeight }}">{{ end }}
+{{-   $imageUrl := $image }}
+{{-   if reflect.IsMap $image }}{{- $imageUrl = $image.path }}{{- end }}
+{{-   $imgResource := resources.GetMatch $imageUrl }}
+{{-   if $imgResource }}
+{{-     $ogImage := $imgResource.Fill "1200x630 png" }}
+{{-     $props = $props | append (dict "property" "og:image"        "content" $ogImage.Permalink) }}
+{{-     $props = $props | append (dict "property" "og:image:width"  "content" ($ogImage.Width  | string)) -}}
+{{-     $props = $props | append (dict "property" "og:image:height" "content" ($ogImage.Height | string)) -}}
+{{-     $props = $props | append (dict "property" "og:image:type"   "content" "image/png") -}}
+{{-   else }}
+{{-     $props = $props | append (dict "property" "og:image" "content" ($imageUrl | absURL)) -}}
+{{-   end }}
 {{- end }}
-
+{{- /* ── Media ─────────────────────────────────────────────────────────── */}}
 {{- with .Params.audio }}
-  {{- range . | first 6  }}
-    <meta property="og:audio" content="{{ . | absURL }}">
-  {{- end }}
+{{-   range . | first 6 }}
+{{-     $props = $props | append (dict "property" "og:audio" "content" (. | absURL)) -}}
+{{-   end }}
 {{- end }}
-
 {{- with .Params.videos }}
-  {{- range . | first 6 }}
-    <meta property="og:video" content="{{ . | absURL }}">
-  {{- end }}
+{{-   range . | first 6 }}
+{{-     $props = $props | append (dict "property" "og:video" "content" (. | absURL)) -}}
+{{-   end }}
 {{- end }}
-
+{{- /* ── Cross-links ───────────────────────────────────────────────────── */}}
 {{- range .GetTerms "series" }}
-  {{- range .Pages | first 7 }}
-    {{- if ne $ . }}
-      <meta property="og:see_also" content="{{ .Permalink }}">
-    {{- end }}
-  {{- end }}
+{{-   range .Pages | first 7 }}
+{{-     if ne $ . }}
+{{-       $props = $props | append (dict "property" "og:see_also" "content" .Permalink) -}}
+{{-     end }}
+{{-   end }}
 {{- end }}
-
+{{- /* ── Facebook ──────────────────────────────────────────────────────── */}}
 {{- with site.Params.social }}
-  {{- if reflect.IsMap . }}
-    {{- with .facebook_app_id }}
-      <meta property="fb:app_id" content="{{ . }}">
-    {{- else }}
-      {{- with .facebook_admin }}
-        <meta property="fb:admins" content="{{ . }}">
-      {{- end }}
-    {{- end }}
-  {{- end }}
+{{-   if reflect.IsMap . }}
+{{-     with .facebook_app_id }}
+{{-       $props = $props | append (dict "property" "fb:app_id" "content" .) -}}
+{{-     else }}
+{{-       with .facebook_admin }}
+{{-         $props = $props | append (dict "property" "fb:admins" "content" .) -}}
+{{-       end }}
+{{-     end }}
+{{-   end }}
 {{- end }}
+{{- /* ── Render all tags (property/content written exactly once) ─────────── */}}
+{{- range $props }}
+  <meta property="{{ .property }}" content="{{ .content }}">
+{{- end -}}
