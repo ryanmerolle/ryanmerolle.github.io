@@ -1,21 +1,21 @@
 {{- $authorEmail := "" }}
 {{- with site.Params.author }}
-  {{- if reflect.IsMap . }}
-    {{- with .email }}
-      {{- $authorEmail = . }}
-    {{- end }}
-  {{- end }}
+{{-   if reflect.IsMap . }}
+{{-     with .email }}
+{{-       $authorEmail = . }}
+{{-     end }}
+{{-   end }}
 {{- end }}
 
 {{- $authorName := "" }}
 {{- with site.Params.author }}
-  {{- if reflect.IsMap . }}
-    {{- with .name }}
-      {{- $authorName = . }}
-    {{- end }}
-  {{- else }}
-    {{- $authorName  = . }}
-  {{- end }}
+{{-   if reflect.IsMap . }}
+{{-     with .name }}
+{{-       $authorName = . }}
+{{-     end }}
+{{-   else }}
+{{-     $authorName  = . }}
+{{-   end }}
 {{- end }}
 
 {{- $pctx := . }}
@@ -42,28 +42,28 @@
     <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with .Site.Copyright }}
     <copyright>{{ . }}</copyright>{{ end }}{{ if not .Date.IsZero }}
     <lastBuildDate>{{ (index $pages.ByLastmod.Reverse 0).Lastmod.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>{{ end }}
-    {{- with .OutputFormats.Get "RSS" }}
+{{-     with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
-    {{- end }}
-    {{- range $pages }}
+{{-     end }}
+{{-     range $pages }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
-      {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
+{{-       with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
       <guid>{{ .Permalink }}</guid>
       <description>
-        {{- $img := "" }}
-        {{- with .Params.image }}
-          {{- if .path }}
-            {{- $img = printf "<img src=\"%s\" alt=\"%s\"/>" (.path | absURL) (.alt | default "") }}
-          {{- else }}
-            {{- $img = printf "<img src=\"%s\"/>" (. | absURL) }}
-          {{- end }}
-        {{- end }}
-        {{- printf "<![CDATA[%s%s]]>" $img ((.Description | default .Summary) | markdownify | replaceRE "(href|src)=\"/([^\"]*)\"" (printf "${1}=\"%s${2}\"" site.BaseURL)) | safeHTML }}
+{{-         $img := "" }}
+{{-         with .Params.image }}
+{{-           if .path }}
+{{-             $img = printf "<img src=\"%s\" alt=\"%s\"/>" (.path | absURL) (.alt | default "") }}
+{{-           else }}
+{{-             $img = printf "<img src=\"%s\"/>" (. | absURL) }}
+{{-           end }}
+{{-         end }}
+{{-         printf "<![CDATA[%s%s]]>" $img ((.Description | default .Summary) | markdownify | replaceRE "(href|src)=\"/([^\"]*)\"" (printf "${1}=\"%s${2}\"" site.BaseURL)) | safeHTML }}
       </description>
     </item>
-    {{- end }}
+{{-     end }}
   </channel>
 </rss>
