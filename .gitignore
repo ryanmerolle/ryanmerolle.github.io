@@ -1,9 +1,5 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-*.sublime-project
-*.sublime-workspace
+public/
+resources/
+.hugo_build.lock
 .DS_Store
-Gemfile.lock
 .rumdl_cache

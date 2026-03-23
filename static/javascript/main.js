@@ -1,0 +1,222 @@
+// Single initialization function to avoid duplicate listeners on permanent elements
+var initialized = false;
+
+function init(panelCover, disableLandingPage) {
+  if (initialized) return;
+  initialized = true;
+
+  if (!disableLandingPage) {
+    function collapsePanel() {
+      if (panelCover) panelCover.classList.add("panel-cover--collapsed");
+    }
+
+    document.querySelectorAll("a.blog-button").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        if (
+          !panelCover ||
+          panelCover.classList.contains("panel-cover--collapsed")
+        ) {
+          // If already collapsed, let Turbo handle it normally
+          return;
+        }
+        if (panelCover.offsetWidth < 960) {
+          collapsePanel();
+          // Query fresh — Turbo replaces .content-wrapper on each navigation
+          var cw = document.querySelector(".content-wrapper");
+          if (cw) cw.classList.add("animated", "slideInRight");
+        }
+      });
+    });
+  }
+
+  var mobileMenu = document.querySelector(".btn-mobile-menu");
+  var navWrapper = document.querySelector(".navigation-wrapper");
+  var menuIcon = document.querySelector(".btn-mobile-menu__icon");
+
+  function playAnimation(element, animationClass, extraClassesToAdd) {
+    if (!element) return;
+    element.classList.remove("animated", animationClass);
+    if (extraClassesToAdd) {
+      element.classList.add(extraClassesToAdd);
+    }
+    void element.offsetHeight; // force reflow
+    element.classList.add("animated", animationClass);
+  }
+
+  function toggleMobileNav() {
+    // Only toggle the mobile navigation visibility if the mobile menu button is actually visible
+    if (!mobileMenu || mobileMenu.offsetWidth === 0) return;
+
+    var opening = navWrapper && !navWrapper.classList.contains("visible");
+
+    if (navWrapper) {
+      if (opening) {
+        playAnimation(navWrapper, "fadeInDown", "visible");
+      } else {
+        navWrapper.classList.remove("visible", "animated", "fadeInDown");
+      }
+    }
+    if (menuIcon) {
+      menuIcon.classList.toggle("fa-bars");
+      menuIcon.classList.toggle("fa-circle-xmark");
+      if (opening) {
+        playAnimation(menuIcon, "fadeIn");
+      } else {
+        menuIcon.classList.remove("animated", "fadeIn");
+      }
+    }
+    if (mobileMenu) {
+      mobileMenu.setAttribute("aria-expanded", String(opening));
+    }
+  }
+
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", toggleMobileNav);
+  }
+
+  // Close mobile nav when a nav link is clicked (reuse toggleMobileNav
+  // so the animation and aria-expanded state stay consistent)
+  document
+    .querySelectorAll(".navigation-wrapper .blog-button")
+    .forEach(function (btn) {
+      btn.addEventListener("click", toggleMobileNav);
+    });
+}
+
+function getConfig() {
+  return {
+    disableLandingPage: document.body.dataset.disableLanding === "true",
+    baseUrl: document.body.dataset.baseurl || "",
+  };
+}
+
+function isHomePage() {
+  var baseUrl = getConfig().baseUrl;
+  var path = window.location.pathname;
+  return path === baseUrl + "/" || path === baseUrl + "/index.html";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  var config = getConfig();
+  var panelCover = document.querySelector(".panel-cover");
+
+  init(panelCover, config.disableLandingPage);
+
+  if (!config.disableLandingPage) {
+    function setInitialPanelState(panelCover, isHome) {
+      if (!panelCover) return;
+
+      if (!isHome) {
+        // Content page: collapse panel immediately (no animation needed)
+        panelCover.style.transition = "none";
+        panelCover.classList.add("panel-cover--collapsed");
+        void panelCover.offsetHeight; // force reflow
+        requestAnimationFrame(function () {
+          panelCover.style.transition = "";
+        });
+      } else if (document.referrer.indexOf(window.location.origin) === 0) {
+        // Returning from another page on this site: snap to collapsed then expand smoothly
+        panelCover.style.transition = "none";
+        panelCover.classList.add("panel-cover--collapsed");
+        void panelCover.offsetHeight; // force reflow
+        requestAnimationFrame(function () {
+          panelCover.style.transition = "";
+          panelCover.classList.remove("panel-cover--collapsed");
+        });
+      }
+    }
+
+    setInitialPanelState(panelCover, isHomePage());
+  }
+});
+
+// Fallback panel-state sync after Turbo replaces the body.
+// turbo:before-render handles the animated transitions; this ensures the
+// correct class is present if before-render was skipped (e.g. hard load).
+document.addEventListener("turbo:load", function () {
+  var config = getConfig();
+  if (config.disableLandingPage) return;
+
+  var panelCover = document.querySelector(".panel-cover");
+  if (!panelCover) return;
+
+  if (isHomePage()) {
+    if (panelCover.classList.contains("panel-cover--collapsed")) {
+      requestAnimationFrame(function () {
+        panelCover.style.transition = "";
+        panelCover.classList.remove("panel-cover--collapsed");
+      });
+    }
+  } else {
+    if (!panelCover.classList.contains("panel-cover--collapsed")) {
+      // Snap collapsed without animation (turbo:before-render should
+      // have already handled the animated case)
+      panelCover.style.transition = "none";
+      panelCover.classList.add("panel-cover--collapsed");
+      void panelCover.offsetHeight;
+      requestAnimationFrame(function () {
+        panelCover.style.transition = "";
+      });
+    }
+  }
+});
+
+// Intercept Turbo rendering to coordinate panel animations with DOM swaps.
+// - Navigating TO home: pause render, expand panel over old content, then resume.
+// - Navigating AWAY from home: snap panel collapsed before Turbo swaps in the
+//   new content so it is immediately visible.
+document.addEventListener("turbo:before-render", function (e) {
+  var config = getConfig();
+  if (config.disableLandingPage) return;
+
+  var panelCover = document.querySelector(".panel-cover");
+  if (!panelCover) return;
+
+  // During turbo:before-render, window.location has already been updated
+  // to the destination URL, so isHomePage() reflects the target page.
+  if (isHomePage()) {
+    // --- Returning to home: expand the panel over the old content first ---
+    if (panelCover.classList.contains("panel-cover--collapsed")) {
+      e.preventDefault();
+
+      var widthBefore = getComputedStyle(panelCover).width;
+
+      panelCover.style.transition = "";
+      panelCover.classList.remove("panel-cover--collapsed");
+
+      var widthAfter = getComputedStyle(panelCover).width;
+
+      // On mobile the collapsed and non-collapsed widths are both 100%,
+      // so no CSS transition fires. Resume immediately in that case.
+      if (widthBefore === widthAfter) {
+        e.detail.resume();
+        return;
+      }
+
+      var resumed = false;
+      function doResume() {
+        if (resumed) return;
+        resumed = true;
+        clearTimeout(fallbackTimer);
+        panelCover.removeEventListener("transitionend", onTransitionEnd);
+        e.detail.resume();
+      }
+
+      function onTransitionEnd(evt) {
+        // width and max-width both transition; only act on width to avoid double-fire
+        if (evt.propertyName === "width") doResume();
+      }
+
+      panelCover.addEventListener("transitionend", onTransitionEnd);
+      var fallbackTimer = setTimeout(doResume, 1100);
+    }
+  } else {
+    // --- Navigating away from home: snap panel collapsed instantly ---
+    if (!panelCover.classList.contains("panel-cover--collapsed")) {
+      panelCover.style.transition = "none";
+      panelCover.classList.add("panel-cover--collapsed");
+      void panelCover.offsetHeight; // force reflow
+      panelCover.style.transition = "";
+    }
+  }
+});

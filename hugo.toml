@@ -1,0 +1,46 @@
+baseURL = "https://www.merolle.net"
+languageCode = "en-us"
+title = "Ryan Merolle"
+paginate = 10
+enableRobotsTXT = true
+ignoreFiles = ["Makefile", "prek.toml", "\\.rumdl.*", "\\.yamllint.*", "\\.dockerignore"]
+
+[params]
+description = "Networks / Infra Automation / DevOps"
+image = "images/cover.webp"
+logo = "/images/profile.webp"
+google_tag_manager = "GTM-KMGNXRGF"
+
+[params.twitter]
+username = "ryanmerolle"
+card = "summary_large_image"
+
+[params.author]
+name = "Ryan Merolle"
+twitter = "ryanmerolle"
+
+[params.social]
+name = "Ryan Merolle"
+links = [
+  "https://twitter.com/ryanmerolle",
+  "https://www.linkedin.com/in/ryanmerolle",
+  "https://github.com/ryanmerolle",
+  "https://gitlab.com/ryanmerolle"
+]
+
+[permalinks]
+blog = "/blog/:title/"
+
+[taxonomies]
+tag = "tags"
+
+[markup.goldmark.renderer]
+unsafe = true # Required to allow HTML blocks mixed in Markdown posts
+
+canonifyURLs = true
+
+[outputs]
+  home = ["html"]
+  section = ["html", "rss"]
+  taxonomy = ["html"]
+  term = ["html"]

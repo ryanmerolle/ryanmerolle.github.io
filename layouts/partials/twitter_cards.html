@@ -1,0 +1,21 @@
+{{/* Twitter Cards */}}
+<meta name="twitter:card" content="{{ .Site.Params.twitter.card | default "summary_large_image" }}">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+{{ with .Description | default .Summary | default .Site.Params.description }}
+<meta name="twitter:description" content="{{ . }}">
+{{ end }}
+{{ with .Site.Params.twitter.username }}
+<meta name="twitter:site" content="@{{ . }}">
+{{ end }}
+{{ with .Site.Params.author.twitter }}
+<meta name="twitter:creator" content="@{{ . }}">
+{{ end }}
+
+{{ $image := .Params.image | default .Site.Params.image }}
+{{ if $image }}
+  {{ $imageUrl := $image }}
+  {{ if reflect.IsMap $image }}
+    {{ $imageUrl = $image.path }}
+  {{ end }}
+  <meta name="twitter:image" content="{{ $imageUrl | absURL }}">
+{{ end }}

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head.html" . }}
+
+  <body
+    data-disable-landing="{{ default false .Site.Params.disable_landing_page }}"
+    data-baseurl=""
+  >
+    <a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip to content</a>
+    {{ partial "gtm-body.html" . }} {{ partial "header.html" . }}
+
+    <main id="main-content" class="content-wrapper">
+      <div class="content-wrapper__inner">{{ block "main" . }}{{ end }}</div>
+    </main>
+    
+    {{ partial "footer.html" . }}
+  </body>
+</html>

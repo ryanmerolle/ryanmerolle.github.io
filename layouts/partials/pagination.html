@@ -1,0 +1,11 @@
+<nav class="pagination" role="navigation">
+  {{ if .Paginator.HasPrev }}
+    <a rel="prev" class="posts newer btn small" href="{{ .Paginator.Prev.URL }}" title="Previous Page">← Newer Posts</a>
+  {{ end }}
+
+  <span class="pagination__page-number">Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+
+  {{ if .Paginator.HasNext }}
+    <a rel="next" class="posts older btn small" href="{{ .Paginator.Next.URL }}">Older Posts →</a>
+  {{ end }}
+</nav>

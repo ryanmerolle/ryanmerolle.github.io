@@ -1,0 +1,411 @@
+// =============================================================================
+// _components.scss
+// Reusable UI components: labels, post list, post body, pagination,
+// form inputs, error code, utilities, podcast cards.
+// =============================================================================
+@use "variables" as *;
+
+// ---------------------------------------------------------------------------
+// Label / badge
+// ---------------------------------------------------------------------------
+.label {
+  position:      relative;
+  display:       inline-block;
+  padding:       8px 18px 9px 18px;
+  background:    var(--primary);
+  border-radius: 3px;
+  text-align:    center;
+  color:         var(--text-inverted);
+}
+
+// ---------------------------------------------------------------------------
+// Utility
+// ---------------------------------------------------------------------------
+.hidden { display: none !important; }
+
+// ---------------------------------------------------------------------------
+// Accessibility Utilities
+// ---------------------------------------------------------------------------
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// ---------------------------------------------------------------------------
+// Post – container, header, title, description
+// ---------------------------------------------------------------------------
+.post-container {
+  margin-bottom: 2em;
+}
+
+.post-container--single {
+  max-width: 100%;
+}
+
+.post-header {
+  margin-bottom: 1.5em;
+}
+
+.post-title {
+  margin-top:      0;
+  margin-bottom:   0.3em;
+  font-family:     var(--font-heading);
+  font-size:       2.2em;
+  font-weight:     lighter;
+  color:           var(--text-dark);
+  letter-spacing:  0.03em;
+  line-height:     1.25;
+}
+
+.post-description {
+  margin-bottom: 1em;
+  font-size:     1.05em;
+  line-height:   1.6;
+  color:         var(--text-muted);
+}
+
+// ---------------------------------------------------------------------------
+// Main post list wrapper (blog index)
+// ---------------------------------------------------------------------------
+.main-post-list {
+  margin-top: 0.5em;
+}
+
+// ---------------------------------------------------------------------------
+// Post – body
+// ---------------------------------------------------------------------------
+.post {
+  img {
+    max-width:     100%;
+    margin:        0 auto;
+    border-radius: 3px;
+    text-align:    center;
+  }
+
+  pre { width: 95%; }
+
+  hr {
+    display:    block;
+    width:      30%;
+    margin:     2em 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Post – meta
+// ---------------------------------------------------------------------------
+.post-meta {
+  margin: 0 0 0.4em 0;
+  color:  var(--text-subtle);
+}
+
+.post-meta__date { margin-right: 0.5em; }
+.post-meta__tags {
+  margin-left: 0.4em;
+  font-size:   0.78em;
+  padding:     0;
+
+  a {
+    display: inline;
+    margin:  0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Pagination
+// ---------------------------------------------------------------------------
+.pagination {
+  display:     flex;
+  align-items: center;
+  flex-wrap:   wrap;
+  gap:         8px;
+  margin:      2em 0 4em 0;
+}
+
+.pagination__page-number {
+  display:       inline-block;
+  margin:        0;
+  padding:       10px;
+  font-size:     0.8em;
+  color:         var(--text-muted);
+}
+
+// Pagination prev / next buttons
+.posts {
+  &.newer,
+  &.older {
+    font-size: 0.85em;
+    padding:   8px 18px;
+  }
+
+  &.small {
+    font-size: 0.85em;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Error page
+// ---------------------------------------------------------------------------
+.error-code { font-size: 6em; }
+
+// ---------------------------------------------------------------------------
+// Form inputs
+// ---------------------------------------------------------------------------
+$input-types: "text", "password", "datetime", "datetime-local", "date",
+              "month", "time", "week", "number", "email", "url",
+              "search", "tel";
+
+@each $type in $input-types {
+  input[type="#{$type}"] {
+    width:         100%;
+    max-width:     240px;
+    padding:       1em 1em;
+    background:    var(--bg);
+    border:        1px solid var(--border);
+    border-radius: 3px;
+    font-size:     0.9em;
+    color:         var(--text);
+
+    &:focus { border-color: var(--code-focus-border); }
+
+    &::placeholder { color: var(--placeholder); }
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Link cards (from main.scss)
+// ---------------------------------------------------------------------------
+.link-card {
+  border:        1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding:       16px;
+  margin-bottom: 12px;
+  transition:    box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.link-card--blog.link-card--with-image {
+  display:               grid;
+  grid-template-columns:  180px minmax(0, 1fr);
+  gap:                   16px;
+  align-items:           start;
+}
+
+.link-card__media {
+  display: block;
+
+  img {
+    display:       block;
+    width:         100%;
+    aspect-ratio:  1200 / 628;
+    object-fit:    cover;
+    border-radius: 6px;
+    background:    var(--bg-alt);
+  }
+}
+
+.link-card__body {
+  min-width: 0;
+}
+
+.link-card__header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     center;
+  flex-wrap:       wrap;
+  gap:             1px;
+}
+
+.link-card__title {
+  margin:        0 0 0.4rem 0;
+  font-size:     16px;
+  font-weight:   600;
+
+  a {
+    text-decoration: none;
+    color:           var(--primary);
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.link-card__badge--retired {
+  display:        inline-block;
+  background:     #888;
+  color:          var(--text-inverted);
+  font-size:      11px;
+  font-weight:    600;
+  padding:        2px 8px;
+  border-radius:  10px;
+  margin-left:    8px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.link-card__icons {
+  display:     flex;
+  gap:         10px;
+  align-items: center;
+}
+
+.link-icon {
+  display:    inline-flex;
+  opacity:    0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    opacity:   1;
+    transform: scale(1.15);
+  }
+}
+
+.link-icon--youtube svg { fill: #FF0000; }
+.link-icon--spotify svg { fill: #1DB954; }
+.link-icon--apple   svg { fill: #9933CC; }
+
+.link-card__meta {
+  display:       flex;
+  flex-wrap:     wrap;
+  align-items:   center;
+  gap:           0.5rem;
+  font-size:     0.78rem;
+  color:         var(--text-muted);
+  margin-bottom: 0.35rem;
+
+  time {
+    margin-right: 0.1rem;
+  }
+}
+
+.link-card__meta .post-meta__tags {
+  margin-left: 0;
+  padding:     0;
+}
+
+.link-card__description {
+  font-size:   0.95rem;
+  margin-top:  0;
+  line-height: 1.6;
+  color:       var(--text);
+}
+
+// ---------------------------------------------------------------------------
+// User / profile image
+// ---------------------------------------------------------------------------
+.user-image {
+  display:       block;
+  margin:        0 auto 1.2em auto;
+  position:      relative;
+  width:         200px;
+  height:        200px;
+  border-radius: 100%;
+}
+
+// ---------------------------------------------------------------------------
+// Tag pill links
+// ---------------------------------------------------------------------------
+.tags-list a {
+  color:           var(--text-dark);
+  font-size:       0.98rem;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+}
+
+.post-meta__tags a {
+  color:      var(--text-muted);
+  font-size:  0.76rem;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+}
+
+.tags-list {
+  display:     block;
+  margin-left: 0;
+  padding:     0;
+  list-style:  none;
+
+  li {
+    margin: 0 0 0.9rem 0;
+  }
+}
+
+.taxonomy-sort__count {
+  color:     var(--text-muted);
+  font-size:  0.9rem;
+}
+
+@media all and (max-width: $bp-tablet) {
+  .link-card--blog.link-card--with-image {
+    grid-template-columns: 1fr;
+  }
+
+  .link-card__media img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.link-card__description--blog {
+  display:         block;
+  color:           var(--text);
+  line-height:     1.65;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--text);
+    text-decoration: none;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Callout / notice box
+// ---------------------------------------------------------------------------
+.callout {
+  padding:          15px 20px;
+  background-color: var(--bg-alt);
+  border-left:      4px solid var(--primary);
+  border-radius:    4px;
+  font-size:        0.9em;
+  color:            var(--text);
+  margin-bottom:    1.5em;
+
+  p:last-child { margin-bottom: 0; }
+}
