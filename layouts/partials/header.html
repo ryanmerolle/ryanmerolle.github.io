@@ -4,7 +4,7 @@
 {{- $logoSrc := .Site.Params.logo | relURL -}}
 {{- $logoRes := resources.GetMatch (strings.TrimPrefix "/" .Site.Params.logo) -}}
 {{- if $logoRes }}{{- $logoSrc = $logoRes.RelPermalink -}}{{- end }}
-    <header id="sidebar" data-turbo-permanent="true" class="panel-cover {{ if or (not .IsHome) (default false .Site.Params.disable_landing_page) }}panel-cover--collapsed{{- end }}" style="background-image: url('{{- $coverSrc }}')">
+    <header id="sidebar" data-turbo-permanent="true" class="panel-cover {{ if or (not .IsHome) (default false .Site.Params.disable_landing_page) }}panel-cover--collapsed{{- end }}" role="banner" aria-label="Site sidebar with decorative cover image" style="background-image: url('{{- $coverSrc }}')">
       <button id="mobile-menu-button" class="mobile btn-mobile-menu" aria-label="Toggle navigation" aria-expanded="false">
         <i class="fa-solid fa-bars btn-mobile-menu__icon" aria-hidden="true"></i>
       </button>
