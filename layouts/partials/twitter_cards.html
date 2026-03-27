@@ -10,17 +10,12 @@
 {{- with .Site.Params.author.twitter }}
     <meta name="twitter:creator" content="@{{ . }}">
 {{- end }}
-{{- $image := .Params.image | default .Site.Params.image }}
-{{- if $image }}
-{{-   $imageUrl := $image }}
-{{-   if reflect.IsMap $image }}
-{{-     $imageUrl = $image.path }}
-{{-   end }}
-{{-   $imgResource := resources.GetMatch $imageUrl }}
-{{-   if $imgResource }}
-{{-     $twitterImage := $imgResource.Fill "1200x630 png" }}
+{{- $resolved := partial "resolve-image.html" (.Params.image | default .Site.Params.image) }}
+{{- with $resolved.URL }}
+{{-   if $resolved.Resource }}
+{{-     $twitterImage := $resolved.Resource.Fill "1200x630 png" }}
     <meta name="twitter:image" content="{{ $twitterImage.Permalink }}">
 {{-   else }}
-    <meta name="twitter:image" content="{{ $imageUrl | absURL }}">
+    <meta name="twitter:image" content="{{ . | absURL }}">
 {{-   end }}
 {{- end -}}

@@ -54,12 +54,9 @@
       <guid>{{ .Permalink }}</guid>
       <description>
 {{-         $img := "" }}
-{{-         with .Params.image }}
-{{-           if .path }}
-{{-             $img = printf "<img src=\"%s\" alt=\"%s\"/>" (.path | absURL) (.alt | default "") }}
-{{-           else }}
-{{-             $img = printf "<img src=\"%s\"/>" (. | absURL) }}
-{{-           end }}
+{{-         $resolved := partial "resolve-image.html" .Params.image }}
+{{-         with $resolved.URL }}
+{{-           $img = printf "<img src=\"%s\" alt=\"%s\"/>" (. | absURL) ($resolved.Alt | default "") }}
 {{-         end }}
 {{-         printf "<![CDATA[%s%s]]>" $img ((.Description | default .Summary) | markdownify | replaceRE "(href|src)=\"/([^\"]*)\"" (printf "${1}=\"%s${2}\"" site.BaseURL)) | safeHTML }}
       </description>

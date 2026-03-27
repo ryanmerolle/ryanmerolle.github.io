@@ -3,32 +3,11 @@
 
 <div class="main-post-list">
 {{   range .Paginator.Pages }}
-{{     $imageUrl := "" }}
-{{     $imageAlt := .Title }}
-{{     $imageWidth := "" }}
-{{     $imageHeight := "" }}
-{{     with .Params.image }}
-{{       if reflect.IsMap . }}
-{{         with .path }}
-{{           $imgRes := resources.GetMatch . }}
-{{           if $imgRes }}
-{{             $imageUrl = $imgRes.RelPermalink }}
-{{           else }}
-{{             $imageUrl = . | relURL }}
-{{           end }}
-{{         end }}
-{{         with .alt }}{{ $imageAlt = . }}{{ end }}
-{{         with .width }}{{ $imageWidth = . }}{{ end }}
-{{         with .height }}{{ $imageHeight = . }}{{ end }}
-{{       else }}
-{{         $imgRes := resources.GetMatch . }}
-{{         if $imgRes }}
-{{           $imageUrl = $imgRes.RelPermalink }}
-{{         else }}
-{{           $imageUrl = . | relURL }}
-{{         end }}
-{{       end }}
-{{     end }}
+{{     $resolved := partial "resolve-image.html" .Params.image }}
+{{     $imageUrl := $resolved.URL }}
+{{     $imageAlt := or $resolved.Alt .Title }}
+{{     $imageWidth := $resolved.Width }}
+{{     $imageHeight := $resolved.Height }}
     <article class="link-card link-card--blog{{ if $imageUrl }} link-card--with-image{{ end }}">
 {{       $pagePermalink := .RelPermalink }}
 {{       $pageTitle := .Title }}

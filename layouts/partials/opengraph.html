@@ -46,19 +46,16 @@
 {{-     $props = $props | append (dict "property" "og:image" "content" .Permalink) -}}
 {{-   end }}
 {{- end }}
-{{- $image := .Params.image | default .Site.Params.image }}
-{{- if $image }}
-{{-   $imageUrl := $image }}
-{{-   if reflect.IsMap $image }}{{- $imageUrl = $image.path }}{{- end }}
-{{-   $imgResource := resources.GetMatch $imageUrl }}
-{{-   if $imgResource }}
-{{-     $ogImage := $imgResource.Fill "1200x630 png" }}
+{{- $resolved := partial "resolve-image.html" (.Params.image | default .Site.Params.image) }}
+{{- with $resolved.URL }}
+{{-   if $resolved.Resource }}
+{{-     $ogImage := $resolved.Resource.Fill "1200x630 png" }}
 {{-     $props = $props | append (dict "property" "og:image"        "content" $ogImage.Permalink) }}
 {{-     $props = $props | append (dict "property" "og:image:width"  "content" ($ogImage.Width  | string)) -}}
 {{-     $props = $props | append (dict "property" "og:image:height" "content" ($ogImage.Height | string)) -}}
 {{-     $props = $props | append (dict "property" "og:image:type"   "content" "image/png") -}}
 {{-   else }}
-{{-     $props = $props | append (dict "property" "og:image" "content" ($imageUrl | absURL)) -}}
+{{-     $props = $props | append (dict "property" "og:image" "content" (. | absURL)) -}}
 {{-   end }}
 {{- end }}
 {{- /* ── Media ─────────────────────────────────────────────────────────── */}}

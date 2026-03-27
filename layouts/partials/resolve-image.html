@@ -1,0 +1,26 @@
+{{- /*
+  resolve-image.html
+  Input:  an image parameter — either a map { path, alt, width, height } or a plain string.
+  Returns: dict with Resource (Hugo resource or nil), URL (string), Alt, Width, Height.
+*/ -}}
+{{- $result := dict "Resource" nil "URL" "" "Alt" "" "Width" "" "Height" "" -}}
+{{- with . -}}
+{{-   $imagePath := "" -}}
+{{-   if reflect.IsMap . -}}
+{{-     with .path }}{{ $imagePath = . }}{{ end -}}
+{{-     with .alt }}{{ $result = merge $result (dict "Alt" .) }}{{ end -}}
+{{-     with .width }}{{ $result = merge $result (dict "Width" .) }}{{ end -}}
+{{-     with .height }}{{ $result = merge $result (dict "Height" .) }}{{ end -}}
+{{-   else -}}
+{{-     $imagePath = . -}}
+{{-   end -}}
+{{-   with $imagePath -}}
+{{-     $imgResource := resources.GetMatch . -}}
+{{-     if $imgResource -}}
+{{-       $result = merge $result (dict "Resource" $imgResource "URL" $imgResource.RelPermalink) -}}
+{{-     else -}}
+{{-       $result = merge $result (dict "URL" (. | relURL)) -}}
+{{-     end -}}
+{{-   end -}}
+{{- end -}}
+{{- return $result -}}
