@@ -34,6 +34,12 @@
     <p><a href="{{ relURL "/blog/" }}">← Back to Blog</a></p>
   </header>
 
+{{-   with .Params.image }}
+  <div class="post-hero">
+    <img src="{{ .path | relURL }}" alt="{{ .alt | default "Blog Post Image" }}" class="post-hero__image">
+  </div>
+{{-   end }}
+
   <div class="post">
 {{     .Content }}
   </div>
