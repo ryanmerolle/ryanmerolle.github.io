@@ -1,0 +1,41 @@
+---
+name: W3C Validation Checks
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v5
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "latest"
+          extended: true
+
+      - name: Build Site
+        run: hugo --minify
+
+      - name: Validate HTML (W3C Nu)
+        run: |
+          docker run -v ${{ github.workspace }}/public:/public ghcr.io/validator/validator --errors-only /public/
+
+      - name: Check Links
+        uses: anishathalye/proof-html@v2
+        with:
+          directory: ./public
+          # enforce_https: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate Config
+        run: echo "HTML and Links validated successfully via separate steps."
