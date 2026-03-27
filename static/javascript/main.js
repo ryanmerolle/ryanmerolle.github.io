@@ -14,7 +14,7 @@ function init (panelCover, disableLandingPage) {
       if (panelCover) panelCover.classList.add('panel-cover--collapsed')
     }
 
-    document.querySelectorAll('a.blog-button').forEach((btn) => {
+    document.querySelectorAll('a.nav-link').forEach((btn) => {
       btn.addEventListener('click', (_e) => {
         if (
           !panelCover ||
@@ -82,7 +82,7 @@ function init (panelCover, disableLandingPage) {
   // Close mobile nav when a nav link is clicked (reuse toggleMobileNav
   // so the animation and aria-expanded state stay consistent)
   document
-    .querySelectorAll('.navigation-wrapper .blog-button')
+    .querySelectorAll('.navigation-wrapper .nav-link')
     .forEach((btn) => {
       btn.addEventListener('click', toggleMobileNav)
     })
