@@ -1,11 +1,11 @@
 {{- /*
   post-header.html
-  Renders the common article header: <article> open + <header> with <h1>.
+  Renders the page header block: <header> with <h1>.
   Used by _default/single.html, _default/list.html, and _default/terms.html.
+  The calling template is responsible for its own <article> wrapper.
 
   Input: Page context (.)
 */ -}}
-<article class="post-container post-container--single">
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
   </header>

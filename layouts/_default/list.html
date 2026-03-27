@@ -1,4 +1,5 @@
 {{ define "main" }}
+<article class="post-container post-container--single">
 {{ partial "post-header.html" . }}
 
   <div class="post">
@@ -10,7 +11,9 @@
       </li>
 {{   end }}
     </ul>
+{{   if or .Paginator.HasPrev .Paginator.HasNext }}
     {{ partial "pagination.html" . }}
+{{   end }}
   </div>
 </article>
 {{ end }}
