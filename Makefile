@@ -43,7 +43,7 @@ lint: prek rumdl yamllint codespell ## Run all linting checks
 
 hugo: ## Run Hugo development server
 	@echo 'Starting Hugo dev server on http://localhost:1313'
-	hugo serve --bind 0.0.0.0 --buildDrafts --buildFuture --disableFastRender
+	hugo --minify serve --bind 0.0.0.0 --buildDrafts --buildFuture --disableFastRender
 
 docker: ## Start Docker Compose services
 	@echo 'Starting Docker Compose...'
