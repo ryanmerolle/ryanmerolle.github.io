@@ -23,7 +23,8 @@ function init (panelCover, disableLandingPage) {
           // If already collapsed, let Turbo handle it normally
           return
         }
-        if (panelCover.offsetWidth < 960) {
+        const bpTablet = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--bp-tablet'), 10) || 960
+        if (panelCover.offsetWidth < bpTablet) {
           collapsePanel()
           // Query fresh — Turbo replaces .content-wrapper on each navigation
           const cw = document.querySelector('.content-wrapper')

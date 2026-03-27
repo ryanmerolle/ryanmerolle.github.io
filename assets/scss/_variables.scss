@@ -51,6 +51,9 @@
   --container-width:  940px;
   --mobile-bar-height:42px;
 
+  // Breakpoints (also consumed by main.js)
+  --bp-tablet:        960px;
+
   // Motion
   --transition-panel: width 1s ease, max-width 1s ease;
 }
@@ -81,7 +84,7 @@ $font-mono:       var(--font-mono);
 // Breakpoints (desktop-first preserved; mobile-first migration is future work)
 $bp-wide:         1300px;
 $bp-medium:       1100px;
-$bp-tablet:       960px;
+$bp-tablet:       960px;  // keep in sync with --bp-tablet above
 $bp-small:        340px;
 
 // -----------------------------------------------------------------------------
