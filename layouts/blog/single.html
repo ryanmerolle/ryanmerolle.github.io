@@ -36,7 +36,7 @@
 
 {{-   with .Params.image }}
   <div class="post-hero">
-    <img src="{{ .path | relURL }}" alt="{{ .alt | default "Blog Post Image" }}" class="post-hero__image">
+    <img src="{{ .path | relURL }}" alt="{{ .alt | default $.Title }}" class="post-hero__image">
   </div>
 {{-   end }}
 
