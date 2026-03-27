@@ -1,6 +1,6 @@
 ---
 title: About
-description: "I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 19 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike."
+description: "I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 17 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike."
 url: /about/
 ---
 
@@ -10,7 +10,7 @@ url: /about/
   <p>The views expressed here are my own & not affiliated with any past or present employer.</p>
 </div>
 
-I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 19 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike.
+I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 17 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike.
 
 **💪 Strengths**: Network engineering, technology leadership, AI enablement, and technology standardization.
 
