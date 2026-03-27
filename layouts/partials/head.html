@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ partial "page-title.html" . }}</title>
-{{- with .Description | default .Summary | default .Site.Params.description }}
+{{- with partial "page-description.html" . }}
     <meta name="description" content="{{ . }}">
 {{- end -}}
 {{- partial "opengraph.html" . }}

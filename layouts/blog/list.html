@@ -28,9 +28,7 @@
 {{           $tags := .Params.tags }}
 {{           with $tags }}
             <span class="post-meta__tags">
-{{               range $index, $tag := $tags }}
-                <a href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ $tag }}</a>{{ if ne (add $index 1) (len $tags) }}, {{ end }}
-{{               end }}
+                {{ partial "tag-list.html" $tags }}
             </span>
 {{           end }}
         </div>
