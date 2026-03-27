@@ -17,7 +17,7 @@
 {{-   $props = $props | append (dict "property" "og:locale" "content" (replace . `-` `_`)) -}}
 {{- end }}
 {{- /* ── Type & article metadata ───────────────────────────────────────── */}}
-{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+{{- $ISO8601 := .Site.Params.dateFormats.datetime }}
 {{- if .IsPage }}
 {{-   $props = $props | append (dict "property" "og:type" "content" "article") -}}
 {{-   with .Section }}

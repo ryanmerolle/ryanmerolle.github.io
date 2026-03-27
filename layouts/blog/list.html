@@ -24,7 +24,7 @@
 {{       end }}
       <div class="link-card__body">
         <div class="link-card__meta">
-          <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+          <time datetime="{{ .Date.Format $.Site.Params.dateFormats.datetime }}">{{ .Date.Format $.Site.Params.dateFormats.display }}</time>
 {{           $tags := .Params.tags }}
 {{           with $tags }}
             <span class="post-meta__tags">

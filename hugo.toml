@@ -24,6 +24,10 @@ apple = "https://podcasts.apple.com/us/podcast/"
 name = "Ryan Merolle"
 twitter = "ryanmerolle"
 
+[params.dateFormats]
+display = "2 Jan 2006"
+datetime = "2006-01-02T15:04:05Z07:00"
+
 [params.social]
 name = "Ryan Merolle"
 links = [
