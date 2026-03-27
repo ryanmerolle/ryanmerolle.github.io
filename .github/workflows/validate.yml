@@ -24,7 +24,8 @@ jobs:
 
       - name: Validate HTML (W3C Nu)
         run: |
-          docker run -v ${{ github.workspace }}/public:/public ghcr.io/validator/validator --errors-only /public/
+          wget -qO /tmp/vnu.jar "https://github.com/validator/validator/releases/download/latest/vnu.jar"
+          find public -type f -name "*.html" -exec java -jar /tmp/vnu.jar --errors-only {} \+
 
       - name: Check Links
         uses: anishathalye/proof-html@v2
