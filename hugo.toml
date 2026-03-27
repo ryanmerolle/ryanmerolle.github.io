@@ -37,8 +37,6 @@ tag = "tags"
 [markup.goldmark.renderer]
 unsafe = true # Required to allow HTML blocks mixed in Markdown posts
 
-canonifyURLs = true
-
 [outputs]
   home = ["html"]
   section = ["html", "rss"]
