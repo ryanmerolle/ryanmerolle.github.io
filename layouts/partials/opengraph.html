@@ -39,11 +39,6 @@
 {{-   $props = $props | append (dict "property" "og:type" "content" "website") -}}
 {{- end }}
 {{- /* ── Images ────────────────────────────────────────────────────────── */}}
-{{- with partial "_funcs/get-page-images" . }}
-{{-   range . | first 6 }}
-{{-     $props = $props | append (dict "property" "og:image" "content" .Permalink) -}}
-{{-   end }}
-{{- end }}
 {{- $resolved := partial "resolve-image.html" (.Params.image | default .Site.Params.image) }}
 {{- with $resolved.URL }}
 {{-   if $resolved.Resource }}
