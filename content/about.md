@@ -6,9 +6,7 @@ url: /about/
 
 ## About Me
 
-<div class="callout">
-  <p>The views expressed here are my own & not affiliated with any past or present employer.</p>
-</div>
+{{< callout >}}The views expressed here are my own & not affiliated with any past or present employer.{{< /callout >}}
 
 I’m an IT leader who specializes in bridging the gap between business value, software development, and the effective use of technology infrastructure by both areas. With over 17 years of experience, I have an extensive background in building robust infrastructure systems and workflows for startups and established companies alike.
 

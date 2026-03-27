@@ -276,9 +276,9 @@
   }
 }
 
-.link-icon--youtube svg { fill: #FF0000; }
-.link-icon--spotify svg { fill: #1DB954; }
-.link-icon--apple   svg { fill: #9933CC; }
+.link-icon--youtube svg { fill: var(--icon-youtube); }
+.link-icon--spotify svg { fill: var(--icon-spotify); }
+.link-icon--apple   svg { fill: var(--icon-apple); }
 
 .link-card__meta {
   display:       flex;

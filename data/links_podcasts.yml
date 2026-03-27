@@ -1,9 +1,4 @@
 ---
-base_urls:
-  spotify: https://open.spotify.com/show/
-  youtube: https://www.youtube.com/
-  apple: https://podcasts.apple.com/us/podcast/
-
 ai:
   - name: "The AI Daily Brief"
     website: https://aidailybrief.ai

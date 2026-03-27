@@ -1,29 +1,6 @@
 {{ $sorted_blogs := sort hugo.Data.links_blogs "name" }} {{ range $blog :=
 $sorted_blogs }}
-<article class="link-card">
-  <div class="link-card__header">
-    <h2 class="link-card__title">
-      <a href="{{ $blog.url }}" target="_blank" rel="noopener"
-        >{{ $blog.name }}</a
-      >
-    </h2>
-    <div class="link-card__icons">
-      <a
-        href="{{ $blog.url }}"
-        title="External Link"
-        target="_blank"
-        rel="noopener"
-        class="link-icon"
-        aria-label="{{ $blog.name }} Website"
-      >
-        {{- partial "icons/external-link.html" . -}}
-      </a>
-    </div>
-  </div>
-  {{ if $blog.author }}
-  <div class="link-card__meta">By {{ $blog.author }}</div>
-  {{ end }} {{ if $blog.description }}
-  <div class="link-card__description">{{ $blog.description }}</div>
-  {{ end }}
-</article>
+{{-   $icons := printf `<a href="%s" title="External Link" target="_blank" rel="noopener" class="link-icon" aria-label="%s Website">%s</a>` $blog.url $blog.name (partial "icons/external-link.html" .) -}}
+{{-   $meta := "" }}{{ with $blog.author }}{{ $meta = printf "By %s" . }}{{ end -}}
+{{    partial "link-card.html" (dict "name" $blog.name "url" $blog.url "external" true "heading" "h3" "icons" $icons "meta" $meta "description" $blog.description) }}
 {{ end }}

@@ -15,6 +15,11 @@ google_tag_manager = "GTM-KMGNXRGF"
 username = "ryanmerolle"
 card = "summary_large_image"
 
+[params.podcast_base_urls]
+spotify = "https://open.spotify.com/show/"
+youtube = "https://www.youtube.com/"
+apple = "https://podcasts.apple.com/us/podcast/"
+
 [params.author]
 name = "Ryan Merolle"
 twitter = "ryanmerolle"
@@ -33,9 +38,6 @@ blog = "/blog/:title/"
 
 [taxonomies]
 tag = "tags"
-
-[markup.goldmark.renderer]
-unsafe = true # Required to allow HTML blocks mixed in Markdown posts
 
 [outputs]
   home = ["html"]

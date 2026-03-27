@@ -4,28 +4,6 @@ if gt (len $projects) 0 }} {{ $sorted_projects := sort $projects "name" }}
 <h2>{{ .Get "category_label" }}</h2>
 
 {{ range $project := $sorted_projects }}
-<article class="link-card">
-  <div class="link-card__header">
-    <h3 class="link-card__title">
-      <a href="{{ $project.url }}" target="_blank" rel="noopener"
-        >{{ $project.name }}</a
-      >
-    </h3>
-    <div class="link-card__icons">
-      <a
-        href="{{ $project.url }}"
-        title="Project Link"
-        target="_blank"
-        rel="noopener"
-        class="link-icon"
-        aria-label="{{ $project.name }} Project URL"
-      >
-        {{- partial "icons/external-link.html" . -}}
-      </a>
-    </div>
-  </div>
-  {{ if $project.description }}
-  <div class="link-card__description">{{ $project.description }}</div>
-  {{ end }}
-</article>
+{{-   $icons := printf `<a href="%s" title="Project Link" target="_blank" rel="noopener" class="link-icon" aria-label="%s Project URL">%s</a>` $project.url $project.name (partial "icons/external-link.html" .) -}}
+{{    partial "link-card.html" (dict "name" $project.name "url" $project.url "external" true "icons" $icons "description" $project.description) }}
 {{ end }} {{ end }}

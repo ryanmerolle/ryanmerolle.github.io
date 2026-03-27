@@ -1,66 +1,24 @@
 {{ $podcasts := index hugo.Data.links_podcasts (.Get "category_key") }} {{
 if gt (len $podcasts) 0 }} {{ $base_spotify :=
-hugo.Data.links_podcasts.base_urls.spotify }} {{ $base_youtube :=
-hugo.Data.links_podcasts.base_urls.youtube }} {{ $base_apple :=
-hugo.Data.links_podcasts.base_urls.apple }} {{ $sorted_podcasts := sort
+.Site.Params.podcast_base_urls.spotify }} {{ $base_youtube :=
+.Site.Params.podcast_base_urls.youtube }} {{ $base_apple :=
+.Site.Params.podcast_base_urls.apple }} {{ $sorted_podcasts := sort
 $podcasts "name" }}
 
 <h2>{{ .Get "category_label" }}</h2>
 
 {{ range $podcast := $sorted_podcasts }}
-<article class="link-card">
-  <div class="link-card__header">
-    <h3 class="link-card__title">
-      <a href="{{ $podcast.website }}">{{ $podcast.name }}</a>
-      {{ if eq $podcast.status "retired" }}<span
-        class="link-card__badge--retired"
-        >Retired</span
-      >{{ end }}
-    </h3>
-    <div class="link-card__icons">
-      {{ if and $podcast.youtube (not (strings.Contains $podcast.youtube "<"))
-      }}
-      <a
-        href="{{ $base_youtube }}{{ $podcast.youtube }}"
-        title="YouTube"
-        target="_blank"
-        rel="noopener"
-        class="link-icon link-icon--youtube"
-        aria-label="{{ $podcast.name }} on YouTube"
-      >
-        {{- partial "icons/youtube.html" . -}}
-      </a>
-      {{ end }} {{ if and $podcast.spotify (not (strings.Contains
-      $podcast.spotify "<")) }}
-      <a
-        href="{{ $base_spotify }}{{ $podcast.spotify }}"
-        title="Spotify"
-        target="_blank"
-        rel="noopener"
-        class="link-icon link-icon--spotify"
-        aria-label="{{ $podcast.name }} on Spotify"
-      >
-        {{- partial "icons/spotify.html" . -}}
-      </a>
-      {{ end }} {{ if and $podcast.apple (not (strings.Contains $podcast.apple
-      "<")) }}
-      <a
-        href="{{ $base_apple }}{{ $podcast.apple }}"
-        title="Apple Podcasts"
-        target="_blank"
-        rel="noopener"
-        class="link-icon link-icon--apple"
-        aria-label="{{ $podcast.name }} on Apple Podcasts"
-      >
-        {{- partial "icons/apple-podcasts.html" . -}}
-      </a>
-      {{ end }}
-    </div>
-  </div>
-  <div class="link-card__meta">
-    {{ $podcast.publisher }} · {{ $podcast.frequency }} · {{ $podcast.duration
-    }}
-  </div>
-  <div class="link-card__description">{{ $podcast.description }}</div>
-</article>
+{{-   $icons := "" -}}
+{{-   if and $podcast.youtube (not (strings.Contains $podcast.youtube "<")) -}}
+{{-     $icons = printf `%s<a href="%s%s" title="YouTube" target="_blank" rel="noopener" class="link-icon link-icon--youtube" aria-label="%s on YouTube">%s</a>` $icons $base_youtube $podcast.youtube $podcast.name (partial "icons/youtube.html" .) -}}
+{{-   end -}}
+{{-   if and $podcast.spotify (not (strings.Contains $podcast.spotify "<")) -}}
+{{-     $icons = printf `%s<a href="%s%s" title="Spotify" target="_blank" rel="noopener" class="link-icon link-icon--spotify" aria-label="%s on Spotify">%s</a>` $icons $base_spotify $podcast.spotify $podcast.name (partial "icons/spotify.html" .) -}}
+{{-   end -}}
+{{-   if and $podcast.apple (not (strings.Contains $podcast.apple "<")) -}}
+{{-     $icons = printf `%s<a href="%s%s" title="Apple Podcasts" target="_blank" rel="noopener" class="link-icon link-icon--apple" aria-label="%s on Apple Podcasts">%s</a>` $icons $base_apple $podcast.apple $podcast.name (partial "icons/apple-podcasts.html" .) -}}
+{{-   end -}}
+{{-   $badge := "" }}{{ if eq $podcast.status "retired" }}{{ $badge = "Retired" }}{{ end -}}
+{{-   $meta := printf "%s · %s · %s" $podcast.publisher $podcast.frequency $podcast.duration -}}
+{{    partial "link-card.html" (dict "name" $podcast.name "url" $podcast.website "icons" $icons "badge" $badge "meta" $meta "description" $podcast.description) }}
 {{ end }} {{ end }}

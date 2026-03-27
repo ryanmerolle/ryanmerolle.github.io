@@ -2,7 +2,7 @@
 title: Podcasts I Listen To
 description: A collection of podcasts and YouTube channels I subscribe to.
 url: /links/podcasts/
-robots: noindex
+robots: noindex, nofollow
 ---
 
 [← Back to Links](/links/)
