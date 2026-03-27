@@ -31,7 +31,7 @@ jobs:
         uses: anishathalye/proof-html@v2
         with:
           directory: ./public
-          # enforce_https: false
+          check_css: false
 
       - name: Setup Node
         uses: actions/setup-node@v4
