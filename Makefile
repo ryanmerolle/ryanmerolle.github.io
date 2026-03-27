@@ -63,18 +63,24 @@ clean: ## Clean build artifacts
 
 plugins: ## Install required validation tools locally
 	@echo "Installing W3C validation dependencies..."
-	@sudo apt-get update && sudo apt-get install -y default-jre wget npm nodejs
+	@sudo apt-get update && sudo apt-get install -y default-jre wget npm nodejs libxml2-utils
 	@mkdir -p bin
 	@if [ ! -f bin/vnu.jar ]; then wget -qO bin/vnu.jar "https://github.com/validator/validator/releases/download/latest/vnu.jar"; fi
 	@if [ ! -f bin/muffet ]; then wget -qO- "https://github.com/raviqqe/muffet/releases/download/v2.11.2/muffet_linux_$$(dpkg --print-architecture).tar.gz" | tar -xz -C bin muffet; fi
 
-validate: validate-html validate-links ## Run all local validation checks
+validate: validate-html validate-links validate-rss ## Run all local validation checks
 
 validate-html: ## Run W3C Nu HTML Checker
 	@echo 'Validating HTML...'
 	hugo --minify
 	@if [ ! -f bin/vnu.jar ]; then echo "Error: bin/vnu.jar not found. Run 'make plugins' first."; exit 1; fi
 	find public -type f -name "*.html" -exec java -jar bin/vnu.jar --errors-only {} \+
+
+validate-rss: ## Validate RSS/XML feeds with xmllint (W3C XML spec)
+	@echo 'Validating XML files...'
+	hugo --minify
+	@if ! command -v xmllint > /dev/null 2>&1; then echo "Error: xmllint not found. Run 'make plugins' first."; exit 1; fi
+	find public -type f -name "*.xml" | xargs xmllint --noout
 
 validate-links: ## Run link checker
 	@echo 'Checking links...'
