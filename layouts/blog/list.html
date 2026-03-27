@@ -3,45 +3,28 @@
 
 <div class="main-post-list">
 {{   range .Paginator.Pages }}
-{{     $resolved := partial "resolve-image.html" .Params.image }}
-{{     $imageUrl := $resolved.URL }}
-{{     $imageAlt := or $resolved.Alt .Title }}
-{{     $imageWidth := $resolved.Width }}
-{{     $imageHeight := $resolved.Height }}
-    <article class="link-card link-card--blog{{ if $imageUrl }} link-card--with-image{{ end }}">
-{{       $pagePermalink := .RelPermalink }}
-{{       $pageTitle := .Title }}
-{{       with $imageUrl }}
-        <a class="link-card__media" href="{{ $pagePermalink }}" aria-label="Read {{ $pageTitle }}">
-          <img
-            src="{{ . }}"
-            alt="{{ $imageAlt }}"
-            loading="lazy"
-            decoding="async"
-{{             with $imageWidth }}width="{{ . }}"{{ end }}
-{{             with $imageHeight }}height="{{ . }}"{{ end }}>
-        </a>
-{{       end }}
-      <div class="link-card__body">
-        <div class="link-card__meta">
-          <time datetime="{{ .Date.Format $.Site.Params.dateFormats.datetime }}">{{ .Date.Format $.Site.Params.dateFormats.display }}</time>
-{{           $tags := .Params.tags }}
-{{           with $tags }}
-            <span class="post-meta__tags">
-                {{ partial "tag-list.html" $tags }}
-            </span>
-{{           end }}
-        </div>
-        <div class="link-card__header">
-          <h3 class="link-card__title">
-            <a href="{{ .RelPermalink }}" title="{{ .Title }}">{{ .Title }}</a>
-          </h3>
-        </div>
-        <div class="link-card__description">
-{{           .Description | default .Summary | plainify | htmlUnescape }}
-        </div>
-      </div>
-    </article>
+{{     $resolved := partial "resolve-image.html" .Params.image -}}
+{{     $imageUrl := $resolved.URL -}}
+{{     $imageAlt := or $resolved.Alt .Title -}}
+{{     $imageWidth := $resolved.Width -}}
+{{     $imageHeight := $resolved.Height -}}
+
+{{     $class := "link-card--blog" -}}
+{{     $media := "" -}}
+{{     if $imageUrl }}
+{{       $class = "link-card--blog link-card--with-image" }}
+{{       $media = printf "<a class=\"link-card__media\" href=\"%s\" aria-label=\"Read %s\">\n          <img src=\"%s\" alt=\"%s\" loading=\"lazy\" decoding=\"async\" %s %s>\n        </a>" .RelPermalink .Title $imageUrl $imageAlt (cond (not (not $imageWidth)) (printf "width=\"%s\"" (string $imageWidth)) "") (cond (not (not $imageHeight)) (printf "height=\"%s\"" (string $imageHeight)) "") }}
+{{     end -}}
+
+{{     $tagsHtml := "" }}
+{{     with .Params.tags }}
+{{       $tagsHtml = printf "<span class=\"post-meta__tags\">%s</span>" (partial "tag-list.html" .) }}
+{{     end }}
+{{     $meta_top := printf "<time datetime=\"%s\">%s</time>%s" (.Date.Format $.Site.Params.dateFormats.datetime) (.Date.Format $.Site.Params.dateFormats.display) $tagsHtml }}
+
+{{     $description := .Description | default .Summary | plainify | htmlUnescape -}}
+
+{{     partial "link-card.html" (dict "name" .Title "url" .RelPermalink "class" $class "media" $media "meta_top" $meta_top "description" $description) }}
 {{   end }}
 
 {{   if or .Paginator.HasPrev .Paginator.HasNext }}

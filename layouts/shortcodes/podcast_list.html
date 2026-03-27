@@ -1,24 +1,25 @@
-{{ $podcasts := index hugo.Data.links_podcasts (.Get "category_key") }} {{
-if gt (len $podcasts) 0 }} {{ $base_spotify :=
-.Site.Params.podcast_base_urls.spotify }} {{ $base_youtube :=
-.Site.Params.podcast_base_urls.youtube }} {{ $base_apple :=
-.Site.Params.podcast_base_urls.apple }} {{ $sorted_podcasts := sort
-$podcasts "name" }}
+{{ $podcasts := index hugo.Data.links_podcasts (.Get "category_key") }}
+{{ if gt (len $podcasts) 0 }}
+{{ $sorted_podcasts := sort $podcasts "name" }}
 
 <h2>{{ .Get "category_label" }}</h2>
 
+{{ $providers := slice
+    (dict "key" "youtube" "base" $.Site.Params.podcast_base_urls.youtube "title" "YouTube" "label_format" "%s on YouTube" "icon" "icons/youtube.html" "class" "link-icon--youtube")
+    (dict "key" "spotify" "base" $.Site.Params.podcast_base_urls.spotify "title" "Spotify" "label_format" "%s on Spotify" "icon" "icons/spotify.html" "class" "link-icon--spotify")
+    (dict "key" "apple" "base" $.Site.Params.podcast_base_urls.apple "title" "Apple Podcasts" "label_format" "%s on Apple Podcasts" "icon" "icons/apple-podcasts.html" "class" "link-icon--apple")
+}}
+
 {{ range $podcast := $sorted_podcasts }}
 {{-   $icons := "" -}}
-{{-   if and $podcast.youtube (not (strings.Contains $podcast.youtube "<")) -}}
-{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_youtube $podcast.youtube) "title" "YouTube" "label" (printf "%s on YouTube" $podcast.name) "icon" (partial "icons/youtube.html" .) "class" "link-icon--youtube")) -}}
-{{-   end -}}
-{{-   if and $podcast.spotify (not (strings.Contains $podcast.spotify "<")) -}}
-{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_spotify $podcast.spotify) "title" "Spotify" "label" (printf "%s on Spotify" $podcast.name) "icon" (partial "icons/spotify.html" .) "class" "link-icon--spotify")) -}}
-{{-   end -}}
-{{-   if and $podcast.apple (not (strings.Contains $podcast.apple "<")) -}}
-{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_apple $podcast.apple) "title" "Apple Podcasts" "label" (printf "%s on Apple Podcasts" $podcast.name) "icon" (partial "icons/apple-podcasts.html" .) "class" "link-icon--apple")) -}}
+{{-   range $provider := $providers -}}
+{{-     $val := index $podcast $provider.key -}}
+{{-     if and $val (not (strings.Contains $val "<")) -}}
+{{-       $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $provider.base $val) "title" $provider.title "label" (printf $provider.label_format $podcast.name) "icon" (partial $provider.icon $) "class" $provider.class)) -}}
+{{-     end -}}
 {{-   end -}}
 {{-   $badge := "" }}{{ if eq $podcast.status "retired" }}{{ $badge = "Retired" }}{{ end -}}
 {{-   $meta := printf "%s · %s · %s" $podcast.publisher $podcast.frequency $podcast.duration -}}
 {{    partial "link-card.html" (dict "name" $podcast.name "url" $podcast.website "icons" $icons "badge" $badge "meta" $meta "description" $podcast.description) }}
-{{ end }} {{ end }}
+{{ end }}
+{{ end }}
