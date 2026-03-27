@@ -24,7 +24,7 @@
             <nav class="cover-navigation navigation--social" aria-label="Social Links">
               <ul class="navigation">
 {{-     $user_links := .Site.Params.social.links | default slice }}
-{{-     range $idx, $link := .Site.Data.social_links }}
+{{-     range $idx, $link := hugo.Data.social_links }}
 {{-     $match_url := "" }}
 {{-     $username := "" }}
 {{-     range $url := $user_links }}

@@ -1,4 +1,4 @@
-{{ $sorted_blogs := sort .Page.Site.Data.links_blogs "name" }} {{ range $blog :=
+{{ $sorted_blogs := sort hugo.Data.links_blogs "name" }} {{ range $blog :=
 $sorted_blogs }}
 <article class="link-card">
   <div class="link-card__header">

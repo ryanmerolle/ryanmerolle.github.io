@@ -1,8 +1,8 @@
-{{ $podcasts := index .Page.Site.Data.links_podcasts (.Get "category_key") }} {{
+{{ $podcasts := index hugo.Data.links_podcasts (.Get "category_key") }} {{
 if gt (len $podcasts) 0 }} {{ $base_spotify :=
-.Page.Site.Data.links_podcasts.base_urls.spotify }} {{ $base_youtube :=
-.Page.Site.Data.links_podcasts.base_urls.youtube }} {{ $base_apple :=
-.Page.Site.Data.links_podcasts.base_urls.apple }} {{ $sorted_podcasts := sort
+hugo.Data.links_podcasts.base_urls.spotify }} {{ $base_youtube :=
+hugo.Data.links_podcasts.base_urls.youtube }} {{ $base_apple :=
+hugo.Data.links_podcasts.base_urls.apple }} {{ $sorted_podcasts := sort
 $podcasts "name" }}
 
 <h2>{{ .Get "category_label" }}</h2>

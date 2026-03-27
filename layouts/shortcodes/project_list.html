@@ -1,4 +1,4 @@
-{{ $projects := index .Page.Site.Data.links_projects (.Get "category_key") }} {{
+{{ $projects := index hugo.Data.links_projects (.Get "category_key") }} {{
 if gt (len $projects) 0 }} {{ $sorted_projects := sort $projects "name" }}
 
 <h2>{{ .Get "category_label" }}</h2>
