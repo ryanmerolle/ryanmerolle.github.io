@@ -10,13 +10,13 @@ $podcasts "name" }}
 {{ range $podcast := $sorted_podcasts }}
 {{-   $icons := "" -}}
 {{-   if and $podcast.youtube (not (strings.Contains $podcast.youtube "<")) -}}
-{{-     $icons = printf `%s<a href="%s%s" title="YouTube" target="_blank" rel="noopener" class="link-icon link-icon--youtube" aria-label="%s on YouTube">%s</a>` $icons $base_youtube $podcast.youtube $podcast.name (partial "icons/youtube.html" .) -}}
+{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_youtube $podcast.youtube) "title" "YouTube" "label" (printf "%s on YouTube" $podcast.name) "icon" (partial "icons/youtube.html" .) "class" "link-icon--youtube")) -}}
 {{-   end -}}
 {{-   if and $podcast.spotify (not (strings.Contains $podcast.spotify "<")) -}}
-{{-     $icons = printf `%s<a href="%s%s" title="Spotify" target="_blank" rel="noopener" class="link-icon link-icon--spotify" aria-label="%s on Spotify">%s</a>` $icons $base_spotify $podcast.spotify $podcast.name (partial "icons/spotify.html" .) -}}
+{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_spotify $podcast.spotify) "title" "Spotify" "label" (printf "%s on Spotify" $podcast.name) "icon" (partial "icons/spotify.html" .) "class" "link-icon--spotify")) -}}
 {{-   end -}}
 {{-   if and $podcast.apple (not (strings.Contains $podcast.apple "<")) -}}
-{{-     $icons = printf `%s<a href="%s%s" title="Apple Podcasts" target="_blank" rel="noopener" class="link-icon link-icon--apple" aria-label="%s on Apple Podcasts">%s</a>` $icons $base_apple $podcast.apple $podcast.name (partial "icons/apple-podcasts.html" .) -}}
+{{-     $icons = printf "%s%s" $icons (partial "icon-link.html" (dict "url" (printf "%s%s" $base_apple $podcast.apple) "title" "Apple Podcasts" "label" (printf "%s on Apple Podcasts" $podcast.name) "icon" (partial "icons/apple-podcasts.html" .) "class" "link-icon--apple")) -}}
 {{-   end -}}
 {{-   $badge := "" }}{{ if eq $podcast.status "retired" }}{{ $badge = "Retired" }}{{ end -}}
 {{-   $meta := printf "%s · %s · %s" $podcast.publisher $podcast.frequency $podcast.duration -}}

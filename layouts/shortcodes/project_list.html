@@ -4,6 +4,6 @@ if gt (len $projects) 0 }} {{ $sorted_projects := sort $projects "name" }}
 <h2>{{ .Get "category_label" }}</h2>
 
 {{ range $project := $sorted_projects }}
-{{-   $icons := printf `<a href="%s" title="Project Link" target="_blank" rel="noopener" class="link-icon" aria-label="%s Project URL">%s</a>` $project.url $project.name (partial "icons/external-link.html" .) -}}
+{{-   $icons := partial "icon-link.html" (dict "url" $project.url "title" "Project Link" "label" (printf "%s Project URL" $project.name) "icon" (partial "icons/external-link.html" .)) -}}
 {{    partial "link-card.html" (dict "name" $project.name "url" $project.url "external" true "icons" $icons "description" $project.description) }}
 {{ end }} {{ end }}
