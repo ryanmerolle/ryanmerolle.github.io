@@ -32,9 +32,10 @@
     <p><a href="{{ relURL "/blog/" }}">← Back to Blog</a></p>
   </header>
 
-{{-   with .Params.image }}
+{{-   $resolved := partial "resolve-image.html" .Params.image }}
+{{-   with $resolved.URL }}
   <div class="post-hero">
-    <img src="{{ .path | relURL }}" alt="{{ .alt | default $.Title }}" class="post-hero__image">
+    <img src="{{ . }}" alt="{{ $resolved.Alt | default $.Title }}" class="post-hero__image"{{ with $resolved.Width }} width="{{ . }}"{{ end }}{{ with $resolved.Height }} height="{{ . }}"{{ end }}>
   </div>
 {{-   end }}
 

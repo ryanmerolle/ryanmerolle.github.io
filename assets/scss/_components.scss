@@ -144,12 +144,16 @@
 .post-meta__date { margin-right: 0.5em; }
 .post-meta__tags {
   margin-left: 0.4em;
-  font-size:   0.78em;
+  font-size:   0.8em;
   padding:     0;
+  color:       var(--text-subtle);
 
   a {
     display: inline;
     margin:  0;
+    color:   var(--text);
+
+    &:hover { color: var(--primary-dark); }
   }
 }
 
@@ -333,12 +337,9 @@
 }
 
 .post-meta__tags a {
-  color:      var(--text-muted);
-  font-size:  0.76rem;
   text-decoration: none;
 
   &:hover {
-    color: var(--primary-dark);
     text-decoration: underline;
   }
 }

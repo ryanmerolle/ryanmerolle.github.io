@@ -1,11 +1,4 @@
 {{- $url := .Get "url" -}}
 {{- $title := .Get "title" -}}
 {{- $description := .Get "description" -}}
-<div class="link-card">
-  <div class="link-card__header">
-    <div class="link-card__title">
-      <a href="{{ $url }}">{{ $title }}</a>
-    </div>
-  </div>
-  <div class="link-card__description">{{ $description }}</div>
-</div>
+{{ partial "link-card.html" (dict "name" $title "url" $url "description" $description) }}
