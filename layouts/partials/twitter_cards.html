@@ -1,6 +1,6 @@
 {{- /*Twitter Cards */}}
     <meta name="twitter:card" content="{{ .Site.Params.twitter.card | default "summary_large_image" }}">
-    <meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    <meta name="twitter:title" content="{{ partial "page-title.html" . }}">
 {{- with .Description | default .Summary | default .Site.Params.description }}
     <meta name="twitter:description" content="{{ . }}">
 {{- end }}
