@@ -5,15 +5,20 @@ function forceReflow (element) {
   return element.offsetHeight
 }
 
+// Instantly set panel collapsed state without CSS transition.
+function snapPanel (panel, collapsed) {
+  if (!panel) return
+  panel.style.transition = 'none'
+  panel.classList.toggle('panel-cover--collapsed', collapsed)
+  forceReflow(panel)
+  panel.style.transition = ''
+}
+
 function init (panelCover, disableLandingPage) {
   if (initialized) return
   initialized = true
 
   if (!disableLandingPage) {
-    function collapsePanel () {
-      if (panelCover) panelCover.classList.add('panel-cover--collapsed')
-    }
-
     document.querySelectorAll('a.nav-link').forEach((btn) => {
       btn.addEventListener('click', (_e) => {
         if (
@@ -25,7 +30,7 @@ function init (panelCover, disableLandingPage) {
         }
         const bpTablet = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--bp-tablet'), 10) || 960
         if (panelCover.offsetWidth < bpTablet) {
-          collapsePanel()
+          panelCover.classList.add('panel-cover--collapsed')
           // Query fresh — Turbo replaces .content-wrapper on each navigation
           const cw = document.querySelector('.content-wrapper')
           if (cw) cw.classList.add('animated', 'slideInRight')
@@ -107,31 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   init(panelCover, config.disableLandingPage)
 
-  if (!config.disableLandingPage) {
-    function setInitialPanelState (panelCover, isHome) {
-      if (!panelCover) return
-
-      if (!isHome) {
-        // Content page: collapse panel immediately (no animation needed)
-        panelCover.style.transition = 'none'
-        panelCover.classList.add('panel-cover--collapsed')
-        forceReflow(panelCover) // force reflow
-        window.requestAnimationFrame(() => {
-          panelCover.style.transition = ''
-        })
-      } else if (document.referrer.indexOf(window.location.origin) === 0) {
-        // Returning from another page on this site: snap to collapsed then expand smoothly
-        panelCover.style.transition = 'none'
-        panelCover.classList.add('panel-cover--collapsed')
-        forceReflow(panelCover) // force reflow
-        window.requestAnimationFrame(() => {
-          panelCover.style.transition = ''
-          panelCover.classList.remove('panel-cover--collapsed')
-        })
-      }
+  if (!config.disableLandingPage && panelCover) {
+    if (!isHomePage()) {
+      // Content page: collapse panel immediately (no animation needed)
+      snapPanel(panelCover, true)
+    } else if (document.referrer.indexOf(window.location.origin) === 0) {
+      // Returning from another page on this site: snap to collapsed then expand smoothly
+      snapPanel(panelCover, true)
+      window.requestAnimationFrame(() => {
+        panelCover.classList.remove('panel-cover--collapsed')
+      })
     }
-
-    setInitialPanelState(panelCover, isHomePage())
   }
 })
 
@@ -152,17 +143,10 @@ document.addEventListener('turbo:load', () => {
         panelCover.classList.remove('panel-cover--collapsed')
       })
     }
-  } else {
-    if (!panelCover.classList.contains('panel-cover--collapsed')) {
-      // Snap collapsed without animation (turbo:before-render should
-      // have already handled the animated case)
-      panelCover.style.transition = 'none'
-      panelCover.classList.add('panel-cover--collapsed')
-      forceReflow(panelCover)
-      window.requestAnimationFrame(() => {
-        panelCover.style.transition = ''
-      })
-    }
+  } else if (!panelCover.classList.contains('panel-cover--collapsed')) {
+    // Snap collapsed without animation (turbo:before-render should
+    // have already handled the animated case)
+    snapPanel(panelCover, true)
   }
 })
 
@@ -218,10 +202,7 @@ document.addEventListener('turbo:before-render', (e) => {
   } else {
     // --- Navigating away from home: snap panel collapsed instantly ---
     if (!panelCover.classList.contains('panel-cover--collapsed')) {
-      panelCover.style.transition = 'none'
-      panelCover.classList.add('panel-cover--collapsed')
-      forceReflow(panelCover) // force reflow
-      panelCover.style.transition = ''
+      snapPanel(panelCover, true)
     }
   }
 })
