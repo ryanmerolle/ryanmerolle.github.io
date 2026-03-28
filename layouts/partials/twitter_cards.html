@@ -10,7 +10,7 @@
 {{- with .Site.Params.author.twitter }}
     <meta name="twitter:creator" content="@{{ . }}">
 {{- end }}
-{{- $resolved := partial "resolve-image.html" (.Params.image | default .Site.Params.image) }}
+{{- $resolved := .Scratch.Get "socialImage" }}
 {{- with $resolved.URL }}
 {{-   if $resolved.Resource }}
 {{-     $twitterImage := $resolved.Resource.Fill "1200x630 png" }}

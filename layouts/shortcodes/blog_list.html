@@ -1,6 +1,1 @@
-{{ $sorted_blogs := sort hugo.Data.links_blogs "name" }} {{ range $blog :=
-$sorted_blogs }}
-{{-   $icons := partial "icon-link.html" (dict "url" $blog.url "title" "External Link" "label" (printf "%s Website" $blog.name) "icon" (partial "icons/external-link.html" .)) -}}
-{{-   $meta := "" }}{{ with $blog.author }}{{ $meta = printf "By %s" . }}{{ end -}}
-{{    partial "link-card.html" (dict "name" $blog.name "url" $blog.url "external" true "heading" "h3" "icons" $icons "meta" $meta "description" $blog.description) }}
-{{ end }}
+{{ partial "external-link-list.html" (dict "items" (sort hugo.Data.links_blogs "name") "icon_title" "External Link" "icon_label" "Website" "heading" "h3" "meta_key" "author") }}

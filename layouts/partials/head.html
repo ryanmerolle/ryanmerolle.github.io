@@ -6,6 +6,7 @@
 {{- with partial "page-description.html" . }}
     <meta name="description" content="{{ . }}">
 {{- end -}}
+{{- .Scratch.Set "socialImage" (partial "resolve-image.html" (.Params.image | default .Site.Params.image)) }}
 {{- partial "opengraph.html" . }}
 {{- partial "twitter_cards.html" . }}
 {{- if .Params.robots }}

@@ -1,9 +1,7 @@
-{{ $projects := index hugo.Data.links_projects (.Get "category_key") }} {{
-if gt (len $projects) 0 }} {{ $sorted_projects := sort $projects "name" }}
+{{ $projects := index hugo.Data.links_projects (.Get "category_key") }}
+{{ if gt (len $projects) 0 }}
 
 <h2>{{ .Get "category_label" }}</h2>
 
-{{ range $project := $sorted_projects }}
-{{-   $icons := partial "icon-link.html" (dict "url" $project.url "title" "Project Link" "label" (printf "%s Project URL" $project.name) "icon" (partial "icons/external-link.html" .)) -}}
-{{    partial "link-card.html" (dict "name" $project.name "url" $project.url "external" true "icons" $icons "description" $project.description) }}
-{{ end }} {{ end }}
+{{ partial "external-link-list.html" (dict "items" (sort $projects "name") "icon_title" "Project Link" "icon_label" "Project URL") }}
+{{ end }}

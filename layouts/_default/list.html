@@ -7,7 +7,7 @@
     <ul>
 {{   range .Pages }}
       <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ .Date.Format $.Site.Params.dateFormats.display }})
       </li>
 {{   end }}
     </ul>

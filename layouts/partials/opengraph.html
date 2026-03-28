@@ -39,7 +39,7 @@
 {{-   $props = $props | append (dict "property" "og:type" "content" "website") -}}
 {{- end }}
 {{- /* ── Images ────────────────────────────────────────────────────────── */}}
-{{- $resolved := partial "resolve-image.html" (.Params.image | default .Site.Params.image) }}
+{{- $resolved := .Scratch.Get "socialImage" }}
 {{- with $resolved.URL }}
 {{-   if $resolved.Resource }}
 {{-     $ogImage := $resolved.Resource.Fill "1200x630 png" }}
