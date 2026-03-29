@@ -2,13 +2,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ partial "page-title.html" . }}</title>
-{{- with partial "page-description.html" . }}
+{{- $title := partial "page-title.html" . -}}
+{{- $description := partial "page-description.html" . -}}
+    <title>{{ $title }}</title>
+{{- with $description }}
     <meta name="description" content="{{ . }}">
 {{- end -}}
-{{- .Scratch.Set "socialImage" (partial "resolve-image.html" (.Params.image | default .Site.Params.image)) }}
-{{- partial "opengraph.html" . }}
-{{- partial "twitter_cards.html" . }}
+{{- $socialImage := partial "resolve-image.html" (.Params.image | default .Site.Params.image) -}}
+{{- partial "opengraph.html" (dict "Page" . "socialImage" $socialImage "title" $title "description" $description) }}
+{{- partial "twitter_cards.html" (dict "Page" . "socialImage" $socialImage "title" $title "description" $description) }}
 {{- if .Params.robots }}
     <meta name="robots" content="{{ .Params.robots }}">
   {{ end }}

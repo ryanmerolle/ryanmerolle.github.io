@@ -370,18 +370,6 @@
   }
 }
 
-.link-card__description--blog {
-  display:         block;
-  color:           var(--text);
-  line-height:     1.65;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--text);
-    text-decoration: none;
-  }
-}
-
 // ---------------------------------------------------------------------------
 // Callout / notice box
 // ---------------------------------------------------------------------------

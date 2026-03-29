@@ -13,7 +13,7 @@
 {{     $media := "" -}}
 {{     if $imageUrl }}
 {{       $class = "link-card--blog link-card--with-image" }}
-{{       $media = printf "<a class=\"link-card__media\" href=\"%s\" aria-label=\"Read %s\">\n          <img src=\"%s\" alt=\"%s\" loading=\"lazy\" decoding=\"async\" %s %s>\n        </a>" .RelPermalink .Title $imageUrl $imageAlt (cond (not (not $imageWidth)) (printf "width=\"%s\"" (string $imageWidth)) "") (cond (not (not $imageHeight)) (printf "height=\"%s\"" (string $imageHeight)) "") }}
+{{       $media = printf "<a class=\"link-card__media\" href=\"%s\" aria-label=\"Read %s\">\n          <img src=\"%s\" alt=\"%s\" loading=\"lazy\" decoding=\"async\" %s %s>\n        </a>" .RelPermalink .Title $imageUrl $imageAlt (cond $imageWidth (printf "width=\"%s\"" (string $imageWidth)) "") (cond $imageHeight (printf "height=\"%s\"" (string $imageHeight)) "") }}
 {{     end -}}
 
 {{     $tagsHtml := "" }}
