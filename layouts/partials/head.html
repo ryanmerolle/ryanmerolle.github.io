@@ -11,9 +11,7 @@
 {{- $socialImage := partial "resolve-image.html" (.Params.image | default .Site.Params.image) -}}
 {{- partial "opengraph.html" (dict "Page" . "socialImage" $socialImage "title" $title "description" $description) }}
 {{- partial "twitter_cards.html" (dict "Page" . "socialImage" $socialImage "title" $title "description" $description) }}
-{{- if .Params.robots }}
-    <meta name="robots" content="{{ .Params.robots }}">
-  {{ end }}
+    <meta name="robots" content="{{ .Params.robots | default "index, follow" }}">
     <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="{{ .Permalink }}">
     <link rel="alternate" type="application/rss+xml" title="Ryan Merolle - Blog RSS Feed" href="{{ "blog/index.xml" | absURL }}">
@@ -25,9 +23,9 @@
     <link rel="apple-touch-icon" href="{{ relURL "favicons/apple-touch-icon.png" }}">
     <link rel="manifest" href="{{ relURL "manifest.webmanifest" }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Roboto+Slab:wght@300;400&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/{{ .Site.Params.cdn.font_awesome_version }}/css/all.min.css">
     <link rel="stylesheet" href="{{ $scss.RelPermalink }}">
-    <script defer src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@{{ .Site.Params.cdn.turbo_version }}/dist/turbo.es2017-umd.js"></script>
     <script defer src="{{ relURL "javascript/main.js" }}"></script>
 {{- partial "gtm-head.html" . }}
   </head>

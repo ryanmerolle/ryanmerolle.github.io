@@ -20,7 +20,7 @@
 {{- $external := .external | default false -}}
 {{- $class := .class -}}
 {{- $heading := .heading | default "h3" -}}
-{{- $target := cond $external ` target="_blank" rel="noopener"` "" -}}
+{{- $target := cond $external ` target="_blank" rel="noopener noreferrer"` "" -}}
 <article class="link-card{{ with $class }} {{ . }}{{ end }}">
 {{- with .media }}
   {{ . | safeHTML }}

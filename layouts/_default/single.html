@@ -1,5 +1,18 @@
 {{ define "main" }}
 <article class="post-container post-container--single">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{{ .Title }}",
+  "url": "{{ .Permalink }}",
+  "description": "{{ .Description | default .Summary | plainify }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author.name }}"
+  }
+}
+</script>
 {{ partial "post-header.html" . }}
 
   <div class="post">{{ .Content }}</div>

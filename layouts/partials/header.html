@@ -12,11 +12,11 @@
         <div class="panel-main__inner panel-inverted">
           <div class="panel-main__content">
             <a href="{{ relURL "/" }}" aria-label="Home">
-              <img src="{{ $logoSrc }}" class="user-image" alt="Portrait of {{- default .Site.Title .Site.Params.author.name }}" width="200" height="200">
+              <img src="{{ $logoSrc }}" class="user-image" alt="" width="200" height="200">
 {{-     if .IsHome }}
                 <h1 class="panel-cover__title panel-title">{{- .Site.Title }}</h1>
 {{-     else }}
-                <div class="panel-cover__title panel-title">{{- .Site.Title }}</div>
+                <p class="panel-cover__title panel-title">{{- .Site.Title }}</p>
 {{-     end }}
             </a>
             <hr class="panel-cover__divider">

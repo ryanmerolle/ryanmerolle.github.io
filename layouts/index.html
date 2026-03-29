@@ -1,3 +1,16 @@
 {{ define "main" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ .Site.Title }}",
+  "url": "{{ .Site.BaseURL }}",
+  "description": "{{ .Site.Params.description }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author.name }}"
+  }
+}
+</script>
 <h1 class="sr-only">{{ .Site.Title }} — {{ .Site.Params.description }}</h1>
 {{ end }}

@@ -20,6 +20,10 @@ spotify = "https://open.spotify.com/show/"
 youtube = "https://www.youtube.com/"
 apple = "https://podcasts.apple.com/us/podcast/"
 
+[params.cdn]
+font_awesome_version = "6.5.1"
+turbo_version = "8.0.4"
+
 [params.author]
 name = "Ryan Merolle"
 twitter = "ryanmerolle"
