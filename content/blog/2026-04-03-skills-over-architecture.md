@@ -5,7 +5,7 @@ author: Ryan Merolle
 date: 2026-04-03
 tags: [Agentic AI, Skills, Plugins, AI]
 image:
-  path: "images/blog_posts/2026-03-21-designing-repos-for-humans-and-agents.webp"
+  path: "images/blog_posts/2026-04-03-skills-over-architecture.webp"
   alt: "Skills Over Architecture"
 ---
 
