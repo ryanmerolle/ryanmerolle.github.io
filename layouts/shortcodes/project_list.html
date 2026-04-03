@@ -1,43 +1,7 @@
-{{ $projects := index .Page.Site.Data.links_projects (.Get "category_key") }} {{
-if gt (len $projects) 0 }} {{ $sorted_projects := sort $projects "name" }}
+{{ $projects := index hugo.Data.links_projects (.Get "category_key") }}
+{{ if gt (len $projects) 0 }}
 
 <h2>{{ .Get "category_label" }}</h2>
 
-{{ range $project := $sorted_projects }}
-<article class="link-card">
-  <div class="link-card__header">
-    <h3 class="link-card__title">
-      <a href="{{ $project.url }}" target="_blank" rel="noopener"
-        >{{ $project.name }}</a
-      >
-    </h3>
-    <div class="link-card__icons">
-      <a
-        href="{{ $project.url }}"
-        title="Project Link"
-        target="_blank"
-        rel="noopener"
-        class="link-icon"
-        aria-label="{{ $project.name }} Project URL"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          width="20"
-          height="20"
-          aria-hidden="true"
-          focusable="false"
-          fill="currentColor"
-        >
-          <path
-            d="M432 320h-32a16 16 0 0 0 -16 16v112H64V128h144a16 16 0 0 0 16-16V80a16 16 0 0 0 -16-16H48a48 48 0 0 0 -48 48v336a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V336a16 16 0 0 0 -16-16zm-181.7-65.7 131.7-131.7V176a16 16 0 0 0 16 16h32a16 16 0 0 0 16-16V48a16 16 0 0 0 -16-16H304a16 16 0 0 0 -16 16v32a16 16 0 0 0 16 16h53.5L225.8 227.8a16 16 0 0 0 0 22.6l22.6 22.6a16 16 0 0 0 22.6-.1z"
-          />
-        </svg>
-      </a>
-    </div>
-  </div>
-  {{ if $project.description }}
-  <div class="link-card__description">{{ $project.description }}</div>
-  {{ end }}
-</article>
-{{ end }} {{ end }}
+{{ partial "external-link-list.html" (dict "items" (sort $projects "name") "icon_title" "Project Link" "icon_label" "Project URL") }}
+{{ end }}

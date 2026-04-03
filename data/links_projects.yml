@@ -4,10 +4,6 @@ ai:
     url: https://github.com/universal-tool-calling-protocol/code-mode
     description: UTCP Code Mode is a tool for calling tools from within code.
 
-  - name: Awesome MCP Servers
-    url: https://glama.ai/mcp/servers
-    description: Curated list of MCP Servers
-
   - name: toon
     url: https://toonformat.dev
     description: A compact, human-readable encoding of the JSON data model for LLM prompts.
@@ -30,7 +26,7 @@ ai:
 
 devops:
   - name: MKDocs
-    url: https://mkdocs.org
+    url: https://www.mkdocs.org
     description: MKDocs is a fast, modern, and downright gorgeous static site generator for MkDocs, based on Material for MkDocs.
 
   - name: Material for MKDocs
@@ -67,7 +63,7 @@ golang:
     description: Curated list of GoLang links
 
   - name: gin
-    url: https://gin-gonic.com/
+    url: https://gin-gonic.com
     description: The fastest full-featured web framework for Go. Crystal clear.
 
   - name: cobra

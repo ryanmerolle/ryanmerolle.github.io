@@ -1,11 +1,10 @@
 {{ define "main" }}
 <article class="post-container post-container--single">
-  <header class="post-header">
-    <h1 class="post-title">{{ .Title }}</h1>
-  </header>
+{{ partial "post-header.html" . }}
 
   <div class="post">
     {{ .Content }}
+    <h2>All Tags</h2>
     <ul class="tags-list tags-list--stacked">
       {{ range .Data.Terms.Alphabetical }}
       <li>

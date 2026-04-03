@@ -1,0 +1,55 @@
+{{- /*
+  link-card.html
+  Renders a link-card article.
+
+  Input: dict with keys:
+    "name"        (string, required) — card title text
+    "url"         (string, required) — title link href
+    "external"    (bool)             — open link in new tab
+    "class"       (string)           — optional extra classes for the article container
+    "heading"     (string)           — "h2" or "h3" (default "h3")
+    "badge"       (string)           — optional badge text (e.g. "Retired")
+    "icons"       (string)           — pre-rendered HTML for icon links
+    "media"       (string)           — pre-rendered HTML for media (images)
+    "meta_top"    (string)           — pre-rendered meta line (placed above header)
+    "meta"        (string)           — pre-rendered meta line (placed below header)
+    "description" (string)           — description text
+*/ -}}
+{{- $name := .name -}}
+{{- $url := .url -}}
+{{- $external := .external | default false -}}
+{{- $class := .class -}}
+{{- $heading := .heading | default "h3" -}}
+{{- $target := cond $external ` target="_blank" rel="noopener noreferrer"` "" -}}
+<article class="link-card{{ with $class }} {{ . }}{{ end }}">
+{{- with .media }}
+  {{ . | safeHTML }}
+{{- end }}
+{{- $hasBody := or .media .meta_top }}
+{{- if $hasBody }}
+  <div class="link-card__body">
+{{- end }}
+{{- with .meta_top }}
+  <div class="link-card__meta">{{ . | safeHTML }}</div>
+{{- end }}
+  <div class="link-card__header">
+    {{ printf "<%s class=\"link-card__title\">" $heading | safeHTML }}
+      <a href="{{ $url }}"{{ $target | safeHTMLAttr }}>{{ $name }}</a>
+{{-     with .badge }}
+      <span class="link-card__badge--retired">{{ . }}</span>
+{{-     end }}
+    {{ printf "</%s>" $heading | safeHTML }}
+{{-   with .icons }}
+    <div class="link-card__icons">
+      {{ . | safeHTML }}
+    </div>
+{{-   end }}
+  </div>
+{{- with .meta }}
+  <div class="link-card__meta">{{ . }}</div>
+{{- end }}
+{{- with .description }}
+  <div class="link-card__description">{{ . }}</div>
+{{- end }}{{- if $hasBody }}
+  </div>
+{{- end }}</article>

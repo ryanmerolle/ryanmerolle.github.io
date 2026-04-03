@@ -15,9 +15,22 @@ google_tag_manager = "GTM-KMGNXRGF"
 username = "ryanmerolle"
 card = "summary_large_image"
 
+[params.podcast_base_urls]
+spotify = "https://open.spotify.com/show/"
+youtube = "https://www.youtube.com/"
+apple = "https://podcasts.apple.com/us/podcast/"
+
+[params.cdn]
+font_awesome_version = "6.5.1"
+turbo_version = "8.0.4"
+
 [params.author]
 name = "Ryan Merolle"
 twitter = "ryanmerolle"
+
+[params.dateFormats]
+display = "2 Jan 2006"
+datetime = "2006-01-02T15:04:05Z07:00"
 
 [params.social]
 name = "Ryan Merolle"
@@ -33,11 +46,6 @@ blog = "/blog/:title/"
 
 [taxonomies]
 tag = "tags"
-
-[markup.goldmark.renderer]
-unsafe = true # Required to allow HTML blocks mixed in Markdown posts
-
-canonifyURLs = true
 
 [outputs]
   home = ["html"]

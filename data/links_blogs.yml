@@ -13,10 +13,6 @@
 - name: Matt Oswalt
   url: https://oswalt.dev
 
-- name: NWMichl Blog
-  url: https://nwmichl.net
-  author: Michael Schön
-
 - name: Netpanda's Blog
   url: https://davidban77.hashnode.dev
   author: David Flores
@@ -31,12 +27,8 @@
 - name: Brian Linkletter
   url: https://www.brianlinkletter.com
 
-- name: Packet Life
-  url: https://packetlife.net/blog
-  author: Jeremy Stretch
-
 - name: Packet Pushers
-  url: http://packetpushers.net
+  url: https://packetpushers.net
 
 - name: Scott's Weblog
   url: https://blog.scottlowe.org
@@ -55,10 +47,6 @@
 - name: StubArea51.net
   url: https://stubarea51.net
   author: Kevin Myers
-
-- name: TTL255
-  url: https://ttl255.com
-  author: Przemek Rogala
 
 - name: The ForwardingPlane
   url: https://forwardingplane.net

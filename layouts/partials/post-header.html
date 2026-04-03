@@ -1,0 +1,11 @@
+{{- /*
+  post-header.html
+  Renders the page header block: <header> with <h1>.
+  Used by _default/single.html, _default/list.html, and _default/terms.html.
+  The calling template is responsible for its own <article> wrapper.
+
+  Input: Page context (.)
+*/ -}}
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+  </header>

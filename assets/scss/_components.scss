@@ -98,6 +98,21 @@
 }
 
 // ---------------------------------------------------------------------------
+// Post – hero image (single)
+// ---------------------------------------------------------------------------
+.post-hero {
+  margin:        2em 0 3em 0;
+  text-align:    center;
+}
+
+.post-hero__image {
+  max-width:     100%;
+  height:        auto;
+  border-radius: 8px;
+  box-shadow:    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+// ---------------------------------------------------------------------------
 // Post – body
 // ---------------------------------------------------------------------------
 .post {
@@ -129,12 +144,16 @@
 .post-meta__date { margin-right: 0.5em; }
 .post-meta__tags {
   margin-left: 0.4em;
-  font-size:   0.78em;
+  font-size:   0.8em;
   padding:     0;
+  color:       var(--text-subtle);
 
   a {
     display: inline;
     margin:  0;
+    color:   var(--text);
+
+    &:hover { color: var(--primary-dark); }
   }
 }
 
@@ -171,36 +190,7 @@
 }
 
 // ---------------------------------------------------------------------------
-// Error page
-// ---------------------------------------------------------------------------
-.error-code { font-size: 6em; }
-
-// ---------------------------------------------------------------------------
-// Form inputs
-// ---------------------------------------------------------------------------
-$input-types: "text", "password", "datetime", "datetime-local", "date",
-              "month", "time", "week", "number", "email", "url",
-              "search", "tel";
-
-@each $type in $input-types {
-  input[type="#{$type}"] {
-    width:         100%;
-    max-width:     240px;
-    padding:       1em 1em;
-    background:    var(--bg);
-    border:        1px solid var(--border);
-    border-radius: 3px;
-    font-size:     0.9em;
-    color:         var(--text);
-
-    &:focus { border-color: var(--code-focus-border); }
-
-    &::placeholder { color: var(--placeholder); }
-  }
-}
-
-// ---------------------------------------------------------------------------
-// Link cards (from main.scss)
+// Link cards
 // ---------------------------------------------------------------------------
 .link-card {
   border:        1px solid rgba(0, 0, 0, 0.1);
@@ -290,9 +280,9 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
   }
 }
 
-.link-icon--youtube svg { fill: #FF0000; }
-.link-icon--spotify svg { fill: #1DB954; }
-.link-icon--apple   svg { fill: #9933CC; }
+.link-icon--youtube svg { fill: var(--icon-youtube); }
+.link-icon--spotify svg { fill: var(--icon-spotify); }
+.link-icon--apple   svg { fill: var(--icon-apple); }
 
 .link-card__meta {
   display:       flex;
@@ -347,12 +337,9 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 }
 
 .post-meta__tags a {
-  color:      var(--text-muted);
-  font-size:  0.76rem;
   text-decoration: none;
 
   &:hover {
-    color: var(--primary-dark);
     text-decoration: underline;
   }
 }
@@ -380,18 +367,6 @@ $input-types: "text", "password", "datetime", "datetime-local", "date",
 
   .link-card__media img {
     aspect-ratio: 16 / 9;
-  }
-}
-
-.link-card__description--blog {
-  display:         block;
-  color:           var(--text);
-  line-height:     1.65;
-  text-decoration: none;
-
-  &:hover {
-    color: var(--text);
-    text-decoration: none;
   }
 }
 

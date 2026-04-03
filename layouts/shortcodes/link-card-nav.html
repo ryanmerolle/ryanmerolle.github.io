@@ -1,0 +1,4 @@
+{{- $url := .Get "url" -}}
+{{- $title := .Get "title" -}}
+{{- $description := .Get "description" -}}
+{{ partial "link-card.html" (dict "name" $title "url" $url "description" $description) }}

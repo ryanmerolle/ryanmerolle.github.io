@@ -2,7 +2,7 @@
 title: Projects of Note I Follow
 description: A collection of fascinating open-source projects, repositories, and tools I follow.
 url: /links/projects/
-robots: noindex
+robots: noindex, nofollow
 ---
 
 [← Back to Links](/links/)

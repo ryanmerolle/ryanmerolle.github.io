@@ -1,0 +1,14 @@
+{{- /*
+  icon-link.html
+  Renders an external icon link (<a> with icon SVG inside).
+  Returns the rendered HTML as a string for concatenation.
+
+  Input: dict with keys:
+    "url"   (string, required) — link href
+    "title" (string, required) — tooltip text
+    "label" (string, required) — aria-label for accessibility
+    "icon"  (string, required) — pre-rendered icon HTML (e.g. from icons/*.html)
+    "class" (string, optional) — extra CSS class (e.g. "link-icon--youtube")
+*/ -}}
+{{- $cls := "link-icon" }}{{ with .class }}{{ $cls = printf "link-icon %s" . }}{{ end -}}
+{{- return (printf `<a href="%s" title="%s" target="_blank" rel="noopener" class="%s" aria-label="%s">%s</a>` .url .title $cls .label .icon) -}}

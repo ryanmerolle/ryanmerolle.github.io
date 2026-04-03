@@ -1,0 +1,4 @@
+{{- $tags := . -}}
+{{- range $index, $tag := $tags }}
+<a href="{{ printf "tags/%s/" ($tag | urlize) | relURL }}">{{ $tag }}</a>{{ if ne (add $index 1) (len $tags) }}, {{ end }}
+{{- end -}}

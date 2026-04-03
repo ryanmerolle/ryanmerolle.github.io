@@ -1,0 +1,21 @@
+{{- /*
+  external-link-list.html
+  Renders a sorted list of link cards with external-link icons.
+
+  Input: dict with keys:
+    "items"       (slice, required) — list of items, each with .name, .url, .description
+    "icon_title"  (string)          — title for the icon link (default "External Link")
+    "icon_label"  (string)          — label suffix for icon (default "Website")
+    "heading"     (string)          — heading level for cards (default "h3")
+    "meta_key"    (string)          — optional item key to use for meta (renders "By <value>")
+*/ -}}
+{{- $icon_title := .icon_title | default "External Link" -}}
+{{- $icon_label := .icon_label | default "Website" -}}
+{{- $heading := .heading | default "h3" -}}
+{{- $meta_key := .meta_key | default "" -}}
+{{- range $item := .items }}
+{{-   $icons := partial "icon-link.html" (dict "url" $item.url "title" $icon_title "label" (printf "%s %s" $item.name $icon_label) "icon" (partial "icons/external-link.html" .)) -}}
+{{-   $meta := "" -}}
+{{-   if and $meta_key (index $item $meta_key) }}{{ $meta = printf "By %s" (index $item $meta_key) }}{{ end -}}
+{{    partial "link-card.html" (dict "name" $item.name "url" $item.url "external" true "heading" $heading "icons" $icons "meta" $meta "description" $item.description) }}
+{{- end -}}

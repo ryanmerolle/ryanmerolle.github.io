@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ site.Language.Lang }}">
   {{ partial "head.html" . }}
 
   <body
     data-disable-landing="{{ default false .Site.Params.disable_landing_page }}"
-    data-baseurl=""
+    data-baseurl="{{ "/" | relURL | strings.TrimSuffix "/" }}"
   >
     <a href="#main-content" class="skip-link sr-only sr-only-focusable">Skip to content</a>
 {{ partial "gtm-body.html" . }}
