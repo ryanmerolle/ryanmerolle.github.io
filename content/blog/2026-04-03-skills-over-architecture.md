@@ -13,7 +13,7 @@ image:
 
 CLI vs MCP vs API. I really don't care. That debate will shake out eventually and likely swing back and forth.
 
-The first question I ask people when discussing their AI approach is whether they have:
+When discussing how to get started with AI, the first thing I ask people is whether they have:
 
 1. A defined list of the [plugins](https://code.claude.com/docs/en/plugins) and [skills](https://agentskills.io/home) they actually want to build. Bonus points if they are defined as individual GitHub issues.
 2. A marketplace or centralized repository to host these skills.
