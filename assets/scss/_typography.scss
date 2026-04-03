@@ -82,7 +82,7 @@ em     { font-style:  italic; }
 // ---------------------------------------------------------------------------
 // Blockquote
 // ---------------------------------------------------------------------------
-blockquote {
+blockquote:not(.alert) {
   margin:      1em 0;
   padding:     2em 0;
   background:  var(--bg-alt);

@@ -371,16 +371,53 @@
 }
 
 // ---------------------------------------------------------------------------
-// Callout / notice box
+// Callout / notice box & Alerts
 // ---------------------------------------------------------------------------
-.callout {
+.callout, .alert {
   padding:          15px 20px;
   background-color: var(--bg-alt);
   border-left:      4px solid var(--primary);
   border-radius:    4px;
-  font-size:        0.9em;
+  font-size:        0.95em;
   color:            var(--text);
   margin-bottom:    1.5em;
 
   p:last-child { margin-bottom: 0; }
+}
+
+.alert {
+  .alert-heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    font-size: 1.05em;
+
+    img.emoji, span.emoji {
+      width: 1.2em;
+      height: 1.2em;
+    }
+  }
+
+  &.alert-warning {
+    border-left-color: #d97706; // Dark orange
+  }
+
+  &.alert-note {
+    border-left-color: #3b82f6; // Blue
+  }
+
+  &.alert-tip {
+    border-left-color: #10b981; // Green
+  }
+
+  &.alert-important {
+    border-left-color: #8b5cf6; // Purple
+  }
+
+  &.alert-caution {
+    border-left-color: #ef4444; // Red
+  }
 }
